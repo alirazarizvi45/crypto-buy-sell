@@ -167,7 +167,7 @@ const Navbar = () => {
               objectFit: "contain",
             }}
           /> */}
-                  <Typography variant="h5" color="#ABE900">
+                  <Typography variant="h2" color="#ABE900">
                     Logo
                   </Typography>
                 </Box>
@@ -187,7 +187,7 @@ const Navbar = () => {
                       onClick={() => handleLinkClick("/")}
                     >
                       <Typography
-                        variant="h6"
+                        variant="h5"
                         sx={{
                           "&:hover": {
                             color: "#ABE900",
@@ -210,7 +210,7 @@ const Navbar = () => {
                       onClick={() => handleLinkClick("/SellCrypto")}
                     >
                       <Typography
-                        variant="h6"
+                        variant="h5"
                         sx={{
                           "&:hover": {
                             color: "#ABE900",
@@ -231,7 +231,7 @@ const Navbar = () => {
                       onClick={() => handleLinkClick("/Swap")}
                     >
                       <Typography
-                        variant="h6"
+                        variant="h5"
                         sx={{
                           "&:hover": {
                             color: "#ABE900",
@@ -253,7 +253,7 @@ const Navbar = () => {
                       onClick={() => handleLinkClick("/CreateOffer")}
                     >
                       <Typography
-                        variant="h6"
+                        variant="h5"
                         sx={{
                           "&:hover": {
                             color: "#ABE900",
@@ -274,7 +274,7 @@ const Navbar = () => {
                       onClick={() => handleLinkClick("/Dashoboard")}
                     >
                       <Typography
-                        variant="h6"
+                        variant="h5"
                         sx={{
                           "&:hover": {
                             color: "#ABE900",
@@ -295,7 +295,7 @@ const Navbar = () => {
                       onClick={() => handleLinkClick("/Wallet")}
                     >
                       <Typography
-                        variant="h6"
+                        variant="h5"
                         sx={{
                           "&:hover": {
                             color: "#ABE900",
@@ -316,7 +316,7 @@ const Navbar = () => {
                       onClick={() => handleLinkClick("/Ranks")}
                     >
                       <Typography
-                        variant="h6"
+                        variant="h5"
                         sx={{
                           "&:hover": {
                             color: "#ABE900",
@@ -328,6 +328,7 @@ const Navbar = () => {
                     </a>
                   </NavLink>
                   <MainButton>Login</MainButton>
+                  <MainButton>Register</MainButton>
                 </Box>
               </Box>
             </Hidden>

@@ -13,25 +13,18 @@ const MainButton = (props) => {
         disabled={loading}
         sx={{
           fontSize: {
-            lg: "14px",
             md: "14px",
-            sm: "10px",
+
             xs: "10px",
           },
+          fontWeight: "bold",
+          padding: "5px 30px",
 
           backgroundColor: backgroundColor || "#ABE900",
-          color: color || "#fff",
+          color: color || "#000000",
 
           "&:hover": {
-            backgroundColor: backgroundColor
-              ? `${backgroundColor}CC`
-              : "#C6F051",
-          },
-          "&:disabled": {
-            backgroundColor: backgroundColor || "#ACC762",
-          },
-          ".MuiLoadingButton-loading": {
-            backgroundColor: backgroundColor || "#ACC762",
+            backgroundColor: backgroundColor || "#C6F051",
           },
         }}
         {...props}
