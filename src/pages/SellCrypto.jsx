@@ -1,7 +1,11 @@
 import React from "react";
 
 const SellCrypto = () => {
-  return <div>SellCrypto</div>;
+  return (
+    <>
+      <h1>Sell CRypto</h1>
+    </>
+  );
 };
 
 export default SellCrypto;

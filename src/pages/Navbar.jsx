@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink, useLocation } from "react-router-dom";
-
+import MainButton from "../components/MainButton";
 const Navbar = () => {
   useMediaQuery("(max-width:1200px)");
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -143,9 +143,12 @@ const Navbar = () => {
     <Box>
       <AppBar
         position="static"
-        sx={{ background: "#000000", width: "100%", height: "100%" }}
+        elevation={0}
+        sx={{
+          background: "transparent",
+        }}
       >
-        <Toolbar sx={{ justifyContent: "space-around", py: 2 }}>
+        <Toolbar sx={{ justifyContent: "space-around" }}>
           <Container maxWidth="xl">
             <Hidden lgDown>
               <Box
@@ -153,13 +156,7 @@ const Navbar = () => {
                 justifyContent="space-around"
                 alignItems="center"
               >
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
+                <Box>
                   {/* <img
             src={logo}
             alt=""
@@ -170,22 +167,24 @@ const Navbar = () => {
               objectFit: "contain",
             }}
           /> */}
-                  <Typography>Logo</Typography>
+                  <Typography variant="h5" color="#ABE900">
+                    Logo
+                  </Typography>
                 </Box>
                 <Box
                   display="flex"
                   justifyContent=" start"
                   alignItems="center"
-                  gap={6}
+                  gap={3}
                 >
-                  <NavLink to="/BuyCrypto" style={{ textDecoration: "none" }}>
+                  <NavLink to="/" style={{ textDecoration: "none" }}>
                     <a
                       style={{
                         ...styledactivelink({
-                          isActive: location.pathname === "/BuyCrypto",
+                          isActive: location.pathname === "/",
                         }),
                       }}
-                      onClick={() => handleLinkClick("/BuyCrypto")}
+                      onClick={() => handleLinkClick("/")}
                     >
                       <Typography
                         variant="h6"
@@ -200,10 +199,15 @@ const Navbar = () => {
                     </a>
                   </NavLink>
 
-                  <NavLink to="/SellCrypto">
+                  <NavLink to="/SellCrypto" style={{ textDecoration: "none" }}>
                     <a
                       href=""
-                      style={{ textDecoration: "none", color: "white" }}
+                      style={{
+                        ...styledactivelink({
+                          isActive: location.pathname === "/SellCrypto",
+                        }),
+                      }}
+                      onClick={() => handleLinkClick("/SellCrypto")}
                     >
                       <Typography
                         variant="h6"
@@ -217,19 +221,113 @@ const Navbar = () => {
                       </Typography>
                     </a>
                   </NavLink>
-
-                  <a style={{ textDecoration: "none", color: "white" }}>
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        "&:hover": {
-                          color: "#ABE900",
-                        },
+                  <NavLink to="/Swap" style={{ textDecoration: "none" }}>
+                    <a
+                      style={{
+                        ...styledactivelink({
+                          isActive: location.pathname === "/Swap",
+                        }),
                       }}
+                      onClick={() => handleLinkClick("/Swap")}
                     >
-                      Swap
-                    </Typography>
-                  </a>
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          "&:hover": {
+                            color: "#ABE900",
+                          },
+                        }}
+                      >
+                        Swap
+                      </Typography>
+                    </a>
+                  </NavLink>
+
+                  <NavLink to="/CreateOffer" style={{ textDecoration: "none" }}>
+                    <a
+                      style={{
+                        ...styledactivelink({
+                          isActive: location.pathname === "/CreateOffer",
+                        }),
+                      }}
+                      onClick={() => handleLinkClick("/CreateOffer")}
+                    >
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          "&:hover": {
+                            color: "#ABE900",
+                          },
+                        }}
+                      >
+                        Create Offer
+                      </Typography>
+                    </a>
+                  </NavLink>
+                  <NavLink to="/Dashoboard" style={{ textDecoration: "none" }}>
+                    <a
+                      style={{
+                        ...styledactivelink({
+                          isActive: location.pathname === "/Dashoboard",
+                        }),
+                      }}
+                      onClick={() => handleLinkClick("/Dashoboard")}
+                    >
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          "&:hover": {
+                            color: "#ABE900",
+                          },
+                        }}
+                      >
+                        Dashoboard
+                      </Typography>
+                    </a>
+                  </NavLink>
+                  <NavLink to="/Wallet" style={{ textDecoration: "none" }}>
+                    <a
+                      style={{
+                        ...styledactivelink({
+                          isActive: location.pathname === "/Wallet",
+                        }),
+                      }}
+                      onClick={() => handleLinkClick("/Wallet")}
+                    >
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          "&:hover": {
+                            color: "#ABE900",
+                          },
+                        }}
+                      >
+                        Wallet
+                      </Typography>
+                    </a>
+                  </NavLink>
+                  <NavLink to="/Ranks" style={{ textDecoration: "none" }}>
+                    <a
+                      style={{
+                        ...styledactivelink({
+                          isActive: location.pathname === "/Ranks",
+                        }),
+                      }}
+                      onClick={() => handleLinkClick("/Ranks")}
+                    >
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          "&:hover": {
+                            color: "#ABE900",
+                          },
+                        }}
+                      >
+                        Ranks
+                      </Typography>
+                    </a>
+                  </NavLink>
+                  <MainButton>Login</MainButton>
                 </Box>
               </Box>
             </Hidden>
