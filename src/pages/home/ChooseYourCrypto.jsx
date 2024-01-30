@@ -113,8 +113,9 @@ const ChooseYourCrypto = () => {
     {
       field: "action",
       headerName: "Action",
-      width: isSmallScreen ? 100 : undefined,
+      width: isSmallScreen ? 200 : undefined,
       flex: isLargeScreen ? 1 : undefined,
+
       renderCell: (params) => (
         <Box display="flex" alignItems="center" gap="10px">
           <MainButton color="primary">Buy</MainButton>
