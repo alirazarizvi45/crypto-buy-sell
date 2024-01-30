@@ -119,8 +119,18 @@ const ChooseYourCrypto = () => {
 
       renderCell: (params) => (
         <Box display="flex" alignItems="center" gap="10px">
-          <CommonButton color="primary">Buy</CommonButton>
-          <CommonButton color="secondary" backgroundColor="red">
+          <CommonButton>Buy</CommonButton>
+          <CommonButton
+            sx={{
+              backgroundColor: "#FF3D00",
+              color: "#fff",
+              "&:hover": {
+                backgroundColor: "#000000",
+                border: "1px solid #FF3D00",
+              },
+              padding: "5px 30px",
+            }}
+          >
             Sell
           </CommonButton>
         </Box>

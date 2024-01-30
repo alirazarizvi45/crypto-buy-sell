@@ -13,6 +13,8 @@ import celo from "../../assets/celo.png";
 import tron from "../../assets/tron.png";
 import trade from "../../assets/trade.png";
 
+import { CommonButton } from "../../components";
+
 const Exchange = () => {
   const data = [
     {
@@ -61,11 +63,11 @@ const Exchange = () => {
           backgroundSize: "cover",
           minHeight: "100vh",
           width: "100%",
-          padding: "20px 0px",
+          padding: "0px 0px 150px 0px",
         }}
       >
         <Container maxWidth="lg">
-          <Typography variant="h2" textAlign="center" mt={4}>
+          <Typography variant="h2" textAlign="center">
             Exchanges
           </Typography>
           <Grid container mt={3} spacing={2}>
@@ -180,37 +182,31 @@ const Exchange = () => {
 
           <Grid
             container
+            spacing={10}
             sx={{
-              padding: "50px 0px",
+              padding: "150px 0px 0px 0px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
             }}
           >
-            <Grid
-              item
-              md={6}
-              xs={12}
-              sx={{
-                display: "flex",
-                justifyContent: { md: "flex-end", xs: "center" },
-              }}
-            >
+            <Grid item md={6} xs={12}>
               <Box>
-                <Typography variant="h1" pb={2}>
-                  Buy & Sell <span style={{ color: "#ABE900" }}>Crypto</span>
-                </Typography>
-                <Typography variant="h4" pb={2}>
-                  Fast, Easy, and Private.
+                <Typography variant="h2" pb={2}>
+                  Trade with{" "}
+                  <span style={{ color: "#ABE900" }}>Transparency</span>
                 </Typography>
                 <Typography variant="subtitle1" color="#D9D9D9" pb={2}>
-                  Buy BTC, ETH, USDC, USDT, DAI and more cryptos worldwide using
-                  300+ payment methods.
+                  Feel confident by trading on-chain with non-custodial
+                  exchange. Exchange Bitcoin, Ethereum, and other popular
+                  cryptocurrencies using secure smart contracts and Bitcoin
+                  scripts alongside wallets where you control the private keys.
+                  Empower yourself by exploring how to buy and sell
+                  cryptocurrency without having to hand over control of your
+                  funds.
                 </Typography>
-                <Typography variant="subtitle1" color="#D9D9D9" pb={2}>
-                  Get your free wallet today.
-                </Typography>
-                <MainButton>Create Account</MainButton>
+
+                <CommonButton>Create Account</CommonButton>
               </Box>
             </Grid>
 

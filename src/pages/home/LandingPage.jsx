@@ -7,6 +7,9 @@ import Exchange from "./Exchange";
 import { CommonButton } from "../../components";
 import CommonTable from "../../components/CommonTable";
 import ChooseYourCrypto from "./ChooseYourCrypto";
+import SecureTrading from "./SecureTrading";
+import TradingKnowledge from "./TradingKnowledge";
+import CustomerSupport from "./CustomerSupport";
 const LandingPage = () => {
   return (
     <>
@@ -134,6 +137,9 @@ const LandingPage = () => {
 
       <ChooseYourCrypto />
       <Exchange />
+      <SecureTrading />
+      <TradingKnowledge />
+      <CustomerSupport />
     </>
   );
 };
