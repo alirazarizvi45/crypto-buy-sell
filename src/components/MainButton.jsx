@@ -25,6 +25,7 @@ const MainButton = (props) => {
 
           "&:hover": {
             backgroundColor: backgroundColor || "#C6F051",
+            color: color || "#fff",
           },
         }}
         {...props}

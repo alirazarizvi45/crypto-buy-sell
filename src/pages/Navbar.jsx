@@ -142,7 +142,7 @@ const Navbar = () => {
   return (
     <Box>
       <AppBar
-        position="static"
+        position="fixed"
         elevation={0}
         sx={{
           background: "transparent",
@@ -328,7 +328,18 @@ const Navbar = () => {
                     </a>
                   </NavLink>
                   <MainButton>Login</MainButton>
-                  <MainButton>Register</MainButton>
+                  <MainButton
+                    sx={{
+                      backgroundColor: "#000",
+                      border: "1px solid #ABE900",
+                      "&:hover": {
+                        backgroundColor: "#C6F051",
+                        color: "#fff",
+                      },
+                    }}
+                  >
+                    Register
+                  </MainButton>
                 </Box>
               </Box>
             </Hidden>
