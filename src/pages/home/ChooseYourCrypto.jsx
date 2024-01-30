@@ -14,7 +14,8 @@ import ether from "../../assets/ether.png";
 import tether from "../../assets/tether.png";
 import usdt from "../../assets/usdt.png";
 import { DataGrid } from "@mui/x-data-grid";
-import MainButton from "../../components/MainButton";
+import { CommonButton } from "../../components";
+import CommonTable from "../../components/CommonTable";
 const theme = createTheme({
   components: {
     // Use `MuiDataGrid` on DataGrid, DataGridPro and DataGridPremium
@@ -118,10 +119,10 @@ const ChooseYourCrypto = () => {
 
       renderCell: (params) => (
         <Box display="flex" alignItems="center" gap="10px">
-          <MainButton color="primary">Buy</MainButton>
-          <MainButton color="secondary" backgroundColor="red">
+          <CommonButton color="primary">Buy</CommonButton>
+          <CommonButton color="secondary" backgroundColor="red">
             Sell
-          </MainButton>
+          </CommonButton>
         </Box>
       ),
     },
@@ -191,15 +192,7 @@ const ChooseYourCrypto = () => {
           </Box>
           <Box>
             <ThemeProvider theme={theme}>
-              <DataGrid
-                rows={rows}
-                columns={columns}
-                autoHeight={true}
-                disableRowSelectionOnClick
-                theme={theme}
-                hideFooterPagination={true}
-                sx={{ marginTop: "50px" }}
-              />
+              <CommonTable rows={rows} columns={columns} />
             </ThemeProvider>
           </Box>
         </Container>

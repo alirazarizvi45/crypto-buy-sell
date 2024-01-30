@@ -1,9 +1,12 @@
 import React from "react";
 import { Box, Container, Divider, Grid, Typography } from "@mui/material";
-import MainButton from "../../components/MainButton";
+
 import buysellcrypto from "../../assets/buysellcrypto.png";
-import ChooseYourCrypto from "./ChooseYourCrypto";
+import Chooseyourcrypto from "../../assets/Chooseyourcrypto.png";
 import Exchange from "./Exchange";
+import { CommonButton } from "../../components";
+import CommonTable from "../../components/CommonTable";
+import ChooseYourCrypto from "./ChooseYourCrypto";
 const LandingPage = () => {
   return (
     <>
@@ -39,7 +42,7 @@ const LandingPage = () => {
             <Typography variant="subtitle1" color="#D9D9D9" pb={2}>
               Get your free wallet today.
             </Typography>
-            <MainButton>Create Account</MainButton>
+            <CommonButton>Create Account</CommonButton>
           </Box>
         </Grid>
 
@@ -128,6 +131,7 @@ const LandingPage = () => {
           </Box>
         </Box>
       </Container>
+
       <ChooseYourCrypto />
       <Exchange />
     </>
