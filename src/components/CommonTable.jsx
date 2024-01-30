@@ -1,20 +1,6 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  Container,
-  ThemeProvider,
-  Typography,
-  createTheme,
-  useMediaQuery,
-} from "@mui/material";
-
-import bitcoin from "../assets/bitcoin.png";
-import ether from "../assets/ether.png";
-import tether from "../assets/tether.png";
-import usdt from "../assets/usdt.png";
+import { Box, ThemeProvider, createTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import { CommonButton } from "../components";
 const theme = createTheme({
   components: {
     MuiDataGrid: {
@@ -67,94 +53,8 @@ const theme = createTheme({
   },
 });
 
-const CommonTable = () => {
-  const isSmallScreen = useMediaQuery("(max-width:900px)");
-  const isLargeScreen = useMediaQuery("(min-width:900px)");
-  const columns = [
-    {
-      field: "currency",
-      headerName: "Currency",
-      width: isSmallScreen ? 100 : undefined,
-      flex: isLargeScreen ? 1 : undefined,
-      renderCell: (params) => (
-        <Box display="flex" alignItems="center">
-          <img
-            src={params.row.image}
-            alt={params.row.currency}
-            style={{ width: "25px", height: "25px", marginRight: "10px" }}
-          />
-          <Typography>{params.row.currency}</Typography>
-        </Box>
-      ),
-    },
-    {
-      field: "amount",
-      headerName: "Amount",
-      width: isSmallScreen ? 100 : undefined,
-      flex: isLargeScreen ? 1 : undefined,
-    },
-
-    {
-      field: "profit",
-      headerName: "Profit",
-      width: isSmallScreen ? 100 : undefined,
-      flex: isLargeScreen ? 1 : undefined,
-      renderCell: (params) => (
-        <Typography
-          style={{
-            color: parseFloat(params.value) > 0 ? "#00E909" : "#FF3D00",
-          }}
-        >
-          {params.value}
-        </Typography>
-      ),
-    },
-    {
-      field: "action",
-      headerName: "Action",
-      width: isSmallScreen ? 100 : undefined,
-      flex: isLargeScreen ? 1 : undefined,
-      renderCell: (params) => (
-        <Box display="flex" alignItems="center" gap="10px">
-          <CommonButton color="primary">Buy</CommonButton>
-          <CommonButton color="secondary" backgroundColor="red">
-            Sell
-          </CommonButton>
-        </Box>
-      ),
-    },
-  ];
-  const rows = [
-    {
-      id: 1,
-      currency: "Bitcoin BTC",
-      image: bitcoin,
-      amount: "$41,622.13 USD",
-      profit: "4.23%",
-    },
-    {
-      id: 2,
-      currency: "Ethereum ETH",
-      image: ether,
-      amount: "$2,256.83 USD",
-      profit: "2.36%",
-    },
-    {
-      id: 3,
-      currency: "Tether USDT",
-      image: tether,
-      amount: "$1.00 USD",
-      profit: "0.01%",
-    },
-    {
-      id: 4,
-      currency: "USD Coin USDC",
-      image: usdt,
-      amount: "$1.00 USD",
-      profit: "-0.02%",
-    },
-  ];
-
+// eslint-disable-next-line react/prop-types
+const CommonTable = ({ rows, columns }) => {
   return (
     <>
       <Box>

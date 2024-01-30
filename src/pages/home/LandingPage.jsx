@@ -6,6 +6,7 @@ import Chooseyourcrypto from "../../assets/Chooseyourcrypto.png";
 import Exchange from "./Exchange";
 import { CommonButton } from "../../components";
 import CommonTable from "../../components/CommonTable";
+import ChooseYourCrypto from "./ChooseYourCrypto";
 const LandingPage = () => {
   return (
     <>
@@ -130,33 +131,8 @@ const LandingPage = () => {
           </Box>
         </Box>
       </Container>
-      <Container maxWidth="md">
-        <Box
-          sx={{
-            paddingTop: "150px",
-          }}
-        >
-          <Typography variant="h2" textAlign="center">
-            Choose Your <span style={{ color: "#ABE900" }}>Crypto</span>
-          </Typography>
-          <Typography
-            variant="subtitle1"
-            sx={{
-              textAlign: "center",
-              color: "#D9D9D9",
-              marginTop: "10px",
-            }}
-          >
-            Trade at your own convenience, choose from over 20 cryptocurrencies
-            using your preferred action method.
-          </Typography>
-        </Box>
 
-        <Box>
-          <CommonTable />
-        </Box>
-      </Container>
-      {/* <ChooseYourCrypto /> */}
+      <ChooseYourCrypto />
       <Exchange />
     </>
   );
