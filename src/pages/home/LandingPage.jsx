@@ -3,7 +3,8 @@ import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import MainButton from "../../components/MainButton";
 import buysellcrypto from "../../assets/buysellcrypto.png";
 import ChooseYourCrypto from "./ChooseYourCrypto";
-const BuyCrypto = () => {
+import Exchange from "./Exchange";
+const LandingPage = () => {
   return (
     <>
       <Grid
@@ -128,7 +129,8 @@ const BuyCrypto = () => {
         </Box>
       </Container>
       <ChooseYourCrypto />
+      <Exchange />
     </>
   );
 };
-export default BuyCrypto;
+export default LandingPage;

@@ -1,23 +1,24 @@
 import React from "react";
 import Navbar from "../Navbar";
-import BuyCrypto from "./BuyCrypto";
 import { Box } from "@mui/material";
-import buysellbg from "../../assets/buysell-bg.png";
+import bg from "../../assets/bg.png";
+import LandingPage from "./LandingPage";
 const Home = () => {
   return (
     <Box
       sx={{
-        backgroundImage: `url(${buysellbg})`,
+        backgroundImage: `url(${bg})`,
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         minHeight: "100vh",
         position: "absolute",
         width: "100%",
+        backgroundColor: "#070C0E",
       }}
     >
       <Navbar />
-      <BuyCrypto />
+      <LandingPage />
     </Box>
   );
 };
