@@ -10,6 +10,7 @@ import ChooseYourCrypto from "./ChooseYourCrypto";
 import SecureTrading from "./SecureTrading";
 import TradingKnowledge from "./TradingKnowledge";
 import CustomerSupport from "./CustomerSupport";
+import HowItWorks from "./HowItWorks";
 const LandingPage = () => {
   return (
     <>
@@ -140,6 +141,7 @@ const LandingPage = () => {
       <SecureTrading />
       <TradingKnowledge />
       <CustomerSupport />
+      <HowItWorks />
     </>
   );
 };

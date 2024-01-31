@@ -14,7 +14,7 @@ const CustomerSupport = () => {
           backgroundSize: "cover",
           backgroundColor: "#070C0E",
           minHeight: "auto",
-          padding: "50px 0px",
+          padding: "100px 0px",
         }}
       >
         <Container maxWidth="lg">

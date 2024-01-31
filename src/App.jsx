@@ -7,6 +7,7 @@ import Wallet from "./pages/Wallet";
 import Ranks from "./pages/Ranks";
 import { Home } from "./pages/home";
 import SellCrypto from "./pages/SellCrypto";
+import Footer from "./pages/Footer/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           element={
             <>
               <Home />
+              <Footer />
             </>
           }
         />
