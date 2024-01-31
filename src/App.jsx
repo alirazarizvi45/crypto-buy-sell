@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Swap from "./pages/Swap";
 import CreateOffer from "./pages/CreateOffer";
 import Dashoboard from "./pages/Dashoboard";
 import Wallet from "./pages/Wallet";
@@ -9,6 +8,7 @@ import { Home } from "./pages/home";
 import SellCrypto from "./pages/SellCrypto";
 import StepOne from "./pages/convert/StepOne";
 import Navbar from "./pages/Navbar";
+import Footer from "./pages/Footer/Footer";
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
           element={
             <>
               <Home />
+              <Footer />
             </>
           }
         />

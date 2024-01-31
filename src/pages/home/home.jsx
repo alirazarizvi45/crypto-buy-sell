@@ -3,6 +3,7 @@ import Navbar from "../Navbar";
 import { Box } from "@mui/material";
 import bg from "../../assets/bg.png";
 import LandingPage from "./LandingPage";
+import Footer from "../Footer/Footer";
 const Home = () => {
   return (
     <Box
@@ -11,8 +12,6 @@ const Home = () => {
         backgroundPosition: "fixed",
         backgroundRepeat: "no-repeat",
         backgroundSize: "100% ",
-        minHeight: "auto",
-        position: "absolute",
         width: "100%",
         backgroundColor: "#070C0E",
       }}
