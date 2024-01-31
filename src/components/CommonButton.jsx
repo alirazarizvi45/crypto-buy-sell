@@ -1,20 +1,19 @@
 import { LoadingButton } from "@mui/lab";
 import React from "react";
 
-const MainButton = (props) => {
-  const { children, loading, backgroundColor, color } = props;
+const CommonButton = (props) => {
+  const { children, loading, backgroundColor, color, LeftIcon, RightIcon } =
+    props;
   return (
     <>
       <LoadingButton
         loadingPosition="end"
-        variant="contained"
         type="submit"
         loading={loading}
         disabled={loading}
         sx={{
           fontSize: {
             md: "14px",
-
             xs: "10px",
           },
           fontWeight: "bold",
@@ -25,13 +24,16 @@ const MainButton = (props) => {
 
           "&:hover": {
             backgroundColor: backgroundColor || "#C6F051",
+            color: color || "#fff",
           },
         }}
         {...props}
       >
+        {LeftIcon ?? false}
         {loading ? "Processing" : children}
+        {RightIcon ?? false}
       </LoadingButton>
     </>
   );
 };
-export default MainButton;
+export default CommonButton;

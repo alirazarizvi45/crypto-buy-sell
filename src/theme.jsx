@@ -17,7 +17,7 @@ let theme = createTheme({
   typography: {
     h1: {
       fontFamily: ["Kanit", "sans-serif"].join(","),
-      color: "#ABE900",
+      color: "#D9D9D9",
       fontSize: "4.4 rem", //70px
       fontWeight: 600,
     },

@@ -17,7 +17,8 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink, useLocation } from "react-router-dom";
-import MainButton from "../components/MainButton";
+import { CommonButton } from "../components";
+
 const Navbar = () => {
   useMediaQuery("(max-width:1200px)");
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -142,7 +143,7 @@ const Navbar = () => {
   return (
     <Box>
       <AppBar
-        position="static"
+        position="fixed"
         elevation={0}
         sx={{
           background: "transparent",
@@ -157,16 +158,6 @@ const Navbar = () => {
                 alignItems="center"
               >
                 <Box>
-                  {/* <img
-            src={logo}
-            alt=""
-            srcSet=""
-            style={{
-              height: "40px",
-              width: "50px",
-              objectFit: "contain",
-            }}
-          /> */}
                   <Typography variant="h2" color="#ABE900">
                     Logo
                   </Typography>
@@ -327,8 +318,8 @@ const Navbar = () => {
                       </Typography>
                     </a>
                   </NavLink>
-                  <MainButton>Login</MainButton>
-                  <MainButton>Register</MainButton>
+                  <CommonButton>Login</CommonButton>
+                  <CommonButton>Register</CommonButton>
                 </Box>
               </Box>
             </Hidden>
