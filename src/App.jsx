@@ -7,8 +7,8 @@ import Wallet from "./pages/Wallet";
 import Ranks from "./pages/Ranks";
 import { Home } from "./pages/home";
 import SellCrypto from "./pages/SellCrypto";
-// import StepOne from "./pages/convert/Stepper";
-import Stepper from "./pages/convert/CustomizedStepper";
+import StepOne from "./pages/convert/StepOne";
+import Navbar from "./pages/Navbar";
 
 function App() {
   return (
@@ -36,7 +36,8 @@ function App() {
           path="/Swap"
           element={
             <>
-              <Stepper />
+              <Navbar />
+              <StepOne />
             </>
           }
         />
