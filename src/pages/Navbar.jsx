@@ -321,7 +321,9 @@ const Navbar = () => {
                     Ranks
                   </ListItemButton>
                   <CommonButton>Login</CommonButton>
-                  <CommonButton>Register</CommonButton>
+                  <CommonButton to="/Register" component={Link}>
+                    Register
+                  </CommonButton>
                 </Box>
               </Box>
             </Hidden>

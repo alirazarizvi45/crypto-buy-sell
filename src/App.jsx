@@ -10,6 +10,7 @@ import StepOne from "./pages/convert/StepOne";
 import Navbar from "./pages/Navbar";
 import Footer from "./pages/Footer/Footer";
 import BuyCrypto from "./pages/BuyCrypto/BuyCrypto";
+import Register from "./pages/Register/Register";
 
 function App() {
   return (
@@ -91,6 +92,15 @@ function App() {
           element={
             <>
               <Ranks />
+            </>
+          }
+        />
+        <Route
+          path="/Register"
+          element={
+            <>
+              <Navbar />
+              <Register />
             </>
           }
         />

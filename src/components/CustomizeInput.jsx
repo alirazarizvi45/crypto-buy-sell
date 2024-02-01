@@ -4,10 +4,11 @@ import { TextField } from "@mui/material";
 export const CustomizeInput = styled(TextField)(({ theme }) => ({
   "& label.Mui-focused": {
     color: "white",
+    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
   },
   "& label": {
     color: "white",
-    fontFamily: "Russo One",
+    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
   },
   "& .MuiInput-underline:after": {
     borderBottomColor: "#ABE900",
@@ -15,10 +16,10 @@ export const CustomizeInput = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
     color: "white",
     "& fieldset": {
-      borderColor: "#ABE900",
+      // borderColor: "#ABE900",
     },
     "&:hover fieldset": {
-      borderColor: "#ABE900",
+      //  borderColor: "#ABE900",
     },
     "&.Mui-focused fieldset": {
       borderColor: "#ABE900",
