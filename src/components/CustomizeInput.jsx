@@ -10,22 +10,22 @@ export const CustomizeInput = styled(TextField)(({ theme }) => ({
     fontFamily: "Russo One",
   },
   "& .MuiInput-underline:after": {
-    borderBottomColor: "#F1620A",
+    borderBottomColor: "#ABE900",
   },
   "& .MuiOutlinedInput-root": {
     color: "white",
     "& fieldset": {
-      borderColor: "#F1620A",
+      borderColor: "#ABE900",
     },
     "&:hover fieldset": {
-      borderColor: "#F1620A",
+      borderColor: "#ABE900",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#F1620A",
+      borderColor: "#ABE900",
     },
     "&.Mui-disabled": {
       "& .MuiOutlinedInput-notchedOutline": {
-        borderColor: "#F1620A",
+        borderColor: "#ABE900",
       },
     },
   },

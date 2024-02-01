@@ -6,8 +6,19 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Box, Divider } from "@mui/material";
+import {
+  Box,
+  Divider,
+  FormHelperText,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import { CustomizeInput } from "../../components/CustomizeInput";
+import bitcoin from "./assets/bitcoin.png";
+import usdt from "./assets/usdt.png";
+import EastIcon from "@mui/icons-material/East";
 
 export default function CustomizeSelect() {
   const [open, setOpen] = React.useState(false);
@@ -31,6 +42,12 @@ export default function CustomizeSelect() {
       }
     }
   }, [open]);
+
+  const stackData = Array.from({ length: 50 }, (_, index) => ({
+    key: index,
+    name: `USDT ${index + 1}`,
+    description: `USDT on xyz chain ${index + 1}`,
+  }));
 
   return (
     <React.Fragment>
@@ -83,14 +100,80 @@ export default function CustomizeSelect() {
             ref={descriptionElementRef}
             tabIndex={-1}
           >
-            {[...new Array(50)]
-              .map(
-                () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
-              )
-              .join("\n")}
+            <CustomizeInput
+              fullWidth
+              placeholder="Search name or place address"
+            />
+            <FormHelperText id="outlined-weight-helper-text" sx={{ m: 2 }}>
+              Common tokens
+            </FormHelperText>
+            <Stack
+              direction="row"
+              justifyContent="space-evenly"
+              alignItems="center"
+              spacing="10px"
+            >
+              <Button
+                endIcon={
+                  <img src={bitcoin} alt="swap" style={{ width: "20px" }} />
+                }
+                aria-label="swap"
+                sx={{ border: "1px solid #ABE900", width: "100px" }}
+              >
+                BTC
+              </Button>
+              <Button
+                endIcon={
+                  <img src={bitcoin} alt="swap" style={{ width: "20px" }} />
+                }
+                aria-label="swap"
+                sx={{ border: "1px solid #ABE900", width: "100px" }}
+              >
+                BTC
+              </Button>
+              <Button
+                endIcon={
+                  <img src={bitcoin} alt="swap" style={{ width: "20px" }} />
+                }
+                aria-label="swap"
+                sx={{ border: "1px solid #ABE900", width: "100px" }}
+              >
+                BTC
+              </Button>
+              <Button
+                endIcon={
+                  <img src={bitcoin} alt="swap" style={{ width: "20px" }} />
+                }
+                aria-label="swap"
+                sx={{ border: "1px solid #ABE900", width: "100px" }}
+              >
+                BTC
+              </Button>
+            </Stack>
+
+            {stackData.map((item) => (
+              <Stack
+                key={item.key}
+                sx={{ my: "20px" }}
+                justifyContent="space-between"
+                alignItems="center"
+                direction="row"
+                width="100%"
+              >
+                <Stack direction="row" alignItems="center" spacing="5px">
+                  <img
+                    src={usdt} // Assuming usdt is the same for all items, replace with dynamic source if necessary
+                    alt="usdt"
+                    style={{ width: "30px", height: "30px" }}
+                  />
+                  <Stack direction="column">
+                    <Typography variant="h4">{item.name}</Typography>
+                    <Typography variant="h5">{item.description}</Typography>
+                  </Stack>
+                </Stack>
+                <EastIcon />
+              </Stack>
+            ))}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
