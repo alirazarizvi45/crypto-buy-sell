@@ -26,7 +26,7 @@ const Footer = () => {
         }}
       >
         <Container maxWidth="lg">
-          <Grid container spacing={4}>
+          <Grid container spacing={4} pt={4} pb={2}>
             <Grid item md={2.4} xs={6}>
               <Box>
                 <Typography variant="h3">Logo</Typography>
@@ -194,11 +194,244 @@ const Footer = () => {
                 </NavLink>
               </Box>
             </Grid>
-            <Grid item md={2.4} xs={6}></Grid>
-            <Grid item md={2.4} xs={6}></Grid>
-            <Grid item md={2.4} xs={12}></Grid>
+            <Grid item md={2.4} xs={6}>
+              <Box
+                sx={{
+                  paddingBottom: "10px",
+                }}
+              >
+                <Typography variant="h4" color="#fff">
+                  P2P Trading Guides
+                </Typography>
+                <Divider
+                  sx={{
+                    width: "85%",
+                    borderBottom: "1.5px solid #fff ",
+                    paddingBottom: "5px",
+                  }}
+                />
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "10px",
+                }}
+              >
+                <NavLink
+                  className="textdecoration"
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    color: "#D9D9D9",
+                    borderBottom: "none",
+                    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                  }}
+                >
+                  P2P trading guides
+                </NavLink>
+
+                <NavLink
+                  className="textdecoration"
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    color: "#D9D9D9",
+                    borderBottom: "none",
+                    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                  }}
+                >
+                  Introduction to P2P trading
+                </NavLink>
+                <NavLink
+                  className="textdecoration"
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    color: "#D9D9D9",
+                    borderBottom: "none",
+                    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                  }}
+                >
+                  How to create a trade offer
+                </NavLink>
+                <NavLink
+                  className="textdecoration"
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    color: "#D9D9D9",
+                    borderBottom: "none",
+                    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                  }}
+                >
+                  Payment methods
+                </NavLink>
+                <NavLink
+                  className="textdecoration"
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    color: "#D9D9D9",
+                    borderBottom: "none",
+                    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                  }}
+                >
+                  P2P escrow explained
+                </NavLink>
+              </Box>
+            </Grid>
+            <Grid item md={2.4} xs={6}>
+              <Box
+                sx={{
+                  paddingBottom: "10px",
+                }}
+              >
+                <Typography variant="h4" color="#fff">
+                  Support
+                </Typography>
+                <Divider
+                  sx={{
+                    width: "35%",
+                    borderBottom: "1.5px solid #fff ",
+                    paddingBottom: "5px",
+                  }}
+                />
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "10px",
+                }}
+              >
+                <NavLink
+                  className="textdecoration"
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    color: "#D9D9D9",
+                    borderBottom: "none",
+                    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                  }}
+                >
+                  Exchange API
+                </NavLink>
+
+                <NavLink
+                  className="textdecoration"
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    color: "#D9D9D9",
+                    borderBottom: "none",
+                    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                  }}
+                >
+                  Fees
+                </NavLink>
+                <NavLink
+                  className="textdecoration"
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    color: "#D9D9D9",
+                    borderBottom: "none",
+                    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                  }}
+                >
+                  FAQ’s
+                </NavLink>
+                <NavLink
+                  className="textdecoration"
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    color: "#D9D9D9",
+                    borderBottom: "none",
+                    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                  }}
+                >
+                  Support portal
+                </NavLink>
+                <NavLink
+                  className="textdecoration"
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    color: "#D9D9D9",
+                    borderBottom: "none",
+                    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                  }}
+                >
+                  List your token
+                </NavLink>
+              </Box>
+            </Grid>
+            <Grid item md={2.4} xs={12}>
+              <Box
+                sx={{
+                  paddingBottom: "10px",
+                }}
+              >
+                <Typography variant="h4" color="#fff">
+                  Legal
+                </Typography>
+                <Divider
+                  sx={{
+                    width: "25%",
+                    borderBottom: "1.5px solid #fff ",
+                    paddingBottom: "5px",
+                  }}
+                />
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "10px",
+                }}
+              >
+                <NavLink
+                  className="textdecoration"
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    color: "#D9D9D9",
+                    borderBottom: "none",
+                    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                  }}
+                >
+                  Privacy policy
+                </NavLink>
+
+                <NavLink
+                  className="textdecoration"
+                  to="/"
+                  style={{
+                    textDecoration: "none",
+                    color: "#D9D9D9",
+                    borderBottom: "none",
+                    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                  }}
+                >
+                  Terms of service & use
+                </NavLink>
+              </Box>
+            </Grid>
           </Grid>
         </Container>
+        <Box
+          sx={{
+            backgroundColor: "#111B1F",
+            padding: "20px",
+            mt: "50px",
+          }}
+        >
+          <Typography variant="subtitle1" color="#fff" textAlign="center">
+            Copyright © 2024 All rights reserved
+          </Typography>
+        </Box>
       </Box>
     </>
   );

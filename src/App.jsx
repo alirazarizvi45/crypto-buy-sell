@@ -9,6 +9,7 @@ import SellCrypto from "./pages/SellCrypto";
 import StepOne from "./pages/convert/StepOne";
 import Navbar from "./pages/Navbar";
 import Footer from "./pages/Footer/Footer";
+import BuyCrypto from "./pages/BuyCrypto/BuyCrypto";
 
 function App() {
   return (
@@ -23,11 +24,21 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/BuyCrypto"
+          element={
+            <>
+              <Navbar />
+              <BuyCrypto />
+            </>
+          }
+        />
 
         <Route
           path="/SellCrypto"
           element={
             <>
+              <Navbar />
               <SellCrypto />
             </>
           }
@@ -46,7 +57,7 @@ function App() {
           path="/CreateOffer"
           element={
             <>
-              <Home />
+              <Navbar />
               <CreateOffer />
             </>
           }

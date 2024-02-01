@@ -182,7 +182,7 @@ const HowItWorks = () => {
           backgroundSize: "cover",
           backgroundColor: "#070C0E",
           minHeight: "100vh",
-          padding: "50px 0px",
+          padding: "50px 0px 100px 0px",
         }}
       >
         <Box
@@ -509,15 +509,12 @@ const HowItWorks = () => {
           </Box>
         </Container>
       </Box>
-      <Box>
-        <Divider
-          sx={{
-            width: "100%",
-
-            borderBottom: "1.5px solid #737373D4 ",
-          }}
-        />
-      </Box>
+      <Divider
+        sx={{
+          width: "100%",
+          borderBottom: "33px solid #737373D4 ",
+        }}
+      />
     </>
   );
 };

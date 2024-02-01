@@ -8,12 +8,7 @@ const CustomerSupport = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url(${customersupport})`,
-          backgroundPosition: "center center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundColor: "#070C0E",
-          minHeight: "auto",
+          backgroundColor: "#111B1F",
           padding: "100px 0px",
         }}
       >

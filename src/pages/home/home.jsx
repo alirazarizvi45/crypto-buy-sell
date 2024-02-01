@@ -9,7 +9,7 @@ const Home = () => {
     <Box
       sx={{
         backgroundImage: `url(${bg})`,
-        backgroundPosition: "fixed",
+        backgroundPosition: "contain",
         backgroundRepeat: "no-repeat",
         backgroundSize: "100% ",
         width: "100%",

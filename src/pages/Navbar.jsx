@@ -7,24 +7,24 @@ import {
   Hidden,
   List,
   ListItem,
+  ListItemButton,
   ListItemText,
   Paper,
   Stack,
   SwipeableDrawer,
+  Tab,
   Toolbar,
   Typography,
   useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { CommonButton } from "../components";
 
 const Navbar = () => {
   useMediaQuery("(max-width:1200px)");
   const [openDrawer, setOpenDrawer] = useState(false);
-  const [activeLink, setActiveLink] = useState("");
-  const location = useLocation();
-  const [state, setState] = useState({ left: false });
+  let location = useLocation();
   const toggleDrawer = (open) => (event) => {
     if (
       event &&
@@ -35,107 +35,123 @@ const Navbar = () => {
     }
     setOpenDrawer(open);
   };
-  const handleLinkClick = (link) => {
-    setActiveLink(link);
-    if (state.left) {
-      setState({ ...state, left: false });
-    }
-  };
-  const styledactivelink = ({ isActive }) => {
-    return {
-      textDecoration: "none",
-      padding: "10px",
-      fontFamily: "Familjen Grotesk",
-      fontSize: "18px",
-      fontWeight: "800",
-
-      cursor: "pointer",
-      color: isActive ? "#ABE900" : "#fff",
-      alignItems: "center",
-    };
-  };
 
   const list = () => (
-    <Box>
+    <Box
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+      sx={{ width: "200px" }}
+    >
       <Box
-        role="presentation"
-        onClick={toggleDrawer(false)}
-        onKeyDown={toggleDrawer(false)}
-        sx={{ width: "250px" }}
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        gap={2}
       >
-        <Box display="flex" justifyContent="center" mb={3}></Box>
-        <List>
-          <a href="">
-            <ListItem
-              style={{
-                justifyContent: "center",
-              }}
-            >
-              <ListItemText
-                primaryTypographyProps={{
-                  sx: {
-                    textTransform: "capitalize",
-                    textAlign: "center",
-                    textDecoration: "none",
-                    cursor: "pointer",
-                    color: "#ffffff",
-                    fontSize: "20px",
-                  },
-                }}
-                primary="Buy Crypto"
-              />
-            </ListItem>
-          </a>
+        <ListItemButton
+          to="/BuyCrypto"
+          sx={{
+            color: location.pathname === "/BuyCrypto" ? "#ABE900" : "#fff",
+            fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+            fontSize: "13px",
+            "&:hover": {
+              color: "#ABE900",
+            },
+          }}
+          component={Link}
+        >
+          BuyCrypto
+        </ListItemButton>
 
-          <NavLink to="/SellCrypto">
-            <ListItem
-              style={{
-                justifyContent: "center",
-              }}
-            >
-              <ListItemText
-                primaryTypographyProps={{
-                  sx: {
-                    textTransform: "capitalize",
-                    textAlign: "center",
-                    textDecoration: "none",
-                    cursor: "pointer",
-                    color: "#ffffff",
-                    fontSize: "20px",
-                    fontFamily: "Josefin Sans Variable,sans-serif",
-                  },
-                }}
-                primary="Sell Crypto"
-              />
-            </ListItem>
-          </NavLink>
+        <ListItemButton
+          to="/SellCrypto"
+          sx={{
+            color: location.pathname === "/SellCrypto" ? "#ABE900" : "#fff",
+            fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+            fontSize: "13px",
+            "&:hover": {
+              color: "#ABE900",
+            },
+          }}
+          component={Link}
+        >
+          SellCrypto
+        </ListItemButton>
+        <ListItemButton
+          to="/Swap"
+          sx={{
+            color: location.pathname === "/Swap" ? "#ABE900" : "#fff",
+            fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+            fontSize: "15px",
+            "&:hover": {
+              color: "#ABE900",
+            },
+          }}
+          component={Link}
+        >
+          Swap
+        </ListItemButton>
 
-          <a href="" style={{ textDecoration: "none" }}>
-            <ListItem
-              style={{
-                justifyContent: "center",
-              }}
-            >
-              <ListItemText
-                primaryTypographyProps={{
-                  sx: {
-                    textTransform: "capitalize",
-                    textAlign: "center",
-                    textDecoration: "none",
-                    cursor: "pointer",
-                    color: "#ffffff",
-                    fontSize: "20px",
-                    fontFamily: "Josefin Sans Variable,sans-serif",
-                    ":hover": {
-                      color: "#EA600E",
-                    },
-                  },
-                }}
-                primary="Swap"
-              />
-            </ListItem>
-          </a>
-        </List>
+        <ListItemButton
+          to="/CreateOffer"
+          sx={{
+            color: location.pathname === "/CreateOffer" ? "#ABE900" : "#fff",
+            fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+            fontSize: "13px",
+            "&:hover": {
+              color: "#ABE900",
+            },
+          }}
+          component={Link}
+        >
+          CreateOffer
+        </ListItemButton>
+        <ListItemButton
+          to="/Dashboard"
+          sx={{
+            color: location.pathname === "/Dashboard" ? "#ABE900" : "#fff",
+            fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+            fontSize: "13px",
+            "&:hover": {
+              color: "#ABE900",
+            },
+          }}
+          component={Link}
+        >
+          Dashboard
+        </ListItemButton>
+        <ListItemButton
+          to="/Wallet"
+          sx={{
+            color: location.pathname === "/Wallet" ? "#ABE900" : "#fff",
+            fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+            fontSize: "13px",
+            "&:hover": {
+              color: "#ABE900",
+            },
+          }}
+          component={Link}
+        >
+          Wallet
+        </ListItemButton>
+        <ListItemButton
+          to="/Ranks"
+          sx={{
+            color: location.pathname === "/Ranks" ? "#ABE900" : "#fff",
+            fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+            fontSize: "13px",
+            "&:hover": {
+              color: "#ABE900",
+            },
+          }}
+          component={Link}
+        >
+          Ranks
+        </ListItemButton>
+        <CommonButton>Login</CommonButton>
+        <CommonButton>Register</CommonButton>
       </Box>
     </Box>
   );
@@ -145,6 +161,7 @@ const Navbar = () => {
       <AppBar
         position="fixed"
         elevation={0}
+        component="nav"
         sx={{
           background: "transparent",
         }}
@@ -158,166 +175,151 @@ const Navbar = () => {
                 alignItems="center"
               >
                 <Box>
-                  <Typography variant="h2" color="#ABE900">
-                    Logo
-                  </Typography>
+                  <ListItemButton
+                    to="/"
+                    sx={{
+                      color: location.pathname === "/" ? "#ABE900" : "#fff",
+                      fontFamily: ["Open Sans Variable", "sans-serif"].join(
+                        ","
+                      ),
+                    }}
+                    component={Link}
+                  >
+                    <Typography variant="h3" color="#ABE900">
+                      Logo
+                    </Typography>
+                  </ListItemButton>
                 </Box>
                 <Box
                   display="flex"
                   justifyContent=" start"
                   alignItems="center"
-                  gap={3}
+                  gap={2}
                 >
-                  <NavLink to="/" style={{ textDecoration: "none" }}>
-                    <a
-                      style={{
-                        ...styledactivelink({
-                          isActive: location.pathname === "/",
-                        }),
-                      }}
-                      onClick={() => handleLinkClick("/")}
-                    >
-                      <Typography
-                        variant="h5"
-                        sx={{
-                          "&:hover": {
-                            color: "#ABE900",
-                          },
-                        }}
-                      >
-                        Buy Crypto
-                      </Typography>
-                    </a>
-                  </NavLink>
+                  <ListItemButton
+                    to="/BuyCrypto"
+                    sx={{
+                      color:
+                        location.pathname === "/BuyCrypto" ? "#ABE900" : "#fff",
+                      fontFamily: ["Open Sans Variable", "sans-serif"].join(
+                        ","
+                      ),
+                      fontSize: "13px",
+                      "&:hover": {
+                        color: "#ABE900",
+                      },
+                    }}
+                    component={Link}
+                  >
+                    BuyCrypto
+                  </ListItemButton>
 
-                  <NavLink to="/SellCrypto" style={{ textDecoration: "none" }}>
-                    <a
-                      href=""
-                      style={{
-                        ...styledactivelink({
-                          isActive: location.pathname === "/SellCrypto",
-                        }),
-                      }}
-                      onClick={() => handleLinkClick("/SellCrypto")}
-                    >
-                      <Typography
-                        variant="h5"
-                        sx={{
-                          "&:hover": {
-                            color: "#ABE900",
-                          },
-                        }}
-                      >
-                        Sell Crypto
-                      </Typography>
-                    </a>
-                  </NavLink>
-                  <NavLink to="/Swap" style={{ textDecoration: "none" }}>
-                    <a
-                      style={{
-                        ...styledactivelink({
-                          isActive: location.pathname === "/Swap",
-                        }),
-                      }}
-                      onClick={() => handleLinkClick("/Swap")}
-                    >
-                      <Typography
-                        variant="h5"
-                        sx={{
-                          "&:hover": {
-                            color: "#ABE900",
-                          },
-                        }}
-                      >
-                        Swap
-                      </Typography>
-                    </a>
-                  </NavLink>
+                  <ListItemButton
+                    to="/SellCrypto"
+                    sx={{
+                      color:
+                        location.pathname === "/SellCrypto"
+                          ? "#ABE900"
+                          : "#fff",
+                      fontFamily: ["Open Sans Variable", "sans-serif"].join(
+                        ","
+                      ),
+                      fontSize: "13px",
+                      "&:hover": {
+                        color: "#ABE900",
+                      },
+                    }}
+                    component={Link}
+                  >
+                    SellCrypto
+                  </ListItemButton>
+                  <ListItemButton
+                    to="/Swap"
+                    sx={{
+                      color: location.pathname === "/Swap" ? "#ABE900" : "#fff",
+                      fontFamily: ["Open Sans Variable", "sans-serif"].join(
+                        ","
+                      ),
+                      fontSize: "15px",
+                      "&:hover": {
+                        color: "#ABE900",
+                      },
+                    }}
+                    component={Link}
+                  >
+                    Swap
+                  </ListItemButton>
 
-                  <NavLink to="/CreateOffer" style={{ textDecoration: "none" }}>
-                    <a
-                      style={{
-                        ...styledactivelink({
-                          isActive: location.pathname === "/CreateOffer",
-                        }),
-                      }}
-                      onClick={() => handleLinkClick("/CreateOffer")}
-                    >
-                      <Typography
-                        variant="h5"
-                        sx={{
-                          "&:hover": {
-                            color: "#ABE900",
-                          },
-                        }}
-                      >
-                        Create Offer
-                      </Typography>
-                    </a>
-                  </NavLink>
-                  <NavLink to="/Dashoboard" style={{ textDecoration: "none" }}>
-                    <a
-                      style={{
-                        ...styledactivelink({
-                          isActive: location.pathname === "/Dashoboard",
-                        }),
-                      }}
-                      onClick={() => handleLinkClick("/Dashoboard")}
-                    >
-                      <Typography
-                        variant="h5"
-                        sx={{
-                          "&:hover": {
-                            color: "#ABE900",
-                          },
-                        }}
-                      >
-                        Dashoboard
-                      </Typography>
-                    </a>
-                  </NavLink>
-                  <NavLink to="/Wallet" style={{ textDecoration: "none" }}>
-                    <a
-                      style={{
-                        ...styledactivelink({
-                          isActive: location.pathname === "/Wallet",
-                        }),
-                      }}
-                      onClick={() => handleLinkClick("/Wallet")}
-                    >
-                      <Typography
-                        variant="h5"
-                        sx={{
-                          "&:hover": {
-                            color: "#ABE900",
-                          },
-                        }}
-                      >
-                        Wallet
-                      </Typography>
-                    </a>
-                  </NavLink>
-                  <NavLink to="/Ranks" style={{ textDecoration: "none" }}>
-                    <a
-                      style={{
-                        ...styledactivelink({
-                          isActive: location.pathname === "/Ranks",
-                        }),
-                      }}
-                      onClick={() => handleLinkClick("/Ranks")}
-                    >
-                      <Typography
-                        variant="h5"
-                        sx={{
-                          "&:hover": {
-                            color: "#ABE900",
-                          },
-                        }}
-                      >
-                        Ranks
-                      </Typography>
-                    </a>
-                  </NavLink>
+                  <ListItemButton
+                    to="/CreateOffer"
+                    sx={{
+                      color:
+                        location.pathname === "/CreateOffer"
+                          ? "#ABE900"
+                          : "#fff",
+                      fontFamily: ["Open Sans Variable", "sans-serif"].join(
+                        ","
+                      ),
+                      fontSize: "13px",
+                      "&:hover": {
+                        color: "#ABE900",
+                      },
+                    }}
+                    component={Link}
+                  >
+                    CreateOffer
+                  </ListItemButton>
+                  <ListItemButton
+                    to="/Dashboard"
+                    sx={{
+                      color:
+                        location.pathname === "/Dashboard" ? "#ABE900" : "#fff",
+                      fontFamily: ["Open Sans Variable", "sans-serif"].join(
+                        ","
+                      ),
+                      fontSize: "13px",
+                      "&:hover": {
+                        color: "#ABE900",
+                      },
+                    }}
+                    component={Link}
+                  >
+                    Dashboard
+                  </ListItemButton>
+                  <ListItemButton
+                    to="/Wallet"
+                    sx={{
+                      color:
+                        location.pathname === "/Wallet" ? "#ABE900" : "#fff",
+                      fontFamily: ["Open Sans Variable", "sans-serif"].join(
+                        ","
+                      ),
+                      fontSize: "13px",
+                      "&:hover": {
+                        color: "#ABE900",
+                      },
+                    }}
+                    component={Link}
+                  >
+                    Wallet
+                  </ListItemButton>
+                  <ListItemButton
+                    to="/Ranks"
+                    sx={{
+                      color:
+                        location.pathname === "/Ranks" ? "#ABE900" : "#fff",
+                      fontFamily: ["Open Sans Variable", "sans-serif"].join(
+                        ","
+                      ),
+                      fontSize: "13px",
+                      "&:hover": {
+                        color: "#ABE900",
+                      },
+                    }}
+                    component={Link}
+                  >
+                    Ranks
+                  </ListItemButton>
                   <CommonButton>Login</CommonButton>
                   <CommonButton>Register</CommonButton>
                 </Box>
@@ -329,6 +331,18 @@ const Navbar = () => {
                 justifyContent="space-between"
                 width="100%"
               >
+                <ListItemButton
+                  to="/"
+                  sx={{
+                    color: location.pathname === "/" ? "#ABE900" : "#fff",
+                    fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                  }}
+                  component={Link}
+                >
+                  <Typography variant="h3" color="#ABE900">
+                    Logo
+                  </Typography>
+                </ListItemButton>
                 <Button onClick={toggleDrawer(true)}>
                   <MenuIcon
                     style={{
