@@ -2,10 +2,10 @@ import { createTheme, responsiveFontSizes } from "@mui/material";
 let theme = createTheme({
   palette: {
     success: {
-      main: "#00FE00", //green #00FE00
+      main: "#00FE00",
     },
     primary: {
-      main: "#030C03", // black #030C03
+      main: "#ABE900",
     },
     customBlack: {
       main: "#0C0F15",
@@ -46,7 +46,7 @@ let theme = createTheme({
       fontWeight: 400,
     },
     h6: {
-      fontFamily: ["Inter", "sans-serif"].join(","),
+      fontFamily: ["Inter Variable", "sans-serif"].join(","),
       color: "#000000",
       fontSize: "1 rem",
       fontWeight: 400,
@@ -108,6 +108,23 @@ let theme = createTheme({
       lineHeight: 2.66,
       letterSpacing: "0.08333em",
       textTransform: "uppercase",
+    },
+  },
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        notchedOutline: {
+          borderColor: "#676767",
+        },
+        root: {
+          [`&:hover .MuiOutlinedInput-notchedOutline`]: {
+            borderColor: "#ABE900",
+          },
+          [`&.Mui-focused .MuiOutlinedInput-notchedOutline`]: {
+            borderColor: "#ABE900",
+          },
+        },
+      },
     },
   },
 });

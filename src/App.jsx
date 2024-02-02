@@ -1,12 +1,16 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Swap from "./pages/Swap";
 import CreateOffer from "./pages/CreateOffer";
 import Dashoboard from "./pages/Dashoboard";
 import Wallet from "./pages/Wallet";
 import Ranks from "./pages/Ranks";
 import { Home } from "./pages/home";
 import SellCrypto from "./pages/SellCrypto";
+import StepOne from "./pages/convert/StepOne";
+import Navbar from "./pages/Navbar";
+import Footer from "./pages/Footer/Footer";
+import BuyCrypto from "./pages/BuyCrypto/BuyCrypto";
+import Register from "./pages/Register/Register";
 
 function App() {
   return (
@@ -17,6 +21,16 @@ function App() {
           element={
             <>
               <Home />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/BuyCrypto"
+          element={
+            <>
+              <Navbar />
+              <BuyCrypto />
             </>
           }
         />
@@ -25,6 +39,7 @@ function App() {
           path="/SellCrypto"
           element={
             <>
+              <Navbar />
               <SellCrypto />
             </>
           }
@@ -34,7 +49,8 @@ function App() {
           path="/Swap"
           element={
             <>
-              <Swap />
+              <Navbar />
+              <StepOne />
             </>
           }
         />
@@ -42,7 +58,7 @@ function App() {
           path="/CreateOffer"
           element={
             <>
-              <Home />
+              <Navbar />
               <CreateOffer />
             </>
           }
@@ -76,6 +92,15 @@ function App() {
           element={
             <>
               <Ranks />
+            </>
+          }
+        />
+        <Route
+          path="/Register"
+          element={
+            <>
+              <Navbar />
+              <Register />
             </>
           }
         />
