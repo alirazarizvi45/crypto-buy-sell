@@ -17,7 +17,7 @@ const theme = createTheme({
             border: "none !important",
             borderRadius: "10px",
             fontWeight: "bold",
-            background: `linear-gradient(to right,#474747,#474747)`,
+            background: ` (to right,#474747,#474747)`,
           },
           ".left-aligned-cell": {
             textAlign: "center",
