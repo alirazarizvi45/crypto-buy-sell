@@ -6,10 +6,10 @@ import Wallet from "./pages/Wallet";
 import Ranks from "./pages/Ranks";
 import { Home } from "./pages/home";
 import SellCrypto from "./pages/SellCrypto";
-import StepOne from "./pages/convert/StepOne";
 import Navbar from "./pages/Navbar";
 import Footer from "./pages/Footer/Footer";
 import BuyCrypto from "./pages/BuyCrypto/BuyCrypto";
+import Steps from "./pages/convert/Steps";
 
 function App() {
   return (
@@ -43,13 +43,12 @@ function App() {
             </>
           }
         />
-
         <Route
           path="/Swap"
           element={
             <>
               <Navbar />
-              <StepOne />
+              <Steps />
             </>
           }
         />

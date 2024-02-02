@@ -10,14 +10,13 @@ import {
   Box,
   Divider,
   FormHelperText,
-  IconButton,
   Stack,
   Typography,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { CustomizeInput } from "../../components/CustomizeInput";
-import bitcoin from "./assets/bitcoin.png";
-import usdt from "./assets/usdt.png";
+import { CustomizeInput } from "../../../components/CustomizeInput";
+import bitcoin from "../assets/bitcoin.png";
+import usdt from "../assets/usdt.png";
 import EastIcon from "@mui/icons-material/East";
 
 export default function CustomizeSelect() {

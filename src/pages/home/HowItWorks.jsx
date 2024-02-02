@@ -23,7 +23,6 @@ const HowItWorks = () => {
   const sliderRef = useRef();
   const sliderSettings = {
     dots: true,
-    // infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
@@ -31,6 +30,7 @@ const HowItWorks = () => {
     autoplaySpeed: 3000,
     cssEase: "linear",
     arrows: false,
+
     beforeChange: (currentSlide, nextSlide) => {
       setActiveSlide(nextSlide);
     },
@@ -120,8 +120,7 @@ const HowItWorks = () => {
     ),
   };
 
-  let slider;
-
+ 
   const data = [
     {
       title: "1",
