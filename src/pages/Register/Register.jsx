@@ -23,8 +23,9 @@ import facebookblack from "../../assets/facebookblack.png";
 import googleblack from "../../assets/googleblack.png";
 import ContriesJson from "../JsonFiles/Country.json";
 import { CommonButton } from "../../components";
+import tick from "../../assets/tick.png";
 const Register = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -49,13 +50,16 @@ const Register = () => {
           backgroundPosition: "contain",
           backgroundRepeat: "no-repeat",
           backgroundSize: "100% ",
-          width: "100%",
+
           backgroundColor: "#070C0E",
-          minHeight: "100vh ",
+          minHeight: "100vh",
         }}
       >
-        <Container maxWidth="lg" sx={{ paddingTop: "100px" }}>
-          <Grid container sx={{ padding: "20px 0px" }}>
+        <Container
+          maxWidth="lg"
+          sx={{ paddingTop: "150px", paddingBottom: "20px" }}
+        >
+          <Grid container columnSpacing={{ md: 4 }} rowSpacing={{ xs: 4 }}>
             <Grid
               item
               md={6}
@@ -67,21 +71,39 @@ const Register = () => {
                 padding: "25px",
               }}
             >
-              <Box>
-                <Typography variant="h2">
-                  Create your
-                  <span style={{ color: "#ABE900" }}> Account </span>
-                </Typography>
-                <Typography
-                  variant="subtitle1"
-                  sx={{
-                    color: "#D9D9D9",
-                    marginTop: "10px",
-                  }}
-                >
-                  Setting up an account takes less than 1 minute.
-                </Typography>
-              </Box>
+              {!isLogin && (
+                <Box>
+                  <Typography variant="h2">
+                    Create your
+                    <span style={{ color: "#ABE900" }}> Account </span>
+                  </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{
+                      color: "#D9D9D9",
+                      marginTop: "10px",
+                    }}
+                  >
+                    Setting up an account takes less than 1 minute.
+                  </Typography>
+                </Box>
+              )}
+
+              {isLogin && (
+                <Box>
+                  <Typography variant="h2">Welcome back</Typography>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{
+                      color: "#D9D9D9",
+                      marginTop: "10px",
+                    }}
+                  >
+                    Please enter your email and password
+                  </Typography>
+                </Box>
+              )}
+
               <Box
                 sx={{
                   backgroundColor: "#070C0E",
@@ -120,14 +142,184 @@ const Register = () => {
                   Register
                 </Button>
               </Box>
-              {isLogin ? (
-                <Box>
-                  <h1>Login</h1>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                  rem tenetur explicabo incidunt reiciendis rerum doloremque
-                  distinctio maiores ad. Error?
+              {isLogin && (
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "10px",
+                  }}
+                >
+                  <CustomizeInput
+                    placeholder="Email Address"
+                    fullWidth
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment
+                          position="start"
+                          sx={{
+                            display: "flex",
+                            gap: "10px",
+                            marginRight: "10px",
+                          }}
+                        >
+                          <img
+                            src={att}
+                            alt=""
+                            style={{
+                              width: "20px",
+                              height: "20px",
+                              objectFit: "contain",
+                            }}
+                          />
+                          <img
+                            src={Line}
+                            alt=""
+                            style={{
+                              width: "15px",
+                              height: "30px",
+                              objectFit: "contain",
+                            }}
+                          />
+                        </InputAdornment>
+                      ),
+                    }}
+                    sx={{
+                      "& label.Mui-focused": {
+                        backgroundColor: "#000000",
+                      },
+                      "& label": {
+                        backgroundColor: "#000000",
+                        fontFamily: ["Open Sans Variable", "sans-serif"].join(
+                          ","
+                        ),
+                      },
+                      "& .MuiOutlinedInput-root": {
+                        backgroundColor: "#000000",
+                      },
+                    }}
+                  />
+                  <CustomizeInput
+                    placeholder="Password"
+                    fullWidth
+                    type={showPassword1 ? "text" : "password"}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment
+                          position="start"
+                          sx={{
+                            display: "flex",
+                            gap: "10px",
+                            marginRight: "10px",
+                          }}
+                        >
+                          <img
+                            src={lock}
+                            alt=""
+                            style={{
+                              width: "20px",
+                              height: "20px",
+                              objectFit: "contain",
+                            }}
+                          />
+                          <img
+                            src={Line}
+                            alt=""
+                            style={{
+                              width: "15px",
+                              height: "30px",
+                              objectFit: "contain",
+                            }}
+                          />
+                        </InputAdornment>
+                      ),
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            edge="end"
+                            onClick={handlePasswordVisibility1}
+                            sx={{ color: "#5A5A5A" }}
+                          >
+                            {showPassword1 ? <VisibilityOff /> : <Visibility />}
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}
+                    sx={{
+                      "& label.Mui-focused": {
+                        backgroundColor: "#000000",
+                      },
+                      "& label": {
+                        backgroundColor: "#000000",
+                        fontFamily: ["Open Sans Variable", "sans-serif"].join(
+                          ","
+                        ),
+                      },
+                      "& .MuiOutlinedInput-root": {
+                        backgroundColor: "#000000",
+                      },
+                    }}
+                  />
+
+                  <Box
+                    sx={{
+                      pt: "20px",
+                    }}
+                  >
+                    <CommonButton fullWidth>Login</CommonButton>
+                  </Box>
+                  <Box
+                    sx={{
+                      pt: "20px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                  >
+                    <Divider
+                      sx={{
+                        width: "10%",
+                        borderBottom: "2px solid #737373D4 ",
+                      }}
+                    />
+                    <Typography variant="h2">Or</Typography>
+                    <Divider
+                      sx={{
+                        width: "10%",
+                        borderBottom: "2px solid #737373D4 ",
+                      }}
+                    />
+                  </Box>
+                  <Box
+                    sx={{
+                      pt: "20px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                  >
+                    <a
+                      href="https://www.facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={facebookblack}
+                        alt="FaceBook"
+                        style={{ width: "50px", height: "50px" }}
+                      />
+                    </a>
+                    <img
+                      src={googleblack}
+                      alt="FaceBook"
+                      style={{ width: "50px", height: "50px" }}
+                    />
+                  </Box>
                 </Box>
-              ) : (
+              )}
+              {!isLogin && (
                 <Box
                   sx={{
                     display: "flex",
@@ -391,7 +583,6 @@ const Register = () => {
                       />
                     )}
                   />
-
                   <CustomizeInput
                     placeholder="Referral code"
                     fullWidth
@@ -480,11 +671,17 @@ const Register = () => {
                       gap: "10px",
                     }}
                   >
-                    <img
-                      src={facebookblack}
-                      alt="FaceBook"
-                      style={{ width: "50px", height: "50px" }}
-                    />
+                    <a
+                      href="https://www.facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={facebookblack}
+                        alt="FaceBook"
+                        style={{ width: "50px", height: "50px" }}
+                      />
+                    </a>
                     <img
                       src={googleblack}
                       alt="FaceBook"
@@ -494,8 +691,103 @@ const Register = () => {
                 </Box>
               )}
             </Grid>
-
-            <Grid item md={6} xs={12}></Grid>
+            {!isLogin && (
+              <Grid item md={6} xs={12}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: "15px",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: "25px",
+                      height: "25px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: { sm: "58px", xs: "90px" },
+                    }}
+                  >
+                    <img
+                      src={tick}
+                      alt="Tick"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                      }}
+                    />
+                    <img
+                      src={tick}
+                      alt="Tick"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                      }}
+                    />
+                    <img
+                      src={tick}
+                      alt="Tick"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                      }}
+                    />
+                    <img
+                      src={tick}
+                      alt="Tick"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                      }}
+                    />
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "24px",
+                    }}
+                  >
+                    <Box>
+                      <Typography variant="h4">Instant registration</Typography>
+                      <Typography variant="subtitle1" color="#D9D9D9" pt={1}>
+                        No manual verification wait times, all you need is an
+                        email address to get started.
+                      </Typography>
+                    </Box>
+                    <Box>
+                      <Typography variant="h4">250+ Payment methods</Typography>
+                      <Typography variant="subtitle1" color="#D9D9D9" pt={1}>
+                        Buy Bitcoin, Ethereum & popular Cryptos using over 250
+                        other payment methods.
+                      </Typography>
+                    </Box>
+                    <Box>
+                      <Typography variant="h4">
+                        Trade with escrow protection
+                      </Typography>
+                      <Typography variant="subtitle1" color="#D9D9D9" pt={1}>
+                        During the trade the cryptocurrency is locked into a
+                        secure escrow system.
+                      </Typography>
+                    </Box>
+                    <Box>
+                      <Typography variant="h4">
+                        Exchange directly with no middleman
+                      </Typography>
+                      <Typography variant="subtitle1" color="#D9D9D9" pt={1}>
+                        The buyer pays the seller directly, without any other
+                        third parties involved.
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Box>
+              </Grid>
+            )}
           </Grid>
         </Container>
       </Box>
