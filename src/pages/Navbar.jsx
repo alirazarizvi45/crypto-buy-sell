@@ -270,6 +270,25 @@ const Navbar = () => {
                     CreateOffer
                   </ListItemButton>
                   <ListItemButton
+                    to="/ControlPanel"
+                    sx={{
+                      color:
+                        location.pathname === "/ControlPanel"
+                          ? "#ABE900"
+                          : "#fff",
+                      fontFamily: ["Open Sans Variable", "sans-serif"].join(
+                        ","
+                      ),
+                      fontSize: "13px",
+                      "&:hover": {
+                        color: "#ABE900",
+                      },
+                    }}
+                    component={Link}
+                  >
+                    Control Panel
+                  </ListItemButton>
+                  <ListItemButton
                     to="/Dashboard"
                     sx={{
                       color:
@@ -320,7 +339,9 @@ const Navbar = () => {
                   >
                     Ranks
                   </ListItemButton>
-                  <CommonButton to="/Login" component={Link}>Login</CommonButton>
+                  <CommonButton to="/Login" component={Link}>
+                    Login
+                  </CommonButton>
                   <CommonButton to="/Register" component={Link}>
                     Register
                   </CommonButton>

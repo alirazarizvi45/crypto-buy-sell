@@ -12,7 +12,7 @@ import {
 import React, { useState } from "react";
 import bancolombia from "../../../assets/bancolombia.png";
 import { CustomizeInput } from "../../../components/CustomizeInput";
-import CommonButton from "../../../components/CommonButton";
+import { CommonButton } from "../../../components";
 const StepTwo = () => {
   const [selectedPaymentMethod, setselectedPaymentMethod] = useState("");
   const [selectedEntity, setSelectedEntity] = useState("");

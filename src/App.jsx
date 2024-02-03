@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import CreateOffer from "./pages/CreateOffer";
+import CreateOffer from "./pages/CreateOffer/CreateOffer";
 import Dashoboard from "./pages/Dashoboard";
 import Wallet from "./pages/Wallet";
 import Ranks from "./pages/Ranks";
@@ -12,6 +12,7 @@ import BuyCrypto from "./pages/BuyCrypto/BuyCrypto";
 import Steps from "./pages/convert/Steps";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
+import ControlPanel from "./pages/ControlPanel/ControlPanel";
 
 function App() {
   return (
@@ -64,6 +65,15 @@ function App() {
           }
         />
         <Route
+          path="/ControlPanel"
+          element={
+            <>
+              <Navbar />
+              <ControlPanel />
+            </>
+          }
+        />
+        <Route
           path="/Dashoboard"
           element={
             <>
@@ -104,7 +114,7 @@ function App() {
             </>
           }
         />
-                <Route
+        <Route
           path="/Login"
           element={
             <>

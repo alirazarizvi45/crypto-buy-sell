@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 
 import bancolombia from "../../../assets/bancolombia.png";
-import CommonButton from "../../../components/CommonButton";
+import { CommonButton } from "../../../components";
 const StepThree = () => {
   return (
     <>
