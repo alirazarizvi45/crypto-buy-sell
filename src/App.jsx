@@ -11,6 +11,7 @@ import Footer from "./pages/Footer/Footer";
 import BuyCrypto from "./pages/BuyCrypto/BuyCrypto";
 import Steps from "./pages/convert/Steps";
 import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
@@ -100,6 +101,15 @@ function App() {
             <>
               <Navbar />
               <Register />
+            </>
+          }
+        />
+                <Route
+          path="/Login"
+          element={
+            <>
+              <Navbar />
+              <Login />
             </>
           }
         />

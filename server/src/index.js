@@ -36,3 +36,6 @@ main().catch((error) => {
   process.exit(1);
 });
 app.use(serverError);
+
+// TEST API 
+// https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD

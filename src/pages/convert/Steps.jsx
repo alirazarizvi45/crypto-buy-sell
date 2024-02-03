@@ -17,7 +17,7 @@ import StepOne from "./stepers/StepOne";
 
 const Steps = () => {
   return (
-    <Box sx={{ background: "#070C0E", pt: "150px" }}>
+    <Box sx={{ background: "#070C0E", py: "100px" }}>
       <Container maxWidth="xl">
         <Box
           sx={{

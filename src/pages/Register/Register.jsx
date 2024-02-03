@@ -24,12 +24,13 @@ import googleblack from "../../assets/googleblack.png";
 import ContriesJson from "../JsonFiles/Country.json";
 import { CommonButton } from "../../components";
 import tick from "../../assets/tick.png";
+import { Link ,useLocation} from "react-router-dom";
 const Register = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
-
+  const location = useLocation();
   const HandleLogin = () => {
     setIsLogin(true);
   };
@@ -115,29 +116,34 @@ const Register = () => {
                   margin: "10px 0px",
                 }}
               >
-                <Button
+              <Button
+                component={Link}
+                to="/Login"
                   sx={{
                     color: "#fff",
-                    background: isLogin ? "#ABE900" : "#070C0E",
+                    background: location.pathname==='/Register' ? "#070C0E" : "#070C0E",
                     "&:hover": {
-                      backgroundColor: isLogin ? "#ABE900" : "#070C0E",
+                      background: location.pathname==='/Register' ? "#070C0E" : "#070C0E",
                     },
                     padding: "5px 20px",
                   }}
-                  onClick={HandleLogin}
+                  // onClick={HandleLogin}
                 >
+
                   Login
                 </Button>
                 <Button
+                  component={Link}
+                  to="/Register"
                   sx={{
                     color: "#fff",
-                    background: !isLogin ? "#ABE900" : "#070C0E",
+                    background: location.pathname==='/Register' ? "#ABE900" : "#070C0E",
                     "&:hover": {
-                      backgroundColor: !isLogin ? "#ABE900" : "#070C0E",
+                   background: location.pathname==='/Register' ? "#ABE900" : "#070C0E",
                     },
                     padding: "5px 20px",
                   }}
-                  onClick={HandleRegister}
+                  // onClick={HandleRegister}
                 >
                   Register
                 </Button>
