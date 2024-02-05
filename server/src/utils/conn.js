@@ -26,17 +26,3 @@ async function connectDB() {
 
 export { db, connectDB };
 
-//  const sessionStore= await sequelize.authenticate();
-//   console.log('DATABASE IS CONNECTED 👌' );
-//     return { sessionStore };
-//   } catch (error) {
-//     console.error('Unable to connect to the database:', error);
-//     throw error;
-//   }
-// }
-// import dotenv from 'dotenv';
-// const envFile =
-//   process.env.NODE_ENV === 'production'
-//     ? '.env.production'
-//     : '.env.development';
-// dotenv.config({ path: envFile });
