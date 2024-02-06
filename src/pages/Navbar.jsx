@@ -108,7 +108,7 @@ const Navbar = () => {
         >
           CreateOffer
         </ListItemButton>
-        <ListItemButton
+        {/* <ListItemButton
           to="/Dashboard"
           sx={{
             color: location.pathname === "/Dashboard" ? "#ABE900" : "#fff",
@@ -121,8 +121,8 @@ const Navbar = () => {
           component={Link}
         >
           Dashboard
-        </ListItemButton>
-        <ListItemButton
+        </ListItemButton> */}
+        {/* <ListItemButton
           to="/Wallet"
           sx={{
             color: location.pathname === "/Wallet" ? "#ABE900" : "#fff",
@@ -135,8 +135,8 @@ const Navbar = () => {
           component={Link}
         >
           Wallet
-        </ListItemButton>
-        <ListItemButton
+        </ListItemButton> */}
+        {/* <ListItemButton
           to="/Ranks"
           sx={{
             color: location.pathname === "/Ranks" ? "#ABE900" : "#fff",
@@ -149,7 +149,7 @@ const Navbar = () => {
           component={Link}
         >
           Ranks
-        </ListItemButton>
+        </ListItemButton> */}
         <CommonButton>Login</CommonButton>
         <CommonButton>Register</CommonButton>
       </Box>
@@ -214,7 +214,7 @@ const Navbar = () => {
                     BuyCrypto
                   </ListItemButton>
 
-                  <ListItemButton
+                  {/* <ListItemButton
                     to="/SellCrypto"
                     sx={{
                       color:
@@ -232,7 +232,7 @@ const Navbar = () => {
                     component={Link}
                   >
                     SellCrypto
-                  </ListItemButton>
+                  </ListItemButton> */}
                   <ListItemButton
                     to="/Swap"
                     sx={{
@@ -288,7 +288,7 @@ const Navbar = () => {
                   >
                     Control Panel
                   </ListItemButton>
-                  <ListItemButton
+                  {/* <ListItemButton
                     to="/Dashboard"
                     sx={{
                       color:
@@ -304,8 +304,8 @@ const Navbar = () => {
                     component={Link}
                   >
                     Dashboard
-                  </ListItemButton>
-                  <ListItemButton
+                  </ListItemButton> */}
+                  {/* <ListItemButton
                     to="/Wallet"
                     sx={{
                       color:
@@ -321,8 +321,8 @@ const Navbar = () => {
                     component={Link}
                   >
                     Wallet
-                  </ListItemButton>
-                  <ListItemButton
+                  </ListItemButton> */}
+                  {/* <ListItemButton
                     to="/Ranks"
                     sx={{
                       color:
@@ -338,7 +338,7 @@ const Navbar = () => {
                     component={Link}
                   >
                     Ranks
-                  </ListItemButton>
+                  </ListItemButton> */}
                   <CommonButton to="/Login" component={Link}>
                     Login
                   </CommonButton>
