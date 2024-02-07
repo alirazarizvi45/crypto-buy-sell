@@ -4,7 +4,9 @@ import { Box } from "@mui/material";
 import bg from "../../assets/bg.png";
 import LandingPage from "./LandingPage";
 import Footer from "../Footer/Footer";
-const Home = () => {
+import { useTheme } from "@emotion/react";
+const Home = ({ themeToggler, mode }) => {
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -13,10 +15,11 @@ const Home = () => {
         backgroundRepeat: "no-repeat",
         backgroundSize: "100% ",
         width: "100%",
-        backgroundColor: "#070C0E",
+        // backgroundColor: "#070C0E",
+        backgroundColor: theme.palette.background.default,
       }}
     >
-      <Navbar />
+      <Navbar mode={mode} themeToggler={themeToggler} />
       <LandingPage />
     </Box>
   );

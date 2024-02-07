@@ -24,7 +24,6 @@ import { CommonButton } from "../components";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 
 const Navbar = ({ themeToggler, mode }) => {
-  
   const theme = useTheme();
   useMediaQuery("(max-width:1200px)");
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -156,6 +155,12 @@ const Navbar = ({ themeToggler, mode }) => {
         </ListItemButton> */}
         <CommonButton>Login</CommonButton>
         <CommonButton>Register</CommonButton>
+        <Button
+          onClick={themeToggler}
+          sx={{ color: "theme.palette.success.main" }}
+        >
+          {mode ? <Brightness7 /> : <Brightness4 />}
+        </Button>
       </Box>
     </Box>
   );
@@ -349,7 +354,10 @@ const Navbar = ({ themeToggler, mode }) => {
                   <CommonButton to="/Register" component={Link}>
                     Register
                   </CommonButton>
-                  <Button onClick={themeToggler} color="customWhite">
+                  <Button
+                    onClick={themeToggler}
+                    sx={{ color: "theme.palette.success.main" }}
+                  >
                     {mode ? <Brightness7 /> : <Brightness4 />}
                   </Button>
                 </Box>

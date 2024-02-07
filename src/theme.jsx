@@ -11,11 +11,14 @@ export const createCustomTheme = (mode) => {
       customBlack: {
         main: "#0C0F15",
       },
-      customWhite:{
+      customWhite: {
         main: "#fff",
       },
       bitter: {
         main: "#262B26",
+      },
+      background: {
+        default: mode === "light" ? "#FFFFFF" : "#070C0E",
       },
     },
     typography: {

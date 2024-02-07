@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material";
+import { Box, Container, useTheme } from "@mui/material";
 
 import StepOne from "./stepers/StepOne";
 import StepTwo from "./stepers/StepTwo";
@@ -11,6 +11,7 @@ import { useState } from "react";
 import { Done } from "@mui/icons-material";
 
 const Steps = () => {
+  const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
 
   const handleStep = (step) => () => {
@@ -26,7 +27,6 @@ const Steps = () => {
   };
 
   const steps = [
-   
     <StepOne />,
     <StepTwo />,
     <StepThree />,
@@ -34,7 +34,7 @@ const Steps = () => {
     <StepFive />,
   ];
   return (
-    <Box sx={{ background: "#070C0E", pt: "150px" }}>
+    <Box sx={{ background: theme.palette.background.default, pt: "150px" }}>
       <Container maxWidth="md">
         <Box
           sx={{
@@ -64,11 +64,12 @@ const Steps = () => {
             </Stepper>
             <div>
               <Typography>{steps[activeStep]}</Typography>
-              <Box mt={4}
-              sx={{
-                display:"flex",
-                justifyContent:"space-between"
-              }}
+              <Box
+                mt={4}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
               >
                 <Button disabled={activeStep === 0} onClick={handleBack}>
                   Back

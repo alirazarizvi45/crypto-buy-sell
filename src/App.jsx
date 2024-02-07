@@ -21,13 +21,12 @@ import { useState } from "react";
 
 function App() {
   const [mode, setMode] = useState(true);
-  
+
   let theme = createCustomTheme(mode ? "light" : "dark");
   theme = responsiveFontSizes(theme);
   const themeToggler = () => {
     setMode(!mode);
   };
-  console.log("mode",mode)
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -37,7 +36,7 @@ function App() {
             path="/"
             element={
               <>
-                <Home />
+                <Home mode={mode} themeToggler={themeToggler} />
                 <Footer />
               </>
             }
