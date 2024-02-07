@@ -16,12 +16,16 @@ import {
   Toolbar,
   Typography,
   useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { CommonButton } from "../components";
+import { Brightness4, Brightness7 } from "@mui/icons-material";
 
-const Navbar = () => {
+const Navbar = ({ themeToggler, mode }) => {
+  
+  const theme = useTheme();
   useMediaQuery("(max-width:1200px)");
   const [openDrawer, setOpenDrawer] = useState(false);
   let location = useLocation();
@@ -345,6 +349,9 @@ const Navbar = () => {
                   <CommonButton to="/Register" component={Link}>
                     Register
                   </CommonButton>
+                  <Button onClick={themeToggler} color="customWhite">
+                    {mode ? <Brightness7 /> : <Brightness4 />}
+                  </Button>
                 </Box>
               </Box>
             </Hidden>
