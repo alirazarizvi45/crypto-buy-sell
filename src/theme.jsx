@@ -20,6 +20,12 @@ export const createCustomTheme = (mode) => {
       background: {
         default: mode === "light" ? "#FFFFFF" : "#070C0E",
       },
+      text: {
+        primary: mode === "light"? "#000000" : "#FFFFFF",
+      },
+      footerLink:{
+        primary: mode === "light"? "#000000" : "#D9D9D9",
+      }
     },
     typography: {
       h1: {
