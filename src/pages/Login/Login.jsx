@@ -17,15 +17,18 @@ import { CustomizeInput } from "../../components/CustomizeInput";
 import att from "../../assets/att.png";
 import Line from "../../assets/Line.png";
 import lock from "../../assets/lock.png";
+import rate1 from "../../assets/rate.png";
+import lock1 from "../../assets/loock.png";
 import refferal from "../../assets/refferal.png";
+import loginBg from "../../assets/loginBg.png";
 import facebookblack from "../../assets/facebookblack.png";
 import googleblack from "../../assets/googleblack.png";
 import ContriesJson from "../JsonFiles/Country.json";
 import { CommonButton } from "../../components";
 import tick from "../../assets/tick.png";
-import { Link ,useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ mode }) => {
   const [isLogin, setIsLogin] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
@@ -44,13 +47,13 @@ const Login = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url(${registerbg})`,
-          backgroundPosition: "contain",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "100% ",
-
-          backgroundColor: "#070C0E",
           minHeight: "100vh",
+          ...(mode !== "light" && {
+            backgroundImage: `url(${registerbg})`,
+            backgroundPosition: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "100%",
+          }),
         }}
       >
         <Container
@@ -63,9 +66,12 @@ const Login = () => {
               md={6}
               xs={12}
               sx={{
-                background: `linear-gradient(to bottom,#262A2C,#1F2425)`,
+                background: mode
+                  ? "linear-gradient(to left, #F8F8F8  , #FFFFFF )"
+                  : "linear-gradient(to bottom,#262A2C,#1F2425)",
+                border: mode ? "0.7px solid #FFFFFF" : "1px solid #696C6D",
+                boxShadow: "0px 4px 15px 0px rgba(154, 154, 154, 0.3)",
                 borderRadius: "20px",
-                border: "1px solid #696C6D",
                 padding: "25px",
               }}
             >
@@ -86,7 +92,7 @@ const Login = () => {
 
               <Box
                 sx={{
-                  backgroundColor: "#070C0E",
+                  backgroundColor: mode ? "#EFEFEF" : "#070C0E",
                   padding: "10px",
                   maxWidth: "40%",
                   borderRadius: "10px",
@@ -100,9 +106,11 @@ const Login = () => {
                   to="/Login"
                   sx={{
                     color: "#fff",
-                    background: location.pathname==='/Login' ? "#ABE900" : "#070C0E",
+                    background:
+                      location.pathname === "/Login" ? "#ABE900" : "#070C0E",
                     "&:hover": {
-                      background: location.pathname==='/Login' ? "#ABE900" : "#070C0E",
+                      background:
+                        location.pathname === "/Login" ? "#ABE900" : "#070C0E",
                     },
                     padding: "5px 20px",
                   }}
@@ -114,10 +122,21 @@ const Login = () => {
                   component={Link}
                   to="/Register"
                   sx={{
-                    color: "#fff",
-                    background: location.pathname==='/Login' ? "#070C0E" : "#ABE900",
+                    fontWeight: "bold",
+                    color: mode ? "#000000" : "#fff",
+                    background:
+                      location.pathname === "/Login"
+                        ? mode
+                          ? "#EFEFEF"
+                          : "#070C0E"
+                        : "#ABE900",
                     "&:hover": {
-                      background: location.pathname==='/Login' ? "#070C0E" : "#ABE900",
+                      background:
+                        location.pathname === "/Login"
+                          ? mode
+                            ? "#EFEFEF"
+                            : "#070C0E"
+                          : "#ABE900",
                     },
                     padding: "5px 20px",
                   }}
@@ -148,7 +167,7 @@ const Login = () => {
                         }}
                       >
                         <img
-                          src={att}
+                          src={mode ? rate1 : att}
                           alt=""
                           style={{
                             width: "20px",
@@ -169,17 +188,18 @@ const Login = () => {
                     ),
                   }}
                   sx={{
+                    input: { color: mode ? "#5A5A5A" : "" },
                     "& label.Mui-focused": {
-                      backgroundColor: "#000000",
+                      backgroundColor: mode ? "#FFFFFF" : "#000000",
                     },
                     "& label": {
-                      backgroundColor: "#000000",
+                      backgroundColor: mode ? "#FFFFFF" : "#000000",
                       fontFamily: ["Open Sans Variable", "sans-serif"].join(
                         ","
                       ),
                     },
                     "& .MuiOutlinedInput-root": {
-                      backgroundColor: "#000000",
+                      backgroundColor: mode ? "#FFFFFF" : "#000000",
                     },
                   }}
                 />
@@ -198,7 +218,7 @@ const Login = () => {
                         }}
                       >
                         <img
-                          src={lock}
+                          src={mode ? lock1 : lock}
                           alt=""
                           style={{
                             width: "20px",
@@ -230,17 +250,18 @@ const Login = () => {
                     ),
                   }}
                   sx={{
+                    input: { color: mode ? "#5A5A5A" : "" },
                     "& label.Mui-focused": {
-                      backgroundColor: "#000000",
+                      backgroundColor: mode ? "#FFFFFF" : "#000000",
                     },
                     "& label": {
-                      backgroundColor: "#000000",
+                      backgroundColor: mode ? "#FFFFFF" : "#000000",
                       fontFamily: ["Open Sans Variable", "sans-serif"].join(
                         ","
                       ),
                     },
                     "& .MuiOutlinedInput-root": {
-                      backgroundColor: "#000000",
+                      backgroundColor: mode ? "#FFFFFF" : "#000000",
                     },
                   }}
                 />
@@ -301,6 +322,20 @@ const Login = () => {
                     style={{ width: "50px", height: "50px" }}
                   />
                 </Box>
+              </Box>
+            </Grid>
+
+            <Grid item md={6} xs={12}>
+              <Box textAlign={"center"}>
+                <img
+                  src={loginBg}
+                  alt=""
+                  style={{
+                    width: "80%",
+                    height: "80%",
+                    objectFit: "contain",
+                  }}
+                />
               </Box>
             </Grid>
           </Grid>

@@ -3,7 +3,7 @@ export const createCustomTheme = (mode) => {
   let theme = createTheme({
     palette: {
       success: {
-        main: "#00FE00",
+        main: mode === "light" ? "#181818" : "#00FE00",
       },
       primary: {
         main: "#ABE900",
@@ -18,14 +18,14 @@ export const createCustomTheme = (mode) => {
         main: "#262B26",
       },
       background: {
-        default: mode === "light" ? "#FFFFFF" : "#070C0E",
+        default: mode === "light" ? "#EEEEEE" : "#070C0E",
       },
       text: {
-        primary: mode === "light"? "#000000" : "#FFFFFF",
+        primary: mode === "light" ? "#000000" : "#EEEEEE",
       },
-      footerLink:{
-        primary: mode === "light"? "#000000" : "#D9D9D9",
-      }
+      footerLink: {
+        primary: mode === "light" ? "#000000" : "#D9D9D9",
+      },
     },
     typography: {
       h1: {
@@ -36,7 +36,7 @@ export const createCustomTheme = (mode) => {
       },
       h2: {
         fontFamily: ["Kanit", "sans-serif"].join(","),
-        color: "#D9D9D9",
+        color: mode === "light" ? "#181818" : "#D9D9D9",
         fontSize: "2.3 rem", //38px
         fontWeight: 600,
       },
@@ -48,7 +48,7 @@ export const createCustomTheme = (mode) => {
       },
       h4: {
         fontFamily: ["Kanit", "sans-serif"].join(","),
-        color: "#ffffff",
+        color: mode === "light" ? "#181818" : "#ffffff",
         fontSize: "1.25 rem",
         fontWeight: 600,
       },
@@ -67,7 +67,7 @@ export const createCustomTheme = (mode) => {
       subtitle1: {
         fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
         fontWeight: 400,
-        color: "white",
+        color: mode === "light" ? "#404040" : "#D9D9D9",
         fontSize: "0.875rem",
         lineHeight: 1.75,
         letterSpacing: "0.00938em",

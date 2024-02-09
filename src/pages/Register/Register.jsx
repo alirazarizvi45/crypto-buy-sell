@@ -9,6 +9,7 @@ import {
   InputAdornment,
   ListItemButton,
   Typography,
+  useTheme,
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -20,12 +21,18 @@ import Line from "../../assets/Line.png";
 import lock from "../../assets/lock.png";
 import refferal from "../../assets/refferal.png";
 import facebookblack from "../../assets/facebookblack.png";
+
+import code1 from "../../assets/code1.png";
+import rate1 from "../../assets/rate.png";
+import lock1 from "../../assets/loock.png";
+
 import googleblack from "../../assets/googleblack.png";
 import ContriesJson from "../JsonFiles/Country.json";
 import { CommonButton } from "../../components";
 import tick from "../../assets/tick.png";
-import { Link ,useLocation} from "react-router-dom";
-const Register = () => {
+import { Link, useLocation } from "react-router-dom";
+const Register = ({ mode }) => {
+  const theme = useTheme();
   const [isLogin, setIsLogin] = useState(false);
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
@@ -47,13 +54,13 @@ const Register = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url(${registerbg})`,
-          backgroundPosition: "contain",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "100% ",
-
-          backgroundColor: "#070C0E",
           minHeight: "100vh",
+          ...(mode !== "light" && {
+            backgroundImage: `url(${registerbg})`,
+            backgroundPosition: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "100%",
+          }),
         }}
       >
         <Container
@@ -66,22 +73,26 @@ const Register = () => {
               md={6}
               xs={12}
               sx={{
-                background: `linear-gradient(to bottom,#262A2C,#1F2425)`,
+                background: mode
+                  ? "linear-gradient(to left, #F8F8F8  , #FFFFFF )"
+                  : "linear-gradient(to bottom,#262A2C,#1F2425)",
+                border: mode ? "0.7px solid #FFFFFF" : "1px solid #696C6D",
+                boxShadow: "0px 4px 15px 0px rgba(154, 154, 154, 0.3)",
                 borderRadius: "20px",
-                border: "1px solid #696C6D",
                 padding: "25px",
               }}
             >
               {!isLogin && (
                 <Box>
                   <Typography variant="h2">
-                    Create your
-                    <span style={{ color: "#ABE900" }}> Account </span>
+                    Create your&nbsp;
+                    <span style={{ color: mode ? "#181818" : "#ABE900" }}>
+                      Account
+                    </span>
                   </Typography>
                   <Typography
                     variant="subtitle1"
                     sx={{
-                      color: "#D9D9D9",
                       marginTop: "10px",
                     }}
                   >
@@ -107,7 +118,7 @@ const Register = () => {
 
               <Box
                 sx={{
-                  backgroundColor: "#070C0E",
+                  backgroundColor: mode ? "#EFEFEF" : "#070C0E",
                   padding: "10px",
                   maxWidth: "40%",
                   borderRadius: "10px",
@@ -116,30 +127,45 @@ const Register = () => {
                   margin: "10px 0px",
                 }}
               >
-              <Button
-                component={Link}
-                to="/Login"
+                <Button
+                  component={Link}
+                  to="/Login"
                   sx={{
-                    color: "#fff",
-                    background: location.pathname==='/Register' ? "#070C0E" : "#070C0E",
+                    fontWeight:"bold",
+                    color: mode ? "#000000" : "#fff",
+                    background:
+                      location.pathname === "/Register"
+                        ? mode
+                          ? "#EFEFEF"
+                          : "#070C0E"
+                        : "#070C0E",
                     "&:hover": {
-                      background: location.pathname==='/Register' ? "#070C0E" : "#070C0E",
+                      background:
+                        location.pathname === "/Register"
+                          ? mode
+                            ? "#EFEFEF"
+                            : "#070C0E"
+                          : "#070C0E",
                     },
                     padding: "5px 20px",
                   }}
                   // onClick={HandleLogin}
                 >
-
                   Login
                 </Button>
                 <Button
                   component={Link}
                   to="/Register"
                   sx={{
-                    color: "#fff",
-                    background: location.pathname==='/Register' ? "#ABE900" : "#070C0E",
+                    fontWeight: 600,
+                    color: mode ? "#000000" : "#fff",
+                    background:
+                      location.pathname === "/Register" ? "#ABE900" : "#070C0E",
                     "&:hover": {
-                   background: location.pathname==='/Register' ? "#ABE900" : "#070C0E",
+                      background:
+                        location.pathname === "/Register"
+                          ? "#ABE900"
+                          : "#070C0E",
                     },
                     padding: "5px 20px",
                   }}
@@ -170,7 +196,7 @@ const Register = () => {
                           }}
                         >
                           <img
-                            src={att}
+                            src={mode ? rate1 : att}
                             alt=""
                             style={{
                               width: "20px",
@@ -220,7 +246,7 @@ const Register = () => {
                           }}
                         >
                           <img
-                            src={lock}
+                            src={mode ? lock1 : lock}
                             alt=""
                             style={{
                               width: "20px",
@@ -347,7 +373,7 @@ const Register = () => {
                           }}
                         >
                           <img
-                            src={att}
+                            src={mode ? rate1 : att}
                             alt=""
                             style={{
                               width: "20px",
@@ -368,17 +394,18 @@ const Register = () => {
                       ),
                     }}
                     sx={{
+                      input: { color: mode ? "#5A5A5A" : "" },
                       "& label.Mui-focused": {
-                        backgroundColor: "#000000",
+                        backgroundColor: mode ? "#FFFFFF" : "#000000",
                       },
                       "& label": {
-                        backgroundColor: "#000000",
+                        backgroundColor: mode ? "#FFFFFF" : "#000000",
                         fontFamily: ["Open Sans Variable", "sans-serif"].join(
                           ","
                         ),
                       },
                       "& .MuiOutlinedInput-root": {
-                        backgroundColor: "#000000",
+                        backgroundColor: mode ? "#FFFFFF" : "#000000",
                       },
                     }}
                   />
@@ -397,7 +424,7 @@ const Register = () => {
                           }}
                         >
                           <img
-                            src={lock}
+                            src={mode ? lock1 : lock}
                             alt=""
                             style={{
                               width: "20px",
@@ -429,17 +456,18 @@ const Register = () => {
                       ),
                     }}
                     sx={{
+                      input: { color: mode ? "#5A5A5A" : "" },
                       "& label.Mui-focused": {
-                        backgroundColor: "#000000",
+                        backgroundColor: mode ? "#FFFFFF" : "#000000",
                       },
                       "& label": {
-                        backgroundColor: "#000000",
+                        backgroundColor: mode ? "#FFFFFF" : "#000000",
                         fontFamily: ["Open Sans Variable", "sans-serif"].join(
                           ","
                         ),
                       },
                       "& .MuiOutlinedInput-root": {
-                        backgroundColor: "#000000",
+                        backgroundColor: mode ? "#FFFFFF" : "#000000",
                       },
                     }}
                   />
@@ -458,7 +486,7 @@ const Register = () => {
                           }}
                         >
                           <img
-                            src={lock}
+                            src={mode ? lock1 : lock}
                             alt=""
                             style={{
                               width: "20px",
@@ -495,17 +523,18 @@ const Register = () => {
                       ),
                     }}
                     sx={{
+                      input: { color: mode ? "#5A5A5A" : "" },
                       "& label.Mui-focused": {
-                        backgroundColor: "#000000",
+                        backgroundColor: mode ? "#FFFFFF" : "#000000",
                       },
                       "& label": {
-                        backgroundColor: "#000000",
+                        backgroundColor: mode ? "#FFFFFF" : "#000000",
                         fontFamily: ["Open Sans Variable", "sans-serif"].join(
                           ","
                         ),
                       },
                       "& .MuiOutlinedInput-root": {
-                        backgroundColor: "#000000",
+                        backgroundColor: mode ? "#FFFFFF" : "#000000",
                       },
                     }}
                   />
@@ -575,15 +604,19 @@ const Register = () => {
                           ) : null,
                         }}
                         sx={{
+                          input: { color: mode ? "#5A5A5A" : "" },
                           "& label.Mui-focused": {
-                            backgroundColor: "#000000",
+                            backgroundColor: mode ? "#FFFFFF" : "#000000",
                           },
                           "& label": {
-                            fontFamily: "Russo One",
-                            backgroundColor: "#000000",
+                            backgroundColor: mode ? "#FFFFFF" : "#000000",
+                            fontFamily: [
+                              "Open Sans Variable",
+                              "sans-serif",
+                            ].join(","),
                           },
                           "& .MuiOutlinedInput-root": {
-                            backgroundColor: "#000000",
+                            backgroundColor: mode ? "#FFFFFF" : "#000000",
                           },
                         }}
                       />
@@ -603,7 +636,7 @@ const Register = () => {
                           }}
                         >
                           <img
-                            src={refferal}
+                            src={mode ? code1 : refferal}
                             alt=""
                             style={{
                               width: "20px",
@@ -624,17 +657,18 @@ const Register = () => {
                       ),
                     }}
                     sx={{
+                      input: { color: mode ? "#5A5A5A" : "" },
                       "& label.Mui-focused": {
-                        backgroundColor: "#000000",
+                        backgroundColor: mode ? "#FFFFFF" : "#000000",
                       },
                       "& label": {
-                        backgroundColor: "#000000",
+                        backgroundColor: mode ? "#FFFFFF" : "#000000",
                         fontFamily: ["Open Sans Variable", "sans-serif"].join(
                           ","
                         ),
                       },
                       "& .MuiOutlinedInput-root": {
-                        backgroundColor: "#000000",
+                        backgroundColor: mode ? "#FFFFFF" : "#000000",
                       },
                     }}
                   />
@@ -760,14 +794,14 @@ const Register = () => {
                   >
                     <Box>
                       <Typography variant="h4">Instant registration</Typography>
-                      <Typography variant="subtitle1" color="#D9D9D9" pt={1}>
+                      <Typography variant="subtitle1" pt={1}>
                         No manual verification wait times, all you need is an
                         email address to get started.
                       </Typography>
                     </Box>
                     <Box>
                       <Typography variant="h4">250+ Payment methods</Typography>
-                      <Typography variant="subtitle1" color="#D9D9D9" pt={1}>
+                      <Typography variant="subtitle1" pt={1}>
                         Buy Bitcoin, Ethereum & popular Cryptos using over 250
                         other payment methods.
                       </Typography>
@@ -776,7 +810,7 @@ const Register = () => {
                       <Typography variant="h4">
                         Trade with escrow protection
                       </Typography>
-                      <Typography variant="subtitle1" color="#D9D9D9" pt={1}>
+                      <Typography variant="subtitle1" pt={1}>
                         During the trade the cryptocurrency is locked into a
                         secure escrow system.
                       </Typography>
@@ -785,7 +819,7 @@ const Register = () => {
                       <Typography variant="h4">
                         Exchange directly with no middleman
                       </Typography>
-                      <Typography variant="subtitle1" color="#D9D9D9" pt={1}>
+                      <Typography variant="subtitle1" pt={1}>
                         The buyer pays the seller directly, without any other
                         third parties involved.
                       </Typography>

@@ -18,6 +18,7 @@ import { responsiveFontSizes } from "@mui/material/styles";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createCustomTheme } from "./theme";
 import { useState } from "react";
+import EmailVerification from "./pages/EmailVerification";
 
 function App() {
   const [mode, setMode] = useState(true);
@@ -124,7 +125,7 @@ function App() {
             element={
               <>
                 <Navbar mode={mode} themeToggler={themeToggler} />
-                <Register />
+                <Register mode={mode} />
               </>
             }
           />
@@ -133,7 +134,16 @@ function App() {
             element={
               <>
                 <Navbar mode={mode} themeToggler={themeToggler} />
-                <Login />
+                <Login mode={mode} />
+              </>
+            }
+          />
+          <Route
+            path="/email-verification"
+            element={
+              <>
+                <Navbar mode={mode} themeToggler={themeToggler} />
+                <EmailVerification mode={mode} />
               </>
             }
           />
