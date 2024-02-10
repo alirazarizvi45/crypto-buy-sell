@@ -55,12 +55,11 @@ const Register = ({ mode }) => {
       <Box
         sx={{
           minHeight: "100vh",
-          ...(mode !== "light" && {
-            backgroundImage: `url(${registerbg})`,
-            backgroundPosition: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "100%",
-          }),
+
+          backgroundImage: `url(${registerbg})`,
+          backgroundPosition: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100%",
         }}
       >
         <Container
@@ -131,7 +130,7 @@ const Register = ({ mode }) => {
                   component={Link}
                   to="/Login"
                   sx={{
-                    fontWeight:"bold",
+                    fontWeight: "bold",
                     color: mode ? "#000000" : "#fff",
                     background:
                       location.pathname === "/Register"
@@ -677,7 +676,9 @@ const Register = ({ mode }) => {
                       pt: "20px",
                     }}
                   >
-                    <CommonButton fullWidth>Register</CommonButton>
+                    <CommonButton style={{ padding: "10px" }} fullWidth>
+                      Register
+                    </CommonButton>
                   </Box>
                   <Box
                     sx={{

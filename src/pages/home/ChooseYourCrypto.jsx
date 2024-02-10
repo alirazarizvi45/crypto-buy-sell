@@ -69,7 +69,7 @@ const theme = createTheme({
   },
 });
 
-const ChooseYourCrypto = () => {
+const ChooseYourCrypto = ({ mode }) => {
   const isSmallScreen = useMediaQuery("(max-width:900px)");
   const isLargeScreen = useMediaQuery("(min-width:900px)");
   const columns = [
@@ -172,27 +172,32 @@ const ChooseYourCrypto = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url(${Chooseyourcrypto})`,
-          backgroundPosition: "center center",
+          backgroundImage: mode ? "" : `url(${Chooseyourcrypto})`,
+          // backgroundPosition: "center center",
+          // backgroundRepeat: "no-repeat",
+          // backgroundSize: "100% ",
+          // width: "100%",
           backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          minHeight: "90vh",
+          backgroundSize: "100% 100%",
         }}
       >
         <Container maxWidth="md">
           <Box
             sx={{
-              paddingTop: "150px",
+              paddingTop: "100px",
             }}
           >
             <Typography variant="h2" textAlign="center">
-              Choose Your <span style={{ color: "#ABE900" }}>Crypto</span>
+              Choose Your{" "}
+              <span style={{ color: mode ? "#181818" : "#ABE900" }}>
+                Crypto
+              </span>
             </Typography>
             <Typography
               variant="subtitle1"
               sx={{
                 textAlign: "center",
-                color: "#D9D9D9",
+
                 marginTop: "10px",
               }}
             >
@@ -200,7 +205,11 @@ const ChooseYourCrypto = () => {
               cryptocurrencies using your preferred action method.
             </Typography>
           </Box>
-          <Box>
+          <Box
+            sx={{
+              pb: 3,
+            }}
+          >
             <ThemeProvider theme={theme}>
               <CommonTable rows={rows} columns={columns} />
             </ThemeProvider>

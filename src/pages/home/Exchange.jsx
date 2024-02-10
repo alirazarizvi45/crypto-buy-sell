@@ -1,6 +1,7 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
 import React from "react";
 import exchange2 from "../../assets/exchange2.png";
+import bg1 from "../../assets/bg1.png";
 import etheriumnetwork from "../../assets/etheriumnetwork.png";
 import binancesmart from "../../assets/binancesmart.png";
 import celonetwork from "../../assets/celonetwork.png";
@@ -16,6 +17,8 @@ import trade from "../../assets/trade.png";
 import { CommonButton } from "../../components";
 
 const Exchange = () => {
+  const theme = useTheme();
+
   const data = [
     {
       mainImage: etheriumnetwork,
@@ -57,28 +60,39 @@ const Exchange = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url(${exchange2})`,
-          backgroundPosition: "center center",
+          backgroundImage:
+            theme.palette.mode === "light"
+              ? `url(${bg1})`
+              : `url(${exchange2})`,
+          // backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          minHeight: "100vh",
-          width: "100%",
-          padding: "0px 0px 150px 0px",
+          backgroundSize: "100% 100%",
+          // backgroundSize: "cover",
+          // minHeight: "100vh",
+          // width: "100%",
+          // padding: "0px 0px 150px 0px",
         }}
       >
         <Container maxWidth="lg">
-          <Typography variant="h2" textAlign="center">
+          <Typography
+            variant="h2"
+            textAlign="center"
+            sx={{
+              pt: { md: 8, sm: 6, xs: 4 },
+            }}
+          >
             Exchanges
           </Typography>
-          <Grid container mt={3} spacing={2}>
+          <Grid container spacing={2}>
             {data.map((item, index) => (
               <Grid item md={3} xs={12} key={index}>
                 <Box
                   sx={{
                     zIndex: "100",
-                    width: "260px",
+                    width: "100%",
                     height: "260px",
-                    marginLeft: { md: "5px", sm: "230px", xs: "60px" },
+                    // marginLeft: { md: "5px", sm: "230px", xs: "60px" },
+                    textAlign: "center",
                   }}
                 >
                   <img
@@ -94,27 +108,33 @@ const Exchange = () => {
                 </Box>
                 <Box
                   sx={{
-                    background:
-                      "linear-gradient(360deg,#CECECF 0%,  #242829 80%)",
-                    p: "1px",
+                    ...(theme.palette.mode !== "light" && {
+                      background:
+                        "linear-gradient(360deg,#CECECF 0%,  #242829 80%)",
+                      p: "1px",
+                    }),
                     borderRadius: "20px",
                     marginTop: { md: "-170px", xs: "-170px" },
                   }}
                 >
                   <Box
                     sx={{
-                      padding: "40px 20px",
-                      background: "#242829",
+                      padding: "15px 20px",
+
+                      background:
+                        theme.palette.mode === "light"
+                          ? "linear-gradient(to left, #F8F8F8  , #FFFFFF )"
+                          : "#242829",
                       borderRadius: "20px",
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "center",
                       alignItems: "center",
-                      height: "13rem",
                     }}
                   >
                     <Box
                       sx={{
+                        minHeight: "180px",
                         paddingTop: "20px",
                         textAlign: "center",
                       }}
@@ -122,7 +142,7 @@ const Exchange = () => {
                       <Typography variant="h4" textAlign="center" mt={3}>
                         {item.title}
                       </Typography>
-                      <Typography variant="subtitle1" mt={1} color="#D9D9D9">
+                      <Typography variant="subtitle1" mt={1}>
                         {item.description}
                       </Typography>
                     </Box>
@@ -181,22 +201,31 @@ const Exchange = () => {
           </Grid>
 
           <Grid
+         
             container
             spacing={10}
             sx={{
-              padding: "150px 0px 0px 0px",
+              padding: "130px 0px 50px 0px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              textAlign:{xs:"center", sm:"left",md:"left"}
             }}
           >
             <Grid item md={6} xs={12}>
               <Box>
                 <Typography variant="h2" pb={2}>
                   Trade with{" "}
-                  <span style={{ color: "#ABE900" }}>Transparency</span>
+                  <span
+                    style={{
+                      color:
+                        theme.palette.mode === "light" ? "#181818" : "#ABE900",
+                    }}
+                  >
+                    Transparency
+                  </span>
                 </Typography>
-                <Typography variant="subtitle1" color="#D9D9D9" pb={2}>
+                <Typography variant="subtitle1" pb={2}>
                   Feel confident by trading on-chain with non-custodial
                   exchange. Exchange Bitcoin, Ethereum, and other popular
                   cryptocurrencies using secure smart contracts and Bitcoin
@@ -206,7 +235,7 @@ const Exchange = () => {
                   funds.
                 </Typography>
 
-                <CommonButton>Create Account</CommonButton>
+                <CommonButton>Start Trading</CommonButton>
               </Box>
             </Grid>
 

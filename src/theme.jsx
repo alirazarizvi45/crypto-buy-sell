@@ -2,6 +2,7 @@ import { createTheme, responsiveFontSizes } from "@mui/material";
 export const createCustomTheme = (mode) => {
   let theme = createTheme({
     palette: {
+      mode: mode,
       success: {
         main: mode === "light" ? "#181818" : "#00FE00",
       },
@@ -30,7 +31,7 @@ export const createCustomTheme = (mode) => {
     typography: {
       h1: {
         fontFamily: ["Kanit", "sans-serif"].join(","),
-        color: "#D9D9D9",
+        color: mode === "light" ? "#181818" : "#D9D9D9",
         fontSize: "4.4 rem", //70px
         fontWeight: 600,
       },

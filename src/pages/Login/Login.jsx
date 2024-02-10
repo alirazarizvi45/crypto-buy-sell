@@ -48,12 +48,10 @@ const Login = ({ mode }) => {
       <Box
         sx={{
           minHeight: "100vh",
-          ...(mode !== "light" && {
-            backgroundImage: `url(${registerbg})`,
-            backgroundPosition: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "100%",
-          }),
+          backgroundImage: `url(${registerbg})`,
+          backgroundPosition: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100%",
         }}
       >
         <Container
@@ -271,7 +269,9 @@ const Login = ({ mode }) => {
                     pt: "20px",
                   }}
                 >
-                  <CommonButton fullWidth>Login</CommonButton>
+                  <CommonButton style={{ padding: "10px" }} fullWidth>
+                    Login
+                  </CommonButton>
                 </Box>
                 <Box
                   sx={{

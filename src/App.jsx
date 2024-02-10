@@ -21,7 +21,7 @@ import { useState } from "react";
 import EmailVerification from "./pages/EmailVerification";
 
 function App() {
-  const [mode, setMode] = useState(true);
+  const [mode, setMode] = useState(false);
 
   let theme = createCustomTheme(mode ? "light" : "dark");
   theme = responsiveFontSizes(theme);

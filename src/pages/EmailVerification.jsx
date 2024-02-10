@@ -11,7 +11,7 @@ import { CommonButton } from "../components";
 
 const EmailVerification = ({ mode }) => {
   const [verificationCode, setVerificationCode] = useState(
-    Array.from({ length: 8 }, () => "")
+    Array.from({ length: 6 }, () => "")
   );
   const codeInputRefs = useRef([]);
 

@@ -22,7 +22,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { CommonButton } from "../components";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
-
+import logo from "../assets/logo.png";
+import logo1 from "../assets/logo1.png";
 const Navbar = ({ themeToggler, mode }) => {
   const theme = useTheme();
   useMediaQuery("(max-width:1200px)");
@@ -54,9 +55,22 @@ const Navbar = ({ themeToggler, mode }) => {
         gap={2}
       >
         <ListItemButton
+          to="/"
+          sx={{
+            color: location.pathname === "/BuyCrypto" ? "#ABE900" : mode ? "#000" : "#fff",
+          }}
+          component={Link}
+        >
+          <img
+            src={mode ? logo1 : logo}
+            alt="logo"
+            style={{ width: "150px" }}
+          />
+        </ListItemButton>
+        <ListItemButton
           to="/BuyCrypto"
           sx={{
-            color: location.pathname === "/BuyCrypto" ? "#ABE900" : "#fff",
+            color: location.pathname === "/BuyCrypto" ? "#ABE900" : mode ? "#000" : "#fff",
             fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
             fontSize: "13px",
             "&:hover": {
@@ -71,7 +85,7 @@ const Navbar = ({ themeToggler, mode }) => {
         <ListItemButton
           to="/SellCrypto"
           sx={{
-            color: location.pathname === "/SellCrypto" ? "#ABE900" : "#fff",
+            color: location.pathname === "/SellCrypto" ? "#ABE900" :mode ? "#000" : "#fff",
             fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
             fontSize: "13px",
             "&:hover": {
@@ -85,7 +99,7 @@ const Navbar = ({ themeToggler, mode }) => {
         <ListItemButton
           to="/Swap"
           sx={{
-            color: location.pathname === "/Swap" ? "#ABE900" : "#fff",
+            color: location.pathname === "/Swap" ? "#ABE900" : mode ? "#000" : "#fff",
             fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
             fontSize: "15px",
             "&:hover": {
@@ -100,7 +114,7 @@ const Navbar = ({ themeToggler, mode }) => {
         <ListItemButton
           to="/CreateOffer"
           sx={{
-            color: location.pathname === "/CreateOffer" ? "#ABE900" : "#fff",
+            color: location.pathname === "/CreateOffer" ? "#ABE900" :mode ? "#000" : "#fff",
             fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
             fontSize: "13px",
             "&:hover": {
@@ -187,16 +201,18 @@ const Navbar = ({ themeToggler, mode }) => {
                   <ListItemButton
                     to="/"
                     sx={{
-                      color: location.pathname === "/" ? "#ABE900" : "#fff",
+                      color: location.pathname === "/" ? "#ABE900" : mode ? "#000" : "#fff",
                       fontFamily: ["Open Sans Variable", "sans-serif"].join(
                         ","
                       ),
                     }}
                     component={Link}
                   >
-                    <Typography variant="h3" color="#ABE900">
-                      Logo
-                    </Typography>
+                    <img
+                      src={mode ? logo1 : logo}
+                      alt="logo"
+                      style={{ width: "150px" }}
+                    />
                   </ListItemButton>
                 </Box>
                 <Box
@@ -209,7 +225,7 @@ const Navbar = ({ themeToggler, mode }) => {
                     to="/BuyCrypto"
                     sx={{
                       color:
-                        location.pathname === "/BuyCrypto" ? "#ABE900" : "#fff",
+                        location.pathname === "/BuyCrypto" ? "#ABE900" :mode ? "#000" : "#fff",
                       fontFamily: ["Open Sans Variable", "sans-serif"].join(
                         ","
                       ),
@@ -245,7 +261,7 @@ const Navbar = ({ themeToggler, mode }) => {
                   <ListItemButton
                     to="/Swap"
                     sx={{
-                      color: location.pathname === "/Swap" ? "#ABE900" : "#fff",
+                      color: location.pathname === "/Swap" ? "#ABE900" :mode ? "#000" : "#fff",
                       fontFamily: ["Open Sans Variable", "sans-serif"].join(
                         ","
                       ),
@@ -265,7 +281,7 @@ const Navbar = ({ themeToggler, mode }) => {
                       color:
                         location.pathname === "/CreateOffer"
                           ? "#ABE900"
-                          : "#fff",
+                          : mode ? "#000" : "#fff",
                       fontFamily: ["Open Sans Variable", "sans-serif"].join(
                         ","
                       ),
@@ -284,7 +300,7 @@ const Navbar = ({ themeToggler, mode }) => {
                       color:
                         location.pathname === "/ControlPanel"
                           ? "#ABE900"
-                          : "#fff",
+                          : mode ? "#000" : "#fff",
                       fontFamily: ["Open Sans Variable", "sans-serif"].join(
                         ","
                       ),
@@ -372,30 +388,35 @@ const Navbar = ({ themeToggler, mode }) => {
                 <ListItemButton
                   to="/"
                   sx={{
-                    color: location.pathname === "/" ? "#ABE900" : "#fff",
+                    color: location.pathname === "/" ? "#ABE900" :mode ? "#000" : "#fff",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
                   component={Link}
                 >
-                  <Typography variant="h3" color="#ABE900">
+                  {/* <Typography variant="h3" color="#ABE900">
                     Logo
-                  </Typography>
+                  </Typography> */}
+                  <img
+                    src={mode ? logo1 : logo}
+                    alt="logo"
+                    style={{ width: "150px" }}
+                  />
                 </ListItemButton>
                 <Button onClick={toggleDrawer(true)}>
                   <MenuIcon
                     style={{
                       fontSize: "38px",
                       cursor: "pointer",
-                      color: "#fff",
+                      color:mode ? "#000" : "#fff",
                     }}
                   />
                 </Button>
               </Stack>
-              <Paper style={{ background: "#070C0E" }}>
+              <Paper style={{ background: mode ? "#EEEEEE" : "#070C0E" }}>
                 <SwipeableDrawer
                   PaperProps={{
                     sx: {
-                      background: "#070C0E !important",
+                      background: mode ? "#EEEEEE" : "#070C0E",
                       justifyContent: "center",
                     },
                   }}

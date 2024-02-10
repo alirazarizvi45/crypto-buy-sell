@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../Navbar";
 import { Box } from "@mui/material";
 import bg from "../../assets/bg.png";
+import bg1 from "../../assets/bg1.png";
 import LandingPage from "./LandingPage";
 import Footer from "../Footer/Footer";
 import { useTheme } from "@emotion/react";
@@ -10,17 +11,15 @@ const Home = ({ themeToggler, mode }) => {
   return (
     <Box
       sx={{
-        backgroundImage: `url(${bg})`,
+        backgroundImage: mode?`url(${bg1})`:`url(${bg})`,
         backgroundPosition: "contain",
         backgroundRepeat: "no-repeat",
         backgroundSize: "100% ",
-        width: "100%",
-        // backgroundColor: "#070C0E",
-        backgroundColor: theme.palette.background.default,
+        width: "100%"
       }}
     >
       <Navbar mode={mode} themeToggler={themeToggler} />
-      <LandingPage />
+      <LandingPage mode={mode} />
     </Box>
   );
 };

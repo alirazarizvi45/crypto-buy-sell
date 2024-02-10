@@ -20,6 +20,7 @@ const CustomerSupport = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              textAlign:{xs:"center", sm:"left",md:"left"}
             }}
           >
             <Grid
@@ -58,7 +59,7 @@ const CustomerSupport = () => {
               }}
             >
               <Box>
-                <Typography variant="h2" pb={2}>
+                <Typography variant="h2" color="#D9D9D9" pb={2}>
                   Find Help with 24/7
                   <span style={{ color: "#ABE900" }}> Customer Support </span>
                 </Typography>
