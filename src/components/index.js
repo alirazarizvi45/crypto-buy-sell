@@ -1,3 +1,4 @@
 import CommonButton from "./Commonbutton";
+import BlackButton from "./BlackButton";
 
-export { CommonButton };
+export { CommonButton,BlackButton };

@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import CreateOffer from "./pages/CreateOffer/CreateOffer";
-import Dashoboard from "./pages/Dashoboard";
+import Dashoboard from "./pages/Dashboard/Dashoboard";
 import Wallet from "./pages/Wallet";
 import Ranks from "./pages/Ranks";
 import { Home } from "./pages/home";
@@ -19,6 +19,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createCustomTheme } from "./theme";
 import { useState } from "react";
 import EmailVerification from "./pages/EmailVerification";
+import User from "./pages/Dashboard/User";
 
 function App() {
   const [mode, setMode] = useState(false);
@@ -92,15 +93,25 @@ function App() {
             path="/Dashoboard"
             element={
               <>
+                <Navbar
+                  mode={mode}
+                  themeToggler={themeToggler}
+                  isLoggedIn={true}
+                />
                 <Dashoboard />
               </>
             }
           />
           <Route
-            path="/Wallet"
+            path="/user"
             element={
               <>
-                <Wallet />
+                <Navbar
+                  mode={mode}
+                  themeToggler={themeToggler}
+                  isLoggedIn={true}
+                />
+                <User />
               </>
             }
           />
@@ -112,6 +123,7 @@ function App() {
               </>
             }
           />
+
           <Route
             path="/Ranks"
             element={

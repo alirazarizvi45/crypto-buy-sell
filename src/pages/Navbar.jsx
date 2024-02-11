@@ -19,14 +19,18 @@ import {
   useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import SettingsIcon from "@mui/icons-material/Settings";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { CommonButton } from "../components";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 import logo from "../assets/logo.png";
 import logo1 from "../assets/logo1.png";
-const Navbar = ({ themeToggler, mode }) => {
+import ProfileMenu from "./Dashboard/ProfileMenu";
+const Navbar = ({ themeToggler, mode, isLoggedIn }) => {
   const theme = useTheme();
   useMediaQuery("(max-width:1200px)");
+
   const [openDrawer, setOpenDrawer] = useState(false);
   let location = useLocation();
   const toggleDrawer = (open) => (event) => {
@@ -57,7 +61,12 @@ const Navbar = ({ themeToggler, mode }) => {
         <ListItemButton
           to="/"
           sx={{
-            color: location.pathname === "/BuyCrypto" ? "#ABE900" : mode ? "#000" : "#fff",
+            color:
+              location.pathname === "/BuyCrypto"
+                ? "#ABE900"
+                : mode
+                ? "#000"
+                : "#fff",
           }}
           component={Link}
         >
@@ -70,7 +79,12 @@ const Navbar = ({ themeToggler, mode }) => {
         <ListItemButton
           to="/BuyCrypto"
           sx={{
-            color: location.pathname === "/BuyCrypto" ? "#ABE900" : mode ? "#000" : "#fff",
+            color:
+              location.pathname === "/BuyCrypto"
+                ? "#ABE900"
+                : mode
+                ? "#000"
+                : "#fff",
             fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
             fontSize: "13px",
             "&:hover": {
@@ -85,7 +99,12 @@ const Navbar = ({ themeToggler, mode }) => {
         <ListItemButton
           to="/SellCrypto"
           sx={{
-            color: location.pathname === "/SellCrypto" ? "#ABE900" :mode ? "#000" : "#fff",
+            color:
+              location.pathname === "/SellCrypto"
+                ? "#ABE900"
+                : mode
+                ? "#000"
+                : "#fff",
             fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
             fontSize: "13px",
             "&:hover": {
@@ -99,7 +118,12 @@ const Navbar = ({ themeToggler, mode }) => {
         <ListItemButton
           to="/Swap"
           sx={{
-            color: location.pathname === "/Swap" ? "#ABE900" : mode ? "#000" : "#fff",
+            color:
+              location.pathname === "/Swap"
+                ? "#ABE900"
+                : mode
+                ? "#000"
+                : "#fff",
             fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
             fontSize: "15px",
             "&:hover": {
@@ -114,7 +138,12 @@ const Navbar = ({ themeToggler, mode }) => {
         <ListItemButton
           to="/CreateOffer"
           sx={{
-            color: location.pathname === "/CreateOffer" ? "#ABE900" :mode ? "#000" : "#fff",
+            color:
+              location.pathname === "/CreateOffer"
+                ? "#ABE900"
+                : mode
+                ? "#000"
+                : "#fff",
             fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
             fontSize: "13px",
             "&:hover": {
@@ -167,13 +196,45 @@ const Navbar = ({ themeToggler, mode }) => {
         >
           Ranks
         </ListItemButton> */}
-        <CommonButton>Login</CommonButton>
-        <CommonButton>Register</CommonButton>
+
+        {isLoggedIn ? (
+          <>
+            <Button
+             
+              sx={{
+                color: "theme.palette.success.main",
+                backgroundColor: "#070C0E",
+                py: 1.4,
+                borderRadius: "10px",
+              }}
+            >
+              <NotificationsActiveIcon />
+            </Button>
+            <Button
+            
+              sx={{
+                color: "theme.palette.success.main",
+                backgroundColor: "#070C0E",
+                py: 1.4,
+                borderRadius: "10px",
+              }}
+            >
+              <SettingsIcon />
+            </Button>
+            <ProfileMenu />
+          </>
+        ) : (
+          <>
+            <CommonButton>Login</CommonButton>
+            <CommonButton>Register</CommonButton>
+          </>
+        )}
+
         <Button
           onClick={themeToggler}
           sx={{ color: "theme.palette.success.main" }}
         >
-          {mode ? <Brightness7 /> : <Brightness4 />}
+          {mode ? <Brightness4 /> : <Brightness7 />}
         </Button>
       </Box>
     </Box>
@@ -186,7 +247,7 @@ const Navbar = ({ themeToggler, mode }) => {
         elevation={0}
         component="nav"
         sx={{
-          background: "transparent",
+          background: "#111B1F",
         }}
       >
         <Toolbar sx={{ justifyContent: "space-around" }}>
@@ -201,7 +262,12 @@ const Navbar = ({ themeToggler, mode }) => {
                   <ListItemButton
                     to="/"
                     sx={{
-                      color: location.pathname === "/" ? "#ABE900" : mode ? "#000" : "#fff",
+                      color:
+                        location.pathname === "/"
+                          ? "#ABE900"
+                          : mode
+                          ? "#000"
+                          : "#fff",
                       fontFamily: ["Open Sans Variable", "sans-serif"].join(
                         ","
                       ),
@@ -225,7 +291,11 @@ const Navbar = ({ themeToggler, mode }) => {
                     to="/BuyCrypto"
                     sx={{
                       color:
-                        location.pathname === "/BuyCrypto" ? "#ABE900" :mode ? "#000" : "#fff",
+                        location.pathname === "/BuyCrypto"
+                          ? "#ABE900"
+                          : mode
+                          ? "#000"
+                          : "#fff",
                       fontFamily: ["Open Sans Variable", "sans-serif"].join(
                         ","
                       ),
@@ -261,7 +331,12 @@ const Navbar = ({ themeToggler, mode }) => {
                   <ListItemButton
                     to="/Swap"
                     sx={{
-                      color: location.pathname === "/Swap" ? "#ABE900" :mode ? "#000" : "#fff",
+                      color:
+                        location.pathname === "/Swap"
+                          ? "#ABE900"
+                          : mode
+                          ? "#000"
+                          : "#fff",
                       fontFamily: ["Open Sans Variable", "sans-serif"].join(
                         ","
                       ),
@@ -281,7 +356,9 @@ const Navbar = ({ themeToggler, mode }) => {
                       color:
                         location.pathname === "/CreateOffer"
                           ? "#ABE900"
-                          : mode ? "#000" : "#fff",
+                          : mode
+                          ? "#000"
+                          : "#fff",
                       fontFamily: ["Open Sans Variable", "sans-serif"].join(
                         ","
                       ),
@@ -300,7 +377,9 @@ const Navbar = ({ themeToggler, mode }) => {
                       color:
                         location.pathname === "/ControlPanel"
                           ? "#ABE900"
-                          : mode ? "#000" : "#fff",
+                          : mode
+                          ? "#000"
+                          : "#fff",
                       fontFamily: ["Open Sans Variable", "sans-serif"].join(
                         ","
                       ),
@@ -364,17 +443,50 @@ const Navbar = ({ themeToggler, mode }) => {
                   >
                     Ranks
                   </ListItemButton> */}
-                  <CommonButton to="/Login" component={Link}>
-                    Login
-                  </CommonButton>
-                  <CommonButton to="/Register" component={Link}>
-                    Register
-                  </CommonButton>
+                  {isLoggedIn ? (
+                    <>
+                      <Button
+                        sx={{
+                          color: "theme.palette.success.main",
+                          backgroundColor: "#070C0E",
+                          py: 1.4,
+                          borderRadius: "10px",
+                        }}
+                      >
+                        <NotificationsActiveIcon />
+                      </Button>
+                      <Button
+                        sx={{
+                          color: "theme.palette.success.main",
+                          backgroundColor: "#070C0E",
+                          py: 1.4,
+                          borderRadius: "10px",
+                        }}
+                      >
+                        <SettingsIcon />
+                      </Button>
+                      <ProfileMenu />
+                    </>
+                  ) : (
+                    <>
+                      <CommonButton to="/Login" component={Link}>
+                        Login
+                      </CommonButton>
+                      <CommonButton to="/Register" component={Link}>
+                        Register
+                      </CommonButton>
+                    </>
+                  )}
                   <Button
                     onClick={themeToggler}
-                    sx={{ color: "theme.palette.success.main" }}
+                    sx={{
+                      color: "theme.palette.success.main",
+                      backgroundColor: "#070C0E",
+                      py: 1.4,
+                      borderRadius: "10px",
+                    }}
                   >
-                    {mode ? <Brightness7 /> : <Brightness4 />}
+                    {mode ? <Brightness4 /> : <Brightness7 />}
                   </Button>
                 </Box>
               </Box>
@@ -388,7 +500,12 @@ const Navbar = ({ themeToggler, mode }) => {
                 <ListItemButton
                   to="/"
                   sx={{
-                    color: location.pathname === "/" ? "#ABE900" :mode ? "#000" : "#fff",
+                    color:
+                      location.pathname === "/"
+                        ? "#ABE900"
+                        : mode
+                        ? "#000"
+                        : "#fff",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
                   component={Link}
@@ -407,7 +524,7 @@ const Navbar = ({ themeToggler, mode }) => {
                     style={{
                       fontSize: "38px",
                       cursor: "pointer",
-                      color:mode ? "#000" : "#fff",
+                      color: mode ? "#000" : "#fff",
                     }}
                   />
                 </Button>
