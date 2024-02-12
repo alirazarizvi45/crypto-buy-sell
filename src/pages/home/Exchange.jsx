@@ -201,7 +201,6 @@ const Exchange = () => {
           </Grid>
 
           <Grid
-         
             container
             spacing={10}
             sx={{
@@ -209,7 +208,7 @@ const Exchange = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              textAlign:{xs:"center", sm:"left",md:"left"}
+              textAlign: { xs: "center", sm: "left", md: "left" },
             }}
           >
             <Grid item md={6} xs={12}>

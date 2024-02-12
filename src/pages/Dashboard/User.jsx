@@ -6,17 +6,70 @@ import {
   Grid,
   IconButton,
   InputAdornment,
+  List,
+  ListItem,
   Rating,
   Stack,
+  Step,
+  StepLabel,
+  Stepper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
   Typography,
 } from "@mui/material";
 import profile from "../../assets/profile.webp";
+
+import daimondBg from "../../assets/daimondBg.png";
+import cameraIcon from "../../assets/cameraIcon.png";
+import DiamondIcon from "@mui/icons-material/Diamond";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import { CommonButton, BlackButton } from "../../components";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import { CustomizeInput } from "../../components/CustomizeInput";
 import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
+import profileIcon1 from "../../assets/profileIcon1.png";
+import profileIcon2 from "../../assets/profileIcon2.png";
+import profileIcon3 from "../../assets/profileIcon3.png";
+import profileIcon4 from "../../assets/profileIcon4.png";
+import profileIcon5 from "../../assets/profileIcon5.png";
 
+const data = [
+  {
+    label: "Outstanding",
+    hours: ["0 hours", "0 hours1", "hours3", "hours8", "hours"],
+  },
+  { label: "Commission", hours: ["-0%", "-5%", "-10%", "-17%", "-25%"] },
+  {
+    label: "Token",
+    hours: [
+      "0 USDT IN prk TOKEN",
+      "0 USDT IN prk TOKEN",
+      "0 USDT IN prk TOKEN",
+      "0 USDT IN prk TOKEN",
+      "0 USDT IN prk TOKEN",
+    ],
+  },
+];
+const steps = [
+  { price: "$0", description: "" },
+  { price: "$1000", description: "SALES AND PURCHASES5 COUNTERPARTIES" },
+  {
+    price: "$5000",
+    description: "SALES AND PURCHASES COMPLETION HIGHER THAN 95%",
+  },
+  {
+    price: "$15000",
+    description: "SALES AND PURCHASE SCOMPLETION HIGHER THAN 97%",
+  },
+  {
+    price: "$25000",
+    description: "SALES AND PURCHASES COMPLETION HIGHER THAN 99%",
+  },
+];
 const User = () => {
   const theme = useTheme();
   return (
@@ -50,6 +103,7 @@ const User = () => {
                   height: "100px",
                   borderRadius: "100%",
                   boxShadow: "0px 2px 8.1px 0px rgba(171, 233, 0, 0.33)",
+                  position: "relative",
                 }}
               >
                 <img
@@ -62,7 +116,47 @@ const User = () => {
                     objectFit: "contain",
                   }}
                 />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    bottom: "2px",
+                    right: "-3px",
+                    width: "35px",
+                    height: "35px",
+                    backgroundImage: `url(${cameraIcon})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    backgroundSize: "contain",
+                    cursor: "pointer",
+                    zIndex: 1,
+                  }}
+                />
               </Box>
+            </Box>
+            <Box
+              sx={{
+                marginTop: "-53px",
+                marginLeft: "40px",
+                position: "relative",
+              }}
+            >
+              <img
+                src={daimondBg}
+                alt={daimondBg}
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  objectFit: "contain",
+                }}
+              />
+              <DiamondIcon
+                style={{
+                  position: "absolute",
+                  top: "10px",
+                  left: "13px",
+                  color: "#000",
+                }}
+              />
             </Box>
             <Box
               sx={{
@@ -98,13 +192,27 @@ const User = () => {
                   justifyContent: "center",
                   alignItems: "center",
                   gap: "10px",
-                  backgroundColor: "#456114",
+                  backgroundColor:
+                    theme.palette.mode === "light" ? "#B6EB25" : "#456114",
+
                   padding: "3px 30px",
                   borderRadius: "17px",
                 }}
               >
-                <VerifiedIcon fontSize="12px" />
-                <Typography variant="subtitle1">Verified</Typography>
+                <VerifiedIcon
+                  fontSize="12px"
+                  sx={{
+                    color: theme.palette.mode === "light" ? "#000" : "#fff",
+                  }}
+                />
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    color: theme.palette.mode === "light" ? "#000" : "",
+                  }}
+                >
+                  Verified
+                </Typography>
               </Box>
               <Box
                 sx={{
@@ -164,13 +272,14 @@ const User = () => {
                 <span
                   style={{
                     fontWeight: "bold",
-                    color:
-                      theme.palette.mode === "light" ? "#181818" : "#ABE900",
+                    color: "#ABE900",
                   }}
                 >
                   197
                 </span>
-                <Typography variant="subtitle1">Total Transactions</Typography>
+                <Typography variant="subtitle1" color="#FFFFFF">
+                  Total Transactions
+                </Typography>
               </Box>
               <Box
                 sx={{
@@ -189,13 +298,12 @@ const User = () => {
                 <span
                   style={{
                     fontWeight: "bold",
-                    color:
-                      theme.palette.mode === "light" ? "#181818" : "#ABE900",
+                    color: "#ABE900",
                   }}
                 >
                   100%
                 </span>
-                <Typography variant="subtitle1">
+                <Typography variant="subtitle1" color="#FFFFFF">
                   Completed Transactions
                 </Typography>
               </Box>
@@ -220,6 +328,7 @@ const User = () => {
                     width: { xs: "200px", sm: "60%", md: "250px" },
                     "& input": {
                       padding: "10px",
+                      color: theme.palette.mode === "light" ? "#676767" : "",
                     },
                   }}
                 />
@@ -240,6 +349,7 @@ const User = () => {
                     width: { xs: "200px", sm: "60%", md: "250px" },
                     "& input": {
                       padding: "10px",
+                      color: theme.palette.mode === "light" ? "#676767" : "",
                     },
                   }}
                 />
@@ -259,6 +369,7 @@ const User = () => {
                     width: { xs: "200px", sm: "60%", md: "250px" },
                     "& input": {
                       padding: "10px",
+                      color: theme.palette.mode === "light" ? "#676767" : "",
                     },
                   }}
                 />
@@ -287,6 +398,7 @@ const User = () => {
                     width: { xs: "200px", sm: "60%", md: "250px" },
                     "& input": {
                       padding: "10px",
+                      color: theme.palette.mode === "light" ? "#676767" : "",
                     },
                   }}
                 />
@@ -315,6 +427,7 @@ const User = () => {
                     width: { xs: "200px", sm: "60%", md: "250px" },
                     "& input": {
                       padding: "10px",
+                      color: theme.palette.mode === "light" ? "#676767" : "",
                     },
                   }}
                 />
@@ -346,14 +459,14 @@ const User = () => {
               height: "923px",
               overflow: "auto",
               "&::-webkit-scrollbar": {
-                width: "8px",
+                width: "4px",
               },
               "&::-webkit-scrollbar-thumb": {
-                backgroundColor: "rgba(0, 0, 0, 0.2)",
+                backgroundColor: "#C6F051",
                 borderRadius: "4px",
               },
               "&::-webkit-scrollbar-track": {
-                backgroundColor: "rgba(0, 0, 0, 0.1)",
+                backgroundColor: "#C6F051",
                 borderRadius: "4px",
               },
             }}
@@ -363,7 +476,7 @@ const User = () => {
             </Typography>
             <Divider />
             <Box>
-              {[...Array(5)].map((_, index) => (
+              {[...Array(9)].map((_, index) => (
                 <Box key={index}>
                   <Box
                     sx={{
@@ -415,13 +528,7 @@ const User = () => {
                       px: "20px",
                     }}
                   >
-                    <Typography
-                      variant="subtitle1"
-                      pb={2}
-                      sx={{
-                        color: "#D9D9D9",
-                      }}
-                    >
+                    <Typography variant="subtitle1" pb={2} sx={{}}>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Phasellus nec sem eget libero sodales accumsan.
                     </Typography>
@@ -429,6 +536,248 @@ const User = () => {
                   <Divider />
                 </Box>
               ))}
+            </Box>
+          </Box>
+        </Grid>
+        <Grid item md={11.3} xs={12}>
+          <Box
+            sx={{
+              background:
+                theme.palette.mode === "light"
+                  ? "linear-gradient(to left, #F8F8F8  , #FFFFFF )"
+                  : "linear-gradient(to bottom,#262A2C,#1F2425)",
+              border:
+                theme.palette.mode === "light"
+                  ? "0.7px solid #FFFFFF"
+                  : "1px solid #696C6D",
+              boxShadow: "0px 4px 15px 0px rgba(154, 154, 154, 0.3)",
+              borderRadius: "10px",
+              // height: "500",
+            }}
+          >
+            <Typography variant="h4" style={{ padding: "25px " }}>
+              LOYALTY PROGRAM
+            </Typography>
+            <Divider />
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                flexDirection: { xs: "column", sm: "column", md: "row" },
+                alignItems: "center",
+                gap: "10px",
+                textAlign: { xs: "center", sm: "center", md: "left" },
+                padding: "25px ",
+              }}
+            >
+              <Box>
+                <Typography variant="h4">Requirements</Typography>
+                <Typography variant="subtitle1">
+                  Volume of transactions in the month.
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  width: "100%",
+                }}
+              >
+                <Stack
+                  ml={3}
+                  spacing={8}
+                  flexWrap={"wrap"}
+                  direction={{ xs: "column", sm: "row", md: "row" }}
+                >
+                  <Box>
+                    <img
+                      src={profileIcon5}
+                      alt="john"
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                        objectFit: "contain",
+                      }}
+                    />
+                    <Typography variant="h5">P2P Trailblazer</Typography>
+                  </Box>
+                  <Box>
+                    <img
+                      src={profileIcon4}
+                      alt="john"
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                        objectFit: "contain",
+                      }}
+                    />
+                    <Typography variant="h5">Peer Pioneer</Typography>
+                  </Box>
+                  <Box>
+                    <img
+                      src={profileIcon3}
+                      alt="john"
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                        objectFit: "contain",
+                      }}
+                    />
+                    <Typography variant="h5">Master Matcher</Typography>
+                  </Box>
+                  <Box>
+                    <img
+                      src={profileIcon2}
+                      alt="john"
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                        objectFit: "contain",
+                      }}
+                    />
+                    <Typography variant="h5">Elite Exchanger</Typography>
+                  </Box>
+                  <Box>
+                    <img
+                      src={profileIcon1}
+                      alt="john"
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                        objectFit: "contain",
+                      }}
+                    />
+                    <Typography variant="h5">Elite Exchanger</Typography>
+                  </Box>
+                </Stack>
+                <Box>
+                  <Stack sx={{ width: "100%", pt: 2 }}>
+                    <Stepper alternativeLabel activeStep={1}>
+                      {steps.map((step, index) => (
+                        <Step key={index}>
+                          <StepLabel>
+                            <Box>
+                              <Typography variant="h5">
+                                {step.price}{" "}
+                              </Typography>
+                              <Typography variant="subtitle1">
+                                {step.description}
+                              </Typography>
+                            </Box>
+                          </StepLabel>
+                        </Step>
+                      ))}
+                    </Stepper>
+                  </Stack>
+                </Box>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: "1px",
+              }}
+            >
+              <Box sx={{ pl: "25px " }}>
+                <Typography variant="h4">Requirements</Typography>
+              </Box>
+              <Box
+                sx={{
+                  borderBottom: `1px solid ${
+                    theme.palette.mode === "light" ? "#000" : "#fff"
+                  }`,
+                  width: "100%",
+                }}
+              />
+            </Box>
+            <Box
+              sx={{
+                padding: "25px ",
+              }}
+            >
+              <TableContainer
+                sx={{
+                  overflowX: "auto",
+                  "&::-webkit-scrollbar": {
+                    width: "2px",
+                  },
+                  "&::-webkit-scrollbar-thumb": {
+                    backgroundColor: "#C6F051",
+                    borderRadius: "2px",
+                  },
+                  "&::-webkit-scrollbar-track": {
+                    backgroundColor: "#C6F051",
+                    borderRadius: "2px",
+                  },
+                }}
+              >
+                <Table>
+                  <TableBody>
+                    {data.map((row, rowIndex) => (
+                      <TableRow key={rowIndex} sx={{ borderBottom: "none" }}>
+                        <TableCell
+                          sx={{
+                            borderBottom: "none",
+                            fontFamily: ["Kanit", "sans-serif"].join(","),
+                            color:
+                              theme.palette.mode === "light"
+                                ? "#404040"
+                                : "#D9D9D9",
+                            fontSize: "1rem",
+                            fontWeight: 400,
+                          }}
+                        >
+                          {row.label}
+                        </TableCell>
+                        {row.hours.map((hour, index) => (
+                          <TableCell
+                            key={index}
+                            align="center"
+                            sx={{
+                              width: "135px",
+                              borderBottom: "none",
+                              fontFamily: ["Inter Variable", "sans-serif"].join(
+                                ","
+                              ),
+                              color:
+                                theme.palette.mode === "light"
+                                  ? "#404040"
+                                  : "#D9D9D9",
+                              fontSize: "0.9rem",
+                              fontWeight: 400,
+                            }}
+                          >
+                            {hour}
+                          </TableCell>
+                        ))}
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Box>
+            <Box>
+              <List>
+                <ListItem>
+                  <Typography variant="subtitle1">
+                    • MINIMUM ACTIVITY ON THE PLATFORM: 5 TRANSACTIONS
+                  </Typography>
+                </ListItem>
+                <ListItem>
+                  <Typography variant="subtitle1">
+                    • TRANSITIONAL VOLUME
+                  </Typography>
+                </ListItem>
+                <ListItem>
+                  <Typography variant="subtitle1">
+                    • MINIMUM REPUTATION OF 80%
+                  </Typography>
+                </ListItem>
+                <ListItem>
+                  <Typography variant="subtitle1">
+                    • YOU CAN CLASSIFY THE PROGRAM FROM THE SECOND MONTH
+                  </Typography>
+                </ListItem>
+              </List>
             </Box>
           </Box>
         </Grid>

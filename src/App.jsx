@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import CreateOffer from "./pages/CreateOffer/CreateOffer";
-import Dashoboard from "./pages/Dashboard/Dashoboard";
+import Dashboard from "./pages/Dashboard/Dashoboard";
 import Wallet from "./pages/Wallet";
 import Ranks from "./pages/Ranks";
 import { Home } from "./pages/home";
@@ -20,6 +20,7 @@ import { createCustomTheme } from "./theme";
 import { useState } from "react";
 import EmailVerification from "./pages/EmailVerification";
 import User from "./pages/Dashboard/User";
+import Vip from "./pages/Dashboard/VIP";
 
 function App() {
   const [mode, setMode] = useState(false);
@@ -90,7 +91,7 @@ function App() {
             }
           />
           <Route
-            path="/Dashoboard"
+            path="/Dashboard"
             element={
               <>
                 <Navbar
@@ -98,7 +99,7 @@ function App() {
                   themeToggler={themeToggler}
                   isLoggedIn={true}
                 />
-                <Dashoboard />
+                <Dashboard />
               </>
             }
           />
@@ -112,6 +113,19 @@ function App() {
                   isLoggedIn={true}
                 />
                 <User />
+              </>
+            }
+          />
+          <Route
+            path="/vip"
+            element={
+              <>
+                <Navbar
+                  mode={mode}
+                  themeToggler={themeToggler}
+                  isLoggedIn={true}
+                />
+                <Vip />
               </>
             }
           />

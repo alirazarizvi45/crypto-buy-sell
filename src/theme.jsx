@@ -32,37 +32,37 @@ export const createCustomTheme = (mode) => {
       h1: {
         fontFamily: ["Kanit", "sans-serif"].join(","),
         color: mode === "light" ? "#181818" : "#D9D9D9",
-        fontSize: "4.4 rem", //70px
+        fontSize: "4.4rem", //70px
         fontWeight: 600,
       },
       h2: {
         fontFamily: ["Kanit", "sans-serif"].join(","),
         color: mode === "light" ? "#181818" : "#D9D9D9",
-        fontSize: "2.3 rem", //38px
+        fontSize: "2.3rem", //38px
         fontWeight: 600,
       },
       h3: {
         fontFamily: ["Kanit", "sans-serif"].join(","),
         color: "#ABE900",
-        fontSize: "2 rem",
+        fontSize: "2rem",
         fontWeight: 700,
       },
       h4: {
         fontFamily: ["Kanit", "sans-serif"].join(","),
         color: mode === "light" ? "#181818" : "#ffffff",
-        fontSize: "1.25 rem",
+        fontSize: "1.25rem",
         fontWeight: 600,
       },
       h5: {
         fontFamily: ["Kanit", "sans-serif"].join(","),
-        color: "#D9D9D9",
-        fontSize: "1 rem",
+        color: mode === "light" ? "#404040" : "#D9D9D9",
+        fontSize: "1rem",
         fontWeight: 400,
       },
       h6: {
         fontFamily: ["Inter Variable", "sans-serif"].join(","),
         color: "#000000",
-        fontSize: "1 rem",
+        fontSize: "1rem",
         fontWeight: 400,
       },
       subtitle1: {

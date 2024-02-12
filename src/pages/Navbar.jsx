@@ -154,7 +154,7 @@ const Navbar = ({ themeToggler, mode, isLoggedIn }) => {
         >
           CreateOffer
         </ListItemButton>
-        {/* <ListItemButton
+        <ListItemButton
           to="/Dashboard"
           sx={{
             color: location.pathname === "/Dashboard" ? "#ABE900" : "#fff",
@@ -167,7 +167,7 @@ const Navbar = ({ themeToggler, mode, isLoggedIn }) => {
           component={Link}
         >
           Dashboard
-        </ListItemButton> */}
+        </ListItemButton>
         {/* <ListItemButton
           to="/Wallet"
           sx={{
@@ -392,7 +392,7 @@ const Navbar = ({ themeToggler, mode, isLoggedIn }) => {
                   >
                     Control Panel
                   </ListItemButton>
-                  {/* <ListItemButton
+                  <ListItemButton
                     to="/Dashboard"
                     sx={{
                       color:
@@ -408,7 +408,7 @@ const Navbar = ({ themeToggler, mode, isLoggedIn }) => {
                     component={Link}
                   >
                     Dashboard
-                  </ListItemButton> */}
+                  </ListItemButton>
                   {/* <ListItemButton
                     to="/Wallet"
                     sx={{

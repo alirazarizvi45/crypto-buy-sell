@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
@@ -89,10 +89,14 @@ export default function ProfileMenu() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem component={Link} to="/user" onClick={handleClose}>Users</MenuItem>
+        <MenuItem component={Link} to="/user" onClick={handleClose}>
+          Users
+        </MenuItem>
         <MenuItem onClick={handleClose}>Messages</MenuItem>
         <MenuItem onClick={handleClose}>Referrals</MenuItem>
-        <MenuItem onClick={handleClose}>VIP</MenuItem>
+        <MenuItem component={Link} to="/vip" onClick={handleClose}>
+          VIP
+        </MenuItem>
         <MenuItem onClick={handleClose}>Affiliate</MenuItem>
       </Menu>
     </>
