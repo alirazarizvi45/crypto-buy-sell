@@ -90,7 +90,7 @@ export default function ProfileMenu() {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem component={Link} to="/user" onClick={handleClose}>
-          Users
+          User
         </MenuItem>
         <MenuItem onClick={handleClose}>Messages</MenuItem>
         <MenuItem onClick={handleClose}>Referrals</MenuItem>

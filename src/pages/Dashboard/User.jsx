@@ -36,6 +36,7 @@ import profileIcon2 from "../../assets/profileIcon2.png";
 import profileIcon3 from "../../assets/profileIcon3.png";
 import profileIcon4 from "../../assets/profileIcon4.png";
 import profileIcon5 from "../../assets/profileIcon5.png";
+import CustomizedSteppers from "./CustomizedSteppers";
 
 const data = [
   {
@@ -462,12 +463,12 @@ const User = () => {
                 width: "4px",
               },
               "&::-webkit-scrollbar-thumb": {
-                backgroundColor: "#C6F051",
-                borderRadius: "4px",
+                backgroundColor: "#ABE900",
+                borderRadius: "2px",
               },
               "&::-webkit-scrollbar-track": {
-                backgroundColor: "#C6F051",
-                borderRadius: "4px",
+                backgroundColor: "#080D0E",
+                borderRadius: "2px",
               },
             }}
           >
@@ -578,13 +579,12 @@ const User = () => {
               </Box>
               <Box
                 sx={{
-                  width: "100%",
+                  width: { xs: "none", sm: "100%", md: "100%" },
                 }}
               >
                 <Stack
                   ml={3}
-                  spacing={8}
-                  flexWrap={"wrap"}
+                  spacing={{ xs: 2, sm: 4, md: 8 }}
                   direction={{ xs: "column", sm: "row", md: "row" }}
                 >
                   <Box>
@@ -650,22 +650,34 @@ const User = () => {
                 </Stack>
                 <Box>
                   <Stack sx={{ width: "100%", pt: 2 }}>
-                    <Stepper alternativeLabel activeStep={1}>
+                    {/* <Stepper alternativeLabel activeStep={1}>
                       {steps.map((step, index) => (
-                        <Step key={index}>
-                          <StepLabel>
+                        <Step key={index}  >
+                          <StepLabel
+                          
+                          >
                             <Box>
                               <Typography variant="h5">
                                 {step.price}{" "}
                               </Typography>
-                              <Typography variant="subtitle1">
+                              <Typography
+                                variant="subtitle1"
+                                sx={{
+                                  fontSize: {
+                                    xs: "8px",
+                                    sm: "10px",
+                                    md: "0.875rem",
+                                  },
+                                }}
+                              >
                                 {step.description}
                               </Typography>
                             </Box>
                           </StepLabel>
                         </Step>
                       ))}
-                    </Stepper>
+                    </Stepper> */}
+                    <CustomizedSteppers steps={steps} />
                   </Stack>
                 </Box>
               </Box>
@@ -701,11 +713,11 @@ const User = () => {
                     width: "2px",
                   },
                   "&::-webkit-scrollbar-thumb": {
-                    backgroundColor: "#C6F051",
+                    backgroundColor: "#ABE900",
                     borderRadius: "2px",
                   },
                   "&::-webkit-scrollbar-track": {
-                    backgroundColor: "#C6F051",
+                    backgroundColor: "#080D0E",
                     borderRadius: "2px",
                   },
                 }}
