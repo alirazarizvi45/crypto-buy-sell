@@ -1,18 +1,23 @@
 import React from "react";
 import tradingKnowledge2 from "../../assets/tradingKnowledge2.png";
+import tradingKnowledge1 from "../../assets/tradingKnowledge1.png";
 import knowledge from "../../assets/knowledge.png";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
 import { CommonButton } from "../../components";
 const TradingKnowledge = () => {
+  const theme = useTheme();
   return (
     <>
       <Box
         sx={{
-          backgroundImage: `url(${tradingKnowledge2})`,
+          backgroundImage:
+            theme.palette.mode === "light"
+              ? `url(${tradingKnowledge1})`
+              : `url(${tradingKnowledge2})`,
           backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundColor: "#070C0E",
+
           minHeight: "auto",
           padding: "50px 0px",
         }}
@@ -25,6 +30,7 @@ const TradingKnowledge = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              textAlign: { xs: "center", sm: "left", md: "left" },
             }}
           >
             <Grid
@@ -39,10 +45,18 @@ const TradingKnowledge = () => {
               <Box>
                 <Typography variant="h2" pb={2}>
                   Expand Your Trading
-                  <span style={{ color: "#ABE900" }}> Knowledge </span>
+                  <span
+                    style={{
+                      color:
+                        theme.palette.mode === "light" ? "#181818" : "#ABE900",
+                    }}
+                  >
+                    {" "}
+                    Knowledge{" "}
+                  </span>
                 </Typography>
 
-                <Typography variant="subtitle1" color="#D9D9D9" pb={2}>
+                <Typography variant="subtitle1" pb={2}>
                   Make money trading cryptocurrency with P2P exchange.
                   Increasing your cryptocurrency trading knowledge is easy when
                   you have the best free cryptocurrency guides and trading

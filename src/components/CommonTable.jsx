@@ -27,7 +27,6 @@ const theme = createTheme({
             color: "#fff",
             fontSize: "14px",
             fontFamily: "Josefin Sans Variable, sans-serif !important",
-
             borderBottom: "1px solid #424242",
             fontWeight: "400",
             textAlign: "center",
@@ -54,23 +53,22 @@ const theme = createTheme({
 });
 
 // eslint-disable-next-line react/prop-types
-const CommonTable = ({ rows, columns }) => {
+const CommonTable = ({  rows, columns }) => {
   return (
     <>
       <Box>
-        <Box>
-          <ThemeProvider theme={theme}>
-            <DataGrid
-              rows={rows}
-              columns={columns}
-              autoHeight={true}
-              disableRowSelectionOnClick
-              theme={theme}
-              hideFooterPagination={true}
-              sx={{ marginTop: "50px" }}
-            />
-          </ThemeProvider>
-        </Box>
+        <ThemeProvider theme={theme}>
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            autoHeight={true}
+            disableRowSelectionOnClick
+            theme={theme}
+            hideFooterPagination={true}
+            sx={{ marginTop: "50px" }}
+           
+          />
+        </ThemeProvider>
       </Box>
     </>
   );
