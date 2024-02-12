@@ -67,7 +67,7 @@ const LandingPage = ({ mode }) => {
       <Container maxWidth="lg">
         <Box
           sx={{
-            background: "#111B1F",
+            background:mode?"#EFEFEF": "#111B1F",
             padding: {md:"0px 80px"},
             borderRadius: "10px",
             alignItems: "center",
@@ -91,7 +91,7 @@ const LandingPage = ({ mode }) => {
               alignItems: "center",
             }}
           >
-            <Typography variant="h2" color={"#D9D9D9"}>
+            <Typography variant="h2" >
               40k+
             </Typography>
             <Typography variant="h5">TRADE OFFERS</Typography>
@@ -116,7 +116,7 @@ const LandingPage = ({ mode }) => {
               alignItems: "center",
             }}
           >
-            <Typography variant="h2" color="#ABE900">
+            <Typography variant="h2" >
               105M+
             </Typography>
             <Typography variant="h5">IN TRADES</Typography>
@@ -140,7 +140,7 @@ const LandingPage = ({ mode }) => {
               alignItems: "center",
             }}
           >
-            <Typography variant="h2" color={"#D9D9D9"}>
+            <Typography variant="h2" >
               200+
             </Typography>
             <Typography variant="h5">PAYMENT METHODS</Typography>

@@ -428,7 +428,7 @@ const HowItWorks = () => {
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography variant="h5" fontWeight="bold">
+                <Typography variant="h5" fontWeight="bold" color="#fff">
                   What is LocalCoinSwap?
                 </Typography>
               </AccordionSummary>
@@ -460,7 +460,7 @@ const HowItWorks = () => {
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography variant="h5" fontWeight="bold">
+                <Typography variant="h5" fontWeight="bold" color="#fff">
                   What Do I Need to Get Started?
                 </Typography>
               </AccordionSummary>
@@ -492,7 +492,7 @@ const HowItWorks = () => {
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography variant="h5" fontWeight="bold">
+                <Typography variant="h5" fontWeight="bold" color="#fff">
                   Is LocalCoinSwap Secure?
                 </Typography>
               </AccordionSummary>
@@ -524,7 +524,7 @@ const HowItWorks = () => {
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography variant="h5" fontWeight="bold">
+                <Typography variant="h5" fontWeight="bold" color="#fff">
                   Can I Trade Bitcoin for Cash?
                 </Typography>
               </AccordionSummary>

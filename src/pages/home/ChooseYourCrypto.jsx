@@ -211,7 +211,7 @@ const ChooseYourCrypto = ({ mode }) => {
             }}
           >
             <ThemeProvider theme={theme}>
-              <CommonTable rows={rows} columns={columns} />
+              <CommonTable mode={mode} rows={rows} columns={columns} />
             </ThemeProvider>
           </Box>
         </Container>

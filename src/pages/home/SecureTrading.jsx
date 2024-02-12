@@ -8,7 +8,7 @@ const SecureTrading = () => {
     <>
       <Box
         sx={{
-          backgroundColor: "#111B1F",
+          // backgroundColor: "#111B1F",
           padding: "50px 0px",
         }}
       >

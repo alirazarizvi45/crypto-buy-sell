@@ -247,7 +247,7 @@ const Navbar = ({ themeToggler, mode, isLoggedIn }) => {
         elevation={0}
         component="nav"
         sx={{
-          background: "#111B1F",
+          background: "transparent",
         }}
       >
         <Toolbar sx={{ justifyContent: "space-around" }}>
@@ -395,8 +395,8 @@ const Navbar = ({ themeToggler, mode, isLoggedIn }) => {
                   <ListItemButton
                     to="/Dashboard"
                     sx={{
-                      color:
-                        location.pathname === "/Dashboard" ? "#ABE900" : "#fff",
+                      // color:
+                      //   location.pathname === "/Dashboard" ? "#ABE900" : "#00000",
                       fontFamily: ["Open Sans Variable", "sans-serif"].join(
                         ","
                       ),
@@ -481,7 +481,7 @@ const Navbar = ({ themeToggler, mode, isLoggedIn }) => {
                     onClick={themeToggler}
                     sx={{
                       color: "theme.palette.success.main",
-                      backgroundColor: "#070C0E",
+                      // backgroundColor: "#070C0E",
                       py: 1.4,
                       borderRadius: "10px",
                     }}
