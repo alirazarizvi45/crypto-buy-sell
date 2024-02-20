@@ -421,14 +421,16 @@ const HowItWorks = () => {
             </Box>
             <Accordion
               defaultExpanded
-              sx={{ background: "#111B1F", borderRadius: "10px" }}
+              sx={{ 
+                // ,
+               borderRadius: "10px" }}
             >
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
+                expandIcon={<ExpandMoreIcon  />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography variant="h5" fontWeight="bold" color="#fff">
+                <Typography variant="h5" fontWeight="bold" >
                   What is LocalCoinSwap?
                 </Typography>
               </AccordionSummary>
@@ -440,7 +442,7 @@ const HowItWorks = () => {
                 }}
               />
               <AccordionDetails>
-                <Typography variant="subtitle1" color="#fff">
+                <Typography variant="subtitle1" >
                   LocalCoinSwap is the most popular non-custodial cryptocurrency
                   marketplace that enables you to buy bitcoin and trade the most
                   popular types of cryptocurrency with other traders from around
@@ -453,14 +455,14 @@ const HowItWorks = () => {
             </Accordion>
             <Accordion
               defaultExpanded
-              sx={{ background: "#111B1F", borderRadius: "10px" }}
+              sx={{ borderRadius: "10px" }}
             >
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
+                expandIcon={<ExpandMoreIcon  />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography variant="h5" fontWeight="bold" color="#fff">
+                <Typography variant="h5" fontWeight="bold" >
                   What Do I Need to Get Started?
                 </Typography>
               </AccordionSummary>
@@ -472,7 +474,7 @@ const HowItWorks = () => {
                 }}
               />
               <AccordionDetails>
-                <Typography variant="subtitle1" color="#fff">
+                <Typography variant="subtitle1" >
                   LocalCoinSwap is the most popular non-custodial cryptocurrency
                   marketplace that enables you to buy bitcoin and trade the most
                   popular types of cryptocurrency with other traders from around
@@ -485,14 +487,14 @@ const HowItWorks = () => {
             </Accordion>
             <Accordion
               defaultExpanded
-              sx={{ background: "#111B1F", borderRadius: "10px" }}
+              sx={{ borderRadius: "10px" }}
             >
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
+                expandIcon={<ExpandMoreIcon  />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography variant="h5" fontWeight="bold" color="#fff">
+                <Typography variant="h5" fontWeight="bold" >
                   Is LocalCoinSwap Secure?
                 </Typography>
               </AccordionSummary>
@@ -504,7 +506,7 @@ const HowItWorks = () => {
                 }}
               />
               <AccordionDetails>
-                <Typography variant="subtitle1" color="#fff">
+                <Typography variant="subtitle1" >
                   LocalCoinSwap is the most popular non-custodial cryptocurrency
                   marketplace that enables you to buy bitcoin and trade the most
                   popular types of cryptocurrency with other traders from around
@@ -517,14 +519,14 @@ const HowItWorks = () => {
             </Accordion>
             <Accordion
               defaultExpanded
-              sx={{ background: "#111B1F", borderRadius: "10px" }}
+              sx={{  borderRadius: "10px" }}
             >
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
+                expandIcon={<ExpandMoreIcon  />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography variant="h5" fontWeight="bold" color="#fff">
+                <Typography variant="h5" fontWeight="bold" >
                   Can I Trade Bitcoin for Cash?
                 </Typography>
               </AccordionSummary>
@@ -536,7 +538,7 @@ const HowItWorks = () => {
                 }}
               />
               <AccordionDetails>
-                <Typography variant="subtitle1" color="#fff">
+                <Typography variant="subtitle1" >
                   LocalCoinSwap is the most popular non-custodial cryptocurrency
                   marketplace that enables you to buy bitcoin and trade the most
                   popular types of cryptocurrency with other traders from around
@@ -550,12 +552,7 @@ const HowItWorks = () => {
           </Box>
         </Container>
       </Box>
-      <Divider
-        sx={{
-          width: "100%",
-          borderBottom: "33px solid #737373D4 ",
-        }}
-      />
+ 
     </>
   );
 };

@@ -8,7 +8,7 @@ const CustomerSupport = () => {
     <>
       <Box
         sx={{
-          backgroundColor: "#111B1F",
+          // backgroundColor: "#111B1F",
           padding: "100px 0px",
         }}
       >

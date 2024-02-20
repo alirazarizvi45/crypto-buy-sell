@@ -17,8 +17,8 @@ const StepOne = () => {
   return (
     <Box >
       <Box>
-        <Typography variant="h6" color="#ffffff" sx={{ my: 1 }}>
-          You Pay
+        <Typography  variant="h5"   sx={{ my: 1 }}>
+          You Pay 
         </Typography>
         <FormControl sx={{ width: "100%" }} variant="outlined">
           <OutlinedInput
@@ -35,14 +35,15 @@ const StepOne = () => {
             }}
           />
         </FormControl>
-        <Stack direction="row" spacing="80px" sx={{ m: 2 }}>
-          <FormHelperText id="outlined-weight-helper-text">
-            Minimum swap amount: <span style={{ color: "#ABE900" }}>$0.00</span>
-          </FormHelperText>
-          <FormHelperText id="outlined-weight-helper-text">
+        <Stack direction="row" spacing="80px" >
+        <Typography  variant="h5"   sx={{ my: 2 }}>
+         Minimum swap amount: <span style={{ color: "#ABE900" }}>$0.00</span>
+        </Typography>
+  
+          <Typography  variant="h5"   sx={{ my: 1 }}>
             Spendable balance:{" "}
             <span style={{ color: "#ABE900" }}>Select token</span>
-          </FormHelperText>
+          </Typography>
         </Stack>
         <Box sx={{ textAlign: "center" }}>
           <IconButton
@@ -52,7 +53,7 @@ const StepOne = () => {
             <img src={swapbtn} alt="swap" />
           </IconButton>
         </Box>
-        <Typography variant="h6" color="#ffffff" sx={{ my: 1 }}>
+        <Typography  variant="h5"   sx={{ my: 1 }}>
           You Receive
         </Typography>
         <FormControl sx={{ width: "100%" }} variant="outlined">
@@ -70,9 +71,10 @@ const StepOne = () => {
             }}
           />
         </FormControl>
-        <FormHelperText id="outlined-weight-helper-text" sx={{ m: 2 }}>
-          Estimated swap time:
-        </FormHelperText>
+        <Typography  variant="h5"   sx={{ my: 1 }}>
+        Estimated swap time:
+        </Typography>
+       
         <Button
           variant="contained"
           fullWidth

@@ -55,7 +55,6 @@ const Register = ({ mode }) => {
       <Box
         sx={{
           minHeight: "100vh",
-
           backgroundImage: `url(${registerbg})`,
           backgroundPosition: "contain",
           backgroundRepeat: "no-repeat",
@@ -99,7 +98,6 @@ const Register = ({ mode }) => {
                   </Typography>
                 </Box>
               )}
-
               {isLogin && (
                 <Box>
                   <Typography variant="h2">Welcome back</Typography>
