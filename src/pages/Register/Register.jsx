@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import registerbg from "../../assets/registerbg.png";
 import { CustomizeInput } from "../../components/CustomizeInput";
 import att from "../../assets/att.png";
@@ -50,6 +50,109 @@ const Register = ({ mode }) => {
   const handlePasswordVisibility2 = () => {
     setShowPassword2((prevShowPassword2) => !prevShowPassword2);
   };
+  const handleCountryChange = (event, newValue) => {
+    setFormData((prevFormData) => ({ ...prevFormData, country: newValue }));
+  };
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+    country: "",
+    refferalCode: "",
+  });
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+    country: "",
+    refferalCode: "",
+  });
+  const inputRefs = {
+    email: useRef(),
+    password: useRef(),
+    confirmPassword: useRef(),
+    country: useRef(),
+    refferalCode: useRef(),
+  };
+  const validateForm = () => {
+    let isValid = true;
+    let newErrors = {};
+
+    // Email
+    if (formData.email.trim() === "") {
+      isValid = false;
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      isValid = false;
+      newErrors.email = "Email is invalid";
+    }
+
+    // Country
+    if (!formData.country) {
+      isValid = false;
+      newErrors.country = "Country is required";
+    }
+
+    // New Password
+    if (formData.password.trim() === "") {
+      isValid = false;
+      newErrors.password = "Password is required";
+    } else if (formData.password.length < 8) {
+      isValid = false;
+      newErrors.password = "Password must be at least 8 characters";
+    }
+
+    // Confirm Password
+    if (formData.confirmPassword.trim() === "") {
+      isValid = false;
+      newErrors.confirmPassword = "Please confirm your password";
+    } else if (formData.password !== formData.confirmPassword) {
+      isValid = false;
+      newErrors.confirmPassword = "Passwords do not match";
+    }
+    // Referral Code
+    if (formData.refferalCode.trim() === "") {
+      isValid = false;
+      newErrors.refferalCode = "Referral code is required";
+    } else if (formData.refferalCode.length !== 6) {
+      isValid = false;
+      newErrors.refferalCode = "Referral code must be 6 characters long";
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+  const focusOnErrorField = () => {
+    for (const fieldName in errors) {
+      if (errors[fieldName]) {
+        inputRefs[fieldName].current.focus();
+        break;
+      }
+    }
+  };
+
+  console.log("errors");
+  useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      focusOnErrorField();
+    }
+  }, [errors]);
+  const handleSubmit = async () => {
+    try {
+      if (!validateForm()) {
+        return;
+      }
+
+      console.log("Form submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
+
   return (
     <>
       <Box
@@ -166,7 +269,6 @@ const Register = ({ mode }) => {
                     },
                     padding: "5px 20px",
                   }}
-                  // onClick={HandleRegister}
                 >
                   Register
                 </Button>
@@ -181,7 +283,13 @@ const Register = ({ mode }) => {
                 >
                   <CustomizeInput
                     placeholder="Email Address"
+                    name="email"
+                    inputRef={inputRefs.email}
+                    error={!!errors.email}
+                    helperText={errors.email}
                     fullWidth
+                    value={formData.email}
+                    onChange={handleInputChange}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment
@@ -230,7 +338,13 @@ const Register = ({ mode }) => {
                   />
                   <CustomizeInput
                     placeholder="Password"
+                    name="password"
+                    inputRef={inputRefs.password}
+                    error={!!errors.password}
+                    helperText={errors.password}
                     fullWidth
+                    value={formData.password}
+                    onChange={handleInputChange}
                     type={showPassword1 ? "text" : "password"}
                     InputProps={{
                       startAdornment: (
@@ -358,7 +472,13 @@ const Register = ({ mode }) => {
                 >
                   <CustomizeInput
                     placeholder="Email Address"
+                    name="email"
+                    inputRef={inputRefs.email}
+                    error={!!errors.email}
+                    helperText={errors.email}
                     fullWidth
+                    value={formData.email}
+                    onChange={handleInputChange}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment
@@ -408,7 +528,13 @@ const Register = ({ mode }) => {
                   />
                   <CustomizeInput
                     placeholder="Password"
+                    name="password"
+                    inputRef={inputRefs.password}
+                    error={!!errors.password}
+                    helperText={errors.password}
                     fullWidth
+                    value={formData.password}
+                    onChange={handleInputChange}
                     type={showPassword1 ? "text" : "password"}
                     InputProps={{
                       startAdornment: (
@@ -470,7 +596,13 @@ const Register = ({ mode }) => {
                   />
                   <CustomizeInput
                     placeholder="Re-Type Password"
+                    name="confirmPassword"
+                    inputRef={inputRefs.confirmPassword}
+                    error={!!errors.confirmPassword}
+                    helperText={errors.confirmPassword}
                     fullWidth
+                    value={formData.confirmPassword}
+                    onChange={handleInputChange}
                     type={showPassword2 ? "text" : "password"}
                     InputProps={{
                       startAdornment: (
@@ -569,6 +701,11 @@ const Register = ({ mode }) => {
                     )}
                     renderInput={(params) => (
                       <CustomizeInput
+                        value={formData.country || null}
+                        onChange={handleCountryChange}
+                        inputRef={inputRefs.country}
+                        error={!!errors.country}
+                        helperText={errors.country}
                         {...params}
                         placeholder="Choose a country"
                         InputProps={{
@@ -674,7 +811,11 @@ const Register = ({ mode }) => {
                       pt: "20px",
                     }}
                   >
-                    <CommonButton style={{ padding: "10px" }} fullWidth>
+                    <CommonButton
+                      style={{ padding: "10px" }}
+                      fullWidth
+                      onClick={handleSubmit}
+                    >
                       Register
                     </CommonButton>
                   </Box>

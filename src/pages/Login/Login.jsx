@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import registerbg from "../../assets/registerbg.png";
 import { CustomizeInput } from "../../components/CustomizeInput";
 import att from "../../assets/att.png";
@@ -43,6 +43,73 @@ const Login = ({ mode }) => {
     setShowPassword((prevShowPassword1) => !prevShowPassword1);
   };
 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+  });
+  const inputRefs = {
+    email: useRef(),
+    password: useRef(),
+  };
+  const validateForm = () => {
+    let isValid = true;
+    let newErrors = {};
+
+    // Email
+    if (formData.email.trim() === "") {
+      isValid = false;
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      isValid = false;
+      newErrors.email = "Email is invalid";
+    }
+
+    // New Password
+    if (formData.password.trim() === "") {
+      isValid = false;
+      newErrors.password = "Password is required";
+    } else if (formData.password.length < 8) {
+      isValid = false;
+      newErrors.password = "Password must be at least 8 characters";
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+  const focusOnErrorField = () => {
+    for (const fieldName in errors) {
+      if (errors[fieldName]) {
+        inputRefs[fieldName].current.focus();
+        break;
+      }
+    }
+  };
+
+  console.log("errors");
+  useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      focusOnErrorField();
+    }
+  }, [errors]);
+  const handleSubmit = async () => {
+    try {
+      if (!validateForm()) {
+        return;
+      }
+
+      console.log("Form submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
   return (
     <>
       <Box
@@ -83,7 +150,7 @@ const Login = ({ mode }) => {
                       marginTop: "10px",
                     }}
                   >
-                    Please enter your email and password
+                    Please enter your email and passwordddd
                   </Typography>
                 </Box>
               )}
@@ -153,6 +220,12 @@ const Login = ({ mode }) => {
               >
                 <CustomizeInput
                   placeholder="Email Address"
+                  onChange={handleInputChange}
+                  name="email"
+                  inputRef={inputRefs.email}
+                  error={!!errors.email}
+                  helperText={errors.email}
+                  value={formData.email}
                   fullWidth
                   InputProps={{
                     startAdornment: (
@@ -203,7 +276,13 @@ const Login = ({ mode }) => {
                 />
                 <CustomizeInput
                   placeholder="Password"
+                  name="password"
+                  inputRef={inputRefs.password}
+                  error={!!errors.password}
+                  helperText={errors.password}
                   fullWidth
+                  value={formData.password}
+                  onChange={handleInputChange}
                   type={showPassword ? "text" : "password"}
                   InputProps={{
                     startAdornment: (
@@ -269,7 +348,11 @@ const Login = ({ mode }) => {
                     pt: "20px",
                   }}
                 >
-                  <CommonButton style={{ padding: "10px" }} fullWidth>
+                  <CommonButton
+                    style={{ padding: "10px" }}
+                    fullWidth
+                    onClick={handleSubmit}
+                  >
                     Login
                   </CommonButton>
                 </Box>
