@@ -8,7 +8,7 @@ const SecureTrading = () => {
     <>
       <Box
         sx={{
-          backgroundColor: "#111B1F",
+          // backgroundColor: "#111B1F",
           padding: "50px 0px",
         }}
       >
@@ -34,7 +34,7 @@ const SecureTrading = () => {
               <Box
                 sx={{
                   width: "400px",
-                  height: "400px",
+                  height: "300px",
                 }}
               >
                 <img
@@ -55,10 +55,11 @@ const SecureTrading = () => {
               sx={{
                 display: "flex",
                 justifyContent: "center",
+                textAlign:{xs:"center", sm:"left",md:"left"}
               }}
             >
               <Box>
-                <Typography variant="h2" pb={2}>
+                <Typography variant="h2" pb={2} color={"#D9D9D9"}>
                   Secure Trading Made{" "}
                   <span style={{ color: "#ABE900" }}>Easy</span>
                 </Typography>

@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import CreateOffer from "./pages/CreateOffer/CreateOffer";
-import Dashoboard from "./pages/Dashoboard";
+import Dashboard from "./pages/Dashboard/Dashoboard";
 import Wallet from "./pages/Wallet";
 import Ranks from "./pages/Ranks";
 import { Home } from "./pages/home";
@@ -14,116 +14,167 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import ControlPanel from "./pages/ControlPanel/ControlPanel";
 
+import { responsiveFontSizes } from "@mui/material/styles";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { createCustomTheme } from "./theme";
+import { useState } from "react";
+import EmailVerification from "./pages/EmailVerification";
+import User from "./pages/Dashboard/User";
+import Vip from "./pages/Dashboard/VIP";
+
 function App() {
+  const [mode, setMode] = useState(false);
+
+  let theme = createCustomTheme(mode ? "light" : "dark");
+  theme = responsiveFontSizes(theme);
+  const themeToggler = () => {
+    setMode(!mode);
+  };
   return (
     <>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Home />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/BuyCrypto"
-          element={
-            <>
-              <Navbar />
-              <BuyCrypto />
-            </>
-          }
-        />
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Home mode={mode} themeToggler={themeToggler} />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/BuyCrypto"
+            element={
+              <>
+                <Navbar mode={mode} themeToggler={themeToggler} />
+                <BuyCrypto />
+              </>
+            }
+          />
 
-        <Route
-          path="/SellCrypto"
-          element={
-            <>
-              <Navbar />
-              <SellCrypto />
-            </>
-          }
-        />
-        <Route
-          path="/Swap"
-          element={
-            <>
-              <Navbar />
-              <Steps />
-            </>
-          }
-        />
-        <Route
-          path="/CreateOffer"
-          element={
-            <>
-              <Navbar />
-              <CreateOffer />
-            </>
-          }
-        />
-        <Route
-          path="/ControlPanel"
-          element={
-            <>
-              <Navbar />
-              <ControlPanel />
-            </>
-          }
-        />
-        <Route
-          path="/Dashoboard"
-          element={
-            <>
-              <Dashoboard />
-            </>
-          }
-        />
-        <Route
-          path="/Wallet"
-          element={
-            <>
-              <Wallet />
-            </>
-          }
-        />
-        <Route
-          path="/Wallet"
-          element={
-            <>
-              <Wallet />
-            </>
-          }
-        />
-        <Route
-          path="/Ranks"
-          element={
-            <>
-              <Ranks />
-            </>
-          }
-        />
-        <Route
-          path="/Register"
-          element={
-            <>
-              <Navbar />
-              <Register />
-            </>
-          }
-        />
-        <Route
-          path="/Login"
-          element={
-            <>
-              <Navbar />
-              <Login />
-            </>
-          }
-        />
-      </Routes>
+          <Route
+            path="/SellCrypto"
+            element={
+              <>
+                <Navbar mode={mode} themeToggler={themeToggler} />
+                <SellCrypto />
+              </>
+            }
+          />
+          <Route
+            path="/Swap"
+            element={
+              <>
+                <Navbar mode={mode} themeToggler={themeToggler} />
+                <Steps />
+              </>
+            }
+          />
+          <Route
+            path="/CreateOffer"
+            element={
+              <>
+                <Navbar mode={mode} themeToggler={themeToggler} />
+                <CreateOffer />
+              </>
+            }
+          />
+          <Route
+            path="/ControlPanel"
+            element={
+              <>
+                <Navbar mode={mode} themeToggler={themeToggler} />
+                <ControlPanel />
+              </>
+            }
+          />
+          <Route
+            path="/Dashboard"
+            element={
+              <>
+                <Navbar
+                  mode={mode}
+                  themeToggler={themeToggler}
+                  isLoggedIn={true}
+                />
+                <Dashboard />
+              </>
+            }
+          />
+          <Route
+            path="/user"
+            element={
+              <>
+                <Navbar
+                  mode={mode}
+                  themeToggler={themeToggler}
+                  isLoggedIn={true}
+                />
+                <User />
+              </>
+            }
+          />
+          <Route
+            path="/vip"
+            element={
+              <>
+                <Navbar
+                  mode={mode}
+                  themeToggler={themeToggler}
+                  isLoggedIn={true}
+                />
+                <Vip />
+              </>
+            }
+          />
+          <Route
+            path="/Wallet"
+            element={
+              <>
+                <Wallet />
+              </>
+            }
+          />
+
+          <Route
+            path="/Ranks"
+            element={
+              <>
+                <Ranks />
+              </>
+            }
+          />
+          <Route
+            path="/Register"
+            element={
+              <>
+                <Navbar mode={mode} themeToggler={themeToggler} />
+                <Register mode={mode} />
+              </>
+            }
+          />
+          <Route
+            path="/Login"
+            element={
+              <>
+                <Navbar mode={mode} themeToggler={themeToggler} />
+                <Login mode={mode} />
+              </>
+            }
+          />
+          <Route
+            path="/email-verification"
+            element={
+              <>
+                <Navbar mode={mode} themeToggler={themeToggler} />
+                <EmailVerification mode={mode} />
+              </>
+            }
+          />
+        </Routes>
+      </ThemeProvider>
     </>
   );
 }

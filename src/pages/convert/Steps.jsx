@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material";
+import { Box, Container, useTheme } from "@mui/material";
 
 import StepOne from "./stepers/StepOne";
 import StepTwo from "./stepers/StepTwo";
@@ -11,6 +11,7 @@ import { useState } from "react";
 import { Done } from "@mui/icons-material";
 
 const Steps = () => {
+  const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
 
   const handleStep = (step) => () => {
@@ -33,11 +34,13 @@ const Steps = () => {
     <StepFive />,
   ];
   return (
-    <Box sx={{ background: "#070C0E", pt: "150px" }}>
+    <Box sx={{ 
+      // background: theme.palette.background.default,
+     pt: "150px" }}>
       <Container maxWidth="md">
         <Box
           sx={{
-            background: "#111B1F",
+            // background: "#111B1F",
             border: "0.4px solid rgba(140, 140, 140, 0.40)",
             boxShadow: "0px 2px 9px 0px rgba(151, 151, 151, 0.19)",
             borderRadius: "20px",
@@ -52,7 +55,9 @@ const Steps = () => {
                     onClick={handleStep(index)}
                     icon={
                       activeStep === index ? (
-                        <Done style={{ color: "#4CAF50" }} />
+                        <Done 
+                        style={{ color: "#4CAF50" }} 
+                        />
                       ) : (
                         ""
                       )

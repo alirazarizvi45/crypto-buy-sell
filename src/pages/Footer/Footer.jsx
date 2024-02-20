@@ -22,7 +22,7 @@ const Footer = () => {
     <>
       <Box
         sx={{
-          backgroundColor: "#070C0E",
+          // backgroundColor: "#070C0E",
         }}
       >
         <Container maxWidth="lg">
@@ -30,14 +30,14 @@ const Footer = () => {
             <Grid item md={2.4} xs={6}>
               <Box>
                 <Typography variant="h3">Logo</Typography>
-                <Typography variant="subtitle1" color="#D9D9D9" pb={2}>
+                <Typography variant="subtitle1"  pb={2}>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry.
                 </Typography>
               </Box>
 
               <Box>
-                <Typography variant="h4" color="#fff">
+                <Typography variant="h4" >
                   Follow Us
                 </Typography>
                 <Divider
@@ -89,7 +89,7 @@ const Footer = () => {
                   paddingBottom: "10px",
                 }}
               >
-                <Typography variant="h4" color="#fff">
+                <Typography variant="h4" >
                   Our Community
                 </Typography>
                 <Divider
@@ -112,7 +112,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -125,7 +125,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -137,7 +137,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -149,7 +149,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -161,7 +161,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -173,7 +173,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -185,7 +185,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -200,7 +200,7 @@ const Footer = () => {
                   paddingBottom: "10px",
                 }}
               >
-                <Typography variant="h4" color="#fff">
+                <Typography variant="h4" >
                   P2P Trading Guides
                 </Typography>
                 <Divider
@@ -223,7 +223,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -236,7 +236,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -248,7 +248,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -260,7 +260,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -272,7 +272,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -287,7 +287,7 @@ const Footer = () => {
                   paddingBottom: "10px",
                 }}
               >
-                <Typography variant="h4" color="#fff">
+                <Typography variant="h4" >
                   Support
                 </Typography>
                 <Divider
@@ -310,7 +310,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -323,7 +323,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -335,7 +335,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -347,7 +347,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -359,7 +359,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -374,7 +374,7 @@ const Footer = () => {
                   paddingBottom: "10px",
                 }}
               >
-                <Typography variant="h4" color="#fff">
+                <Typography variant="h4" >
                   Legal
                 </Typography>
                 <Divider
@@ -397,7 +397,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -410,7 +410,7 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    color: "#D9D9D9",
+                    
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
                   }}
@@ -423,12 +423,12 @@ const Footer = () => {
         </Container>
         <Box
           sx={{
-            backgroundColor: "#111B1F",
+          
             padding: "20px",
             mt: "50px",
           }}
         >
-          <Typography variant="subtitle1" color="#fff" textAlign="center">
+          <Typography variant="subtitle1"  textAlign="center">
             Copyright © 2024 All rights reserved
           </Typography>
         </Box>

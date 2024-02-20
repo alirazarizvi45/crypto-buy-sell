@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import React, { useRef, useState } from "react";
 import howitworks from "../../assets/howitworks.png";
+import howitworks1 from "../../assets/howitworks1.png";
 import { CommonButton } from "../../components";
 import john from "../../assets/john.png";
 import stars from "../../assets/stars.png";
@@ -18,7 +19,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useTheme } from "@emotion/react";
 const HowItWorks = () => {
+  const theme = useTheme();
   const [activeSlide, setActiveSlide] = useState(0);
   const sliderRef = useRef();
   const sliderSettings = {
@@ -101,13 +104,18 @@ const HowItWorks = () => {
                   borderRadius: "50%",
                   border: "none",
                   cursor: "pointer",
-                  background: isActive
-                    ? `linear-gradient(rgba(171, 233, 0,  ${dotOpacity}), rgba(171, 233, 0, ${
-                        (index + 1) * 0.2
-                      }))`
-                    : `linear-gradient(rgba(255,252, 255,  ${dotOpacity}), rgba(255,255,255, ${
-                        (index + 1) * 0.2
-                      }))`,
+                  background:
+                    theme.palette.mode !== "light"
+                      ? isActive
+                        ? `linear-gradient(rgba(171, 233, 0,  ${dotOpacity}), rgba(171, 233, 0, ${
+                            (index + 1) * 0.2
+                          }))`
+                        : `linear-gradient(rgba(255, 252, 255,  ${dotOpacity}), rgba(255, 255, 255, ${
+                            (index + 1) * 0.2
+                          }))`
+                      : isActive
+                      ? "#ABE900"
+                      : "#000",
                 }}
                 onClick={() => {
                   sliderRef.current.slickGoTo(index);
@@ -174,11 +182,14 @@ const HowItWorks = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url(${howitworks})`,
+          backgroundImage:
+            theme.palette.mode === "light"
+              ? `url(${howitworks1})`
+              : `url(${howitworks})`,
           backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundColor: "#070C0E",
+          // backgroundColor: "#070C0E",
           minHeight: "100vh",
           padding: "50px 0px 100px 0px",
         }}
@@ -191,9 +202,16 @@ const HowItWorks = () => {
         >
           <Typography variant="h2" pb={2}>
             How it
-            <span style={{ color: "#ABE900" }}> works? </span>
+            <span
+              style={{
+                color: theme.palette.mode === "light" ? "#181818" : "#ABE900",
+              }}
+            >
+              {" "}
+              works?{" "}
+            </span>
           </Typography>
-          <Typography variant="subtitle1" color="#D9D9D9" pb={2}>
+          <Typography variant="subtitle1" pb={2}>
             Trade with confidence on the first P2P exchange market.
           </Typography>
         </Box>
@@ -229,12 +247,7 @@ const HowItWorks = () => {
                   <Typography variant="h4" pb={2}>
                     {item.heading}
                   </Typography>
-                  <Typography
-                    variant="subtitle1"
-                    color="#D9D9D9"
-                    textAlign="center"
-                    pb={2}
-                  >
+                  <Typography variant="subtitle1" textAlign="center" pb={2}>
                     {item.description}
                   </Typography>
                 </Box>
@@ -264,10 +277,19 @@ const HowItWorks = () => {
               }}
             >
               <Typography variant="h2" pb={1}>
-                What our <span style={{ color: "#ABE900" }}> users </span>
+                What our{" "}
+                <span
+                  style={{
+                    color:
+                      theme.palette.mode === "light" ? "#181818" : "#ABE900",
+                  }}
+                >
+                  {" "}
+                  users{" "}
+                </span>
                 are saying
               </Typography>
-              <Typography variant="subtitle1" color="#D9D9D9" pb={6}>
+              <Typography variant="subtitle1" pb={6}>
                 A trading experience people love to talk about
               </Typography>
             </Box>
@@ -278,7 +300,11 @@ const HowItWorks = () => {
                   <Box
                     sx={{
                       background:
-                        activeSlide === index ? "#ABE900" : "transparent",
+                        activeSlide === index
+                          ? "#ABE900"
+                          : theme.palette.mode === "light"
+                          ? "linear-gradient(to left, #F8F8F8  , #FFFFFF )"
+                          : "transparent",
 
                       border: "1px solid #545759",
                       borderRadius: activeSlide === index ? "30px" : "20px",
@@ -322,7 +348,12 @@ const HowItWorks = () => {
                       >
                         <Typography
                           sx={{
-                            color: activeSlide === index ? "#000000" : "#fff",
+                            color:
+                              activeSlide === index
+                                ? "#000000"
+                                : theme.palette.mode === "light"
+                                ? "#181818"
+                                : "#fff",
                           }}
                         >
                           {user.title}
@@ -350,7 +381,12 @@ const HowItWorks = () => {
                         variant="subtitle1"
                         pb={2}
                         sx={{
-                          color: activeSlide === index ? "#000000" : "#D9D9D9",
+                          color:
+                            activeSlide === index
+                              ? "#000000"
+                              : theme.palette.mode === "light"
+                              ? "#181818"
+                              : "#D9D9D9",
                         }}
                       >
                         {user.description}
@@ -373,19 +409,28 @@ const HowItWorks = () => {
             >
               <Typography variant="h2" pb={1}>
                 Frequently Asked{" "}
-                <span style={{ color: "#ABE900" }}>Questions</span>
+                <span
+                  style={{
+                    color:
+                      theme.palette.mode === "light" ? "#181818" : "#ABE900",
+                  }}
+                >
+                  Questions
+                </span>
               </Typography>
             </Box>
             <Accordion
               defaultExpanded
-              sx={{ background: "#111B1F", borderRadius: "10px" }}
+              sx={{ 
+                // ,
+               borderRadius: "10px" }}
             >
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
+                expandIcon={<ExpandMoreIcon  />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography variant="h5" fontWeight="bold">
+                <Typography variant="h5" fontWeight="bold" >
                   What is LocalCoinSwap?
                 </Typography>
               </AccordionSummary>
@@ -397,7 +442,7 @@ const HowItWorks = () => {
                 }}
               />
               <AccordionDetails>
-                <Typography variant="subtitle1">
+                <Typography variant="subtitle1" >
                   LocalCoinSwap is the most popular non-custodial cryptocurrency
                   marketplace that enables you to buy bitcoin and trade the most
                   popular types of cryptocurrency with other traders from around
@@ -410,14 +455,14 @@ const HowItWorks = () => {
             </Accordion>
             <Accordion
               defaultExpanded
-              sx={{ background: "#111B1F", borderRadius: "10px" }}
+              sx={{ borderRadius: "10px" }}
             >
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
+                expandIcon={<ExpandMoreIcon  />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography variant="h5" fontWeight="bold">
+                <Typography variant="h5" fontWeight="bold" >
                   What Do I Need to Get Started?
                 </Typography>
               </AccordionSummary>
@@ -429,7 +474,7 @@ const HowItWorks = () => {
                 }}
               />
               <AccordionDetails>
-                <Typography variant="subtitle1">
+                <Typography variant="subtitle1" >
                   LocalCoinSwap is the most popular non-custodial cryptocurrency
                   marketplace that enables you to buy bitcoin and trade the most
                   popular types of cryptocurrency with other traders from around
@@ -442,14 +487,14 @@ const HowItWorks = () => {
             </Accordion>
             <Accordion
               defaultExpanded
-              sx={{ background: "#111B1F", borderRadius: "10px" }}
+              sx={{ borderRadius: "10px" }}
             >
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
+                expandIcon={<ExpandMoreIcon  />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography variant="h5" fontWeight="bold">
+                <Typography variant="h5" fontWeight="bold" >
                   Is LocalCoinSwap Secure?
                 </Typography>
               </AccordionSummary>
@@ -461,7 +506,7 @@ const HowItWorks = () => {
                 }}
               />
               <AccordionDetails>
-                <Typography variant="subtitle1">
+                <Typography variant="subtitle1" >
                   LocalCoinSwap is the most popular non-custodial cryptocurrency
                   marketplace that enables you to buy bitcoin and trade the most
                   popular types of cryptocurrency with other traders from around
@@ -474,14 +519,14 @@ const HowItWorks = () => {
             </Accordion>
             <Accordion
               defaultExpanded
-              sx={{ background: "#111B1F", borderRadius: "10px" }}
+              sx={{  borderRadius: "10px" }}
             >
               <AccordionSummary
-                expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
+                expandIcon={<ExpandMoreIcon  />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                <Typography variant="h5" fontWeight="bold">
+                <Typography variant="h5" fontWeight="bold" >
                   Can I Trade Bitcoin for Cash?
                 </Typography>
               </AccordionSummary>
@@ -493,7 +538,7 @@ const HowItWorks = () => {
                 }}
               />
               <AccordionDetails>
-                <Typography variant="subtitle1">
+                <Typography variant="subtitle1" >
                   LocalCoinSwap is the most popular non-custodial cryptocurrency
                   marketplace that enables you to buy bitcoin and trade the most
                   popular types of cryptocurrency with other traders from around
@@ -507,12 +552,7 @@ const HowItWorks = () => {
           </Box>
         </Container>
       </Box>
-      <Divider
-        sx={{
-          width: "100%",
-          borderBottom: "33px solid #737373D4 ",
-        }}
-      />
+ 
     </>
   );
 };
