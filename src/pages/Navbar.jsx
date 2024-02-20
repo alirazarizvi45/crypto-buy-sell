@@ -267,7 +267,7 @@ const Navbar = () => {
                     }}
                     component={Link}
                   >
-                    CreateOffer
+                    Create Offer
                   </ListItemButton>
                   <ListItemButton
                     to="/ControlPanel"

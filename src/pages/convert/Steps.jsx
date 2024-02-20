@@ -26,7 +26,6 @@ const Steps = () => {
   };
 
   const steps = [
-   
     <StepOne />,
     <StepTwo />,
     <StepThree />,
@@ -64,11 +63,12 @@ const Steps = () => {
             </Stepper>
             <div>
               <Typography>{steps[activeStep]}</Typography>
-              <Box mt={4}
-              sx={{
-                display:"flex",
-                justifyContent:"space-between"
-              }}
+              <Box
+                mt={4}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
               >
                 <Button disabled={activeStep === 0} onClick={handleBack}>
                   Back

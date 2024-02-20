@@ -120,7 +120,6 @@ const HowItWorks = () => {
     ),
   };
 
- 
   const data = [
     {
       title: "1",
