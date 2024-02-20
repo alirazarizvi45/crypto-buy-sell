@@ -38,19 +38,15 @@ const Register = ({ mode }) => {
   const [showPassword2, setShowPassword2] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const location = useLocation();
-  const HandleLogin = () => {
-    setIsLogin(true);
-  };
-  const HandleRegister = () => {
-    setIsLogin(false);
-  };
+
   const handlePasswordVisibility1 = () => {
     setShowPassword1((prevShowPassword1) => !prevShowPassword1);
   };
   const handlePasswordVisibility2 = () => {
     setShowPassword2((prevShowPassword2) => !prevShowPassword2);
   };
-  const handleCountryChange = (event, newValue) => {
+  const handleCountryChange = (newValue) => {
+    setSelectedCountry(newValue)
     setFormData((prevFormData) => ({ ...prevFormData, country: newValue }));
   };
   const handleInputChange = (event) => {
@@ -128,14 +124,14 @@ const Register = ({ mode }) => {
   };
   const focusOnErrorField = () => {
     for (const fieldName in errors) {
-      if (errors[fieldName]) {
-        inputRefs[fieldName].current.focus();
+      if (errors[fieldName] && inputRefs[fieldName]?.current) {
+        console.log(errors[fieldName],"fieldName")
+        inputRefs[fieldName]?.current.focus();
         break;
       }
     }
   };
 
-  console.log("errors");
   useEffect(() => {
     if (Object.keys(errors).length > 0) {
       focusOnErrorField();
@@ -152,6 +148,9 @@ const Register = ({ mode }) => {
       console.error("Error submitting form:", error);
     }
   };
+
+
+  console.log(formData ,"formData---->");
 
   return (
     <>
@@ -269,6 +268,7 @@ const Register = ({ mode }) => {
                     },
                     padding: "5px 20px",
                   }}
+                  // onClick={HandleRegister}
                 >
                   Register
                 </Button>
@@ -673,7 +673,8 @@ const Register = ({ mode }) => {
                     autoHighlight
                     fullWidth
                     getOptionLabel={(option) => option.label || ""}
-                    onChange={(event, newValue) => setSelectedCountry(newValue)}
+                    value={formData.country}
+                    onChange={(event, newValue) => handleCountryChange(newValue)}
                     sx={{
                       "& .MuiAutocomplete-popupIndicator, .MuiAutocomplete-clearIndicator":
                         {
@@ -702,7 +703,7 @@ const Register = ({ mode }) => {
                     renderInput={(params) => (
                       <CustomizeInput
                         value={formData.country || null}
-                        onChange={handleCountryChange}
+                        // onChange={handleCountryChange}
                         inputRef={inputRefs.country}
                         error={!!errors.country}
                         helperText={errors.country}
