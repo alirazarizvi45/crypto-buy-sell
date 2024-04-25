@@ -6,13 +6,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import {
-  Box,
-  Divider,
-  FormHelperText,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Divider, FormHelperText, Stack, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { CustomizeInput } from "../../../components/CustomizeInput";
 import bitcoin from "../assets/bitcoin.png";
@@ -61,7 +55,7 @@ export default function CustomizeSelect() {
           ml: "-14px",
         }}
       >
-        Select tokens
+        Select token
       </Button>
       <Dialog
         PaperProps={{
