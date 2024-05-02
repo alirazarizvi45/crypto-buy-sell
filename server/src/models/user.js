@@ -1,38 +1,34 @@
-import { DataTypes,Sequelize } from "sequelize";
-import { db } from "../utils/conn.js";
- const User = db.define(
-    "User",
-    {
-        userId: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-        allowNull:false
-      },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      country: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      referralCode: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/sequelize");
+
+const Users = sequelize.define(
+  "Users",
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
     },
-    {
-      tableName: "users",
-      timestamps: false,
-      charset: "utf8mb4",
-      collate: "utf8mb4_general_ci",
-    }
+    email: {
+      type: DataTypes.STRING(75),
+    },
+    password: {
+      type: DataTypes.STRING(255),
+    },
+    country: {
+      type: DataTypes.STRING(175),
+    },
+    referralCode: {
+      type: DataTypes.STRING(75),
+    },
+  },
+  {
+    tableName: "Users",
+    timestamps: false, // Add this line to disable createdAt and updatedAt fields
+    charset: "utf8mb4",
+    collate: "utf8mb4_general_ci",
+  }
 );
 
-  
- export default User;
+module.exports = Users;

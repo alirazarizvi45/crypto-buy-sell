@@ -19,7 +19,7 @@ import { CustomizeInput } from "../../components/CustomizeInput";
 import att from "../../assets/att.png";
 import Line from "../../assets/Line.png";
 import lock from "../../assets/lock.png";
-import refferal from "../../assets/refferal.png";
+import referral from "../../assets/refferal.png";
 import facebookblack from "../../assets/facebookblack.png";
 
 import code1 from "../../assets/code1.png";
@@ -30,14 +30,22 @@ import googleblack from "../../assets/googleblack.png";
 import ContriesJson from "../JsonFiles/Country.json";
 import { CommonButton } from "../../components";
 import tick from "../../assets/tick.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import axiosInstance from "../../constants/axiosInstance";
+import NotificationModal from "../../components/Modals/NotificationModal/NotificationModal";
 const Register = ({ mode }) => {
   const theme = useTheme();
   const [isLogin, setIsLogin] = useState(false);
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
+  const [notificationProps, setnotificationProps] = useState({
+    error: "",
+    message: "",
+    modal: false,
+  });
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handlePasswordVisibility1 = () => {
     setShowPassword1((prevShowPassword1) => !prevShowPassword1);
@@ -46,7 +54,7 @@ const Register = ({ mode }) => {
     setShowPassword2((prevShowPassword2) => !prevShowPassword2);
   };
   const handleCountryChange = (newValue) => {
-    setSelectedCountry(newValue)
+    setSelectedCountry(newValue);
     setFormData((prevFormData) => ({ ...prevFormData, country: newValue }));
   };
   const handleInputChange = (event) => {
@@ -58,21 +66,21 @@ const Register = ({ mode }) => {
     password: "",
     confirmPassword: "",
     country: "",
-    refferalCode: "",
+    referralCode: "",
   });
   const [errors, setErrors] = useState({
     email: "",
     password: "",
     confirmPassword: "",
     country: "",
-    refferalCode: "",
+    referralCode: "",
   });
   const inputRefs = {
     email: useRef(),
     password: useRef(),
     confirmPassword: useRef(),
     country: useRef(),
-    refferalCode: useRef(),
+    referralCode: useRef(),
   };
   const validateForm = () => {
     let isValid = true;
@@ -111,12 +119,12 @@ const Register = ({ mode }) => {
       newErrors.confirmPassword = "Passwords do not match";
     }
     // Referral Code
-    if (formData.refferalCode.trim() === "") {
+    if (formData.referralCode.trim() === "") {
       isValid = false;
-      newErrors.refferalCode = "Referral code is required";
-    } else if (formData.refferalCode.length !== 6) {
+      newErrors.referralCode = "Referral code is required";
+    } else if (formData.referralCode.length !== 6) {
       isValid = false;
-      newErrors.refferalCode = "Referral code must be 6 characters long";
+      newErrors.referralCode = "Referral code must be 6 characters long";
     }
 
     setErrors(newErrors);
@@ -125,7 +133,7 @@ const Register = ({ mode }) => {
   const focusOnErrorField = () => {
     for (const fieldName in errors) {
       if (errors[fieldName] && inputRefs[fieldName]?.current) {
-        console.log(errors[fieldName],"fieldName")
+        console.log(errors[fieldName], "fieldName");
         inputRefs[fieldName]?.current.focus();
         break;
       }
@@ -142,15 +150,55 @@ const Register = ({ mode }) => {
       if (!validateForm()) {
         return;
       }
-
-      console.log("Form submitted successfully!");
+      const response = await axiosInstance.post("/Register", formData);
+      const { success, message } = response.data;
+      if (success) {
+        // Reset form data and errors on successful submission
+        setFormData({
+          email: "",
+          password: "",
+          confirmPassword: "",
+          country: "",
+          referralCode: "",
+        });
+        setErrors({
+          email: "",
+          password: "",
+          confirmPassword: "",
+          country: "",
+          referralCode: "",
+        });
+        navigate("/Login");
+      } else {
+        setnotificationProps({
+          ...notificationProps,
+          modal: true,
+          error: true,
+          message: message,
+        });
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
+      setnotificationProps({
+        ...notificationProps,
+        modal: true,
+        error: true,
+        message: error.message,
+      });
+      if (error.response && error.response.data) {
+        const { message } = error.response.data;
+        setnotificationProps({
+          ...notificationProps,
+          modal: true,
+          error: true,
+          message: message || "An error occurred while submitting the form.",
+        });
+        console.log(message);
+      }
     }
   };
 
-
-  console.log(formData ,"formData---->");
+  console.log(formData, "formData---->");
 
   return (
     <>
@@ -163,6 +211,12 @@ const Register = ({ mode }) => {
           backgroundSize: "100%",
         }}
       >
+        {notificationProps?.modal && (
+          <NotificationModal
+            notificationProps={notificationProps}
+            setnotificationProps={setnotificationProps}
+          />
+        )}
         <Container
           maxWidth="lg"
           sx={{ paddingTop: "150px", paddingBottom: "20px" }}
@@ -674,7 +728,9 @@ const Register = ({ mode }) => {
                     fullWidth
                     getOptionLabel={(option) => option.label || ""}
                     value={formData.country}
-                    onChange={(event, newValue) => handleCountryChange(newValue)}
+                    onChange={(event, newValue) =>
+                      handleCountryChange(newValue)
+                    }
                     sx={{
                       "& .MuiAutocomplete-popupIndicator, .MuiAutocomplete-clearIndicator":
                         {
@@ -760,6 +816,13 @@ const Register = ({ mode }) => {
                   <CustomizeInput
                     placeholder="Referral code"
                     fullWidth
+                    name="referralCode"
+                    inputRef={inputRefs.referralCode}
+                    error={!!errors.referralCode}
+                    helperText={errors.referralCode}
+                    value={formData.referralCode}
+                    onChange={handleInputChange}
+                    type="text"
                     InputProps={{
                       startAdornment: (
                         <InputAdornment
@@ -771,7 +834,7 @@ const Register = ({ mode }) => {
                           }}
                         >
                           <img
-                            src={mode ? code1 : refferal}
+                            src={mode ? code1 : referral}
                             alt=""
                             style={{
                               width: "20px",
@@ -813,6 +876,7 @@ const Register = ({ mode }) => {
                     }}
                   >
                     <CommonButton
+                      type="submit"
                       style={{ padding: "10px" }}
                       fullWidth
                       onClick={handleSubmit}

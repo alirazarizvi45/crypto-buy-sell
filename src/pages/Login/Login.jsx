@@ -26,12 +26,20 @@ import googleblack from "../../assets/googleblack.png";
 import ContriesJson from "../JsonFiles/Country.json";
 import { CommonButton } from "../../components";
 import tick from "../../assets/tick.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import axiosInstance from "../../constants/axiosInstance";
+import NotificationModal from "../../components/Modals/NotificationModal/NotificationModal";
 
 const Login = ({ mode }) => {
   const [isLogin, setIsLogin] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [notificationProps, setnotificationProps] = useState({
+    error: "",
+    message: "",
+    modal: false,
+  });
   const location = useLocation();
+  const navigate = useNavigate();
 
   const HandleLogin = () => {
     setIsLogin(true);
@@ -93,23 +101,61 @@ const Login = ({ mode }) => {
     }
   };
 
-  console.log("errors");
   useEffect(() => {
     if (Object.keys(errors).length > 0) {
       focusOnErrorField();
     }
   }, [errors]);
+
   const handleSubmit = async () => {
     try {
       if (!validateForm()) {
         return;
       }
-
-      console.log("Form submitted successfully!");
+      // Send POST request to login endpoint with form data
+      const response = await axiosInstance.post("/Login", formData);
+      const { success, message } = response.data;
+      if (success) {
+        // Reset form data and errors on successful login
+        setFormData({ email: "", password: "" });
+        setErrors({ email: "", password: "" });
+        console.log("loggged in");
+        navigate("/Dashboard");
+        // Redirect or perform any other actions on successful login
+      } else {
+        // Handle unsuccessful login
+        console.log("Error:", message);
+        setnotificationProps({
+          ...notificationProps,
+          modal: true,
+          error: true,
+          message: message,
+        });
+        // Display error message or perform any other actions
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
+      setnotificationProps({
+        ...notificationProps,
+        modal: true,
+        error: true,
+        message: error.message,
+      });
+      // Handle network errors or other unexpected errors
+      if (error.response && error.response.data) {
+        const { message } = error.response.data;
+        setnotificationProps({
+          ...notificationProps,
+          modal: true,
+          error: true,
+          message: message || "An error occurred while log in",
+        });
+        console.log("Error:", message);
+        // Display error message or perform any other actions
+      }
     }
   };
+
   return (
     <>
       <Box
@@ -121,6 +167,12 @@ const Login = ({ mode }) => {
           backgroundSize: "100%",
         }}
       >
+        {notificationProps?.modal && (
+          <NotificationModal
+            notificationProps={notificationProps}
+            setnotificationProps={setnotificationProps}
+          />
+        )}
         <Container
           maxWidth="lg"
           sx={{ paddingTop: "150px", paddingBottom: "20px" }}
