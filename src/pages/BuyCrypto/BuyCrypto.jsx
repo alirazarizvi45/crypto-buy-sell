@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -9,6 +9,7 @@ import {
   Grid,
   Rating,
   Container,
+  IconButton,
 } from "@mui/material";
 import { styled } from "@mui/system";
 import { CommonButton } from "../../components";
@@ -24,6 +25,8 @@ import formkit_bitcoin from "../../assets/formkit_bitcoin.png";
 import etherCrypto from "../../assets/etherCrypto.png";
 import tetherCrypto from "../../assets/tetherCrypto.png";
 import MaticCrypto from "../../assets/MaticCrypto.png";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const CenteredCardActions = styled(CardActions)({
   display: "flex",
@@ -53,8 +56,32 @@ const cryptocurrencies = [
   etherCrypto,
   tetherCrypto,
   MaticCrypto,
+  etherCrypto,
+  formkit_bitcoin,
+  MaticCrypto,
+  tetherCrypto,
 ];
+
+const itemsPerPage = 4;
+
 const BuyCrypto = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = cryptocurrencies.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+
+  const nextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const prevPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
   return (
     <Container
       maxWidth="lg"
@@ -62,8 +89,53 @@ const BuyCrypto = () => {
         paddingTop: "100px",
       }}
     >
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "left",
+          alignItems: "center",
+          marginTop: "20px",
+          marginBottom: "20px",
+          gap: "15px",
+        }}
+      >
+        <Typography variant="h2" pb={1}>
+          Buy
+        </Typography>
+        <IconButton
+          sx={{
+            backgroundColor: currentPage === 1 ? "#000000" : "#ABE900",
+            color: currentPage === 1 ? "#ffffff" : "#000000",
+            ml: "5px",
+            width: "30px",
+            height: "30px",
+          }}
+          disabled={currentPage === 1}
+          onClick={prevPage}
+        >
+          <ChevronLeftIcon />
+        </IconButton>
+        <IconButton
+          sx={{
+            backgroundColor:
+              indexOfLastItem >= cryptocurrencies.length
+                ? "#000000"
+                : "#ABE900",
+            color:
+              indexOfLastItem >= cryptocurrencies.length
+                ? "#ffffff"
+                : "#000000",
+            width: "30px",
+            height: "30px",
+          }}
+          disabled={indexOfLastItem >= cryptocurrencies.length}
+          onClick={nextPage}
+        >
+          <ChevronRightIcon />
+        </IconButton>
+      </Box>
       <Grid container spacing={2}>
-        {cryptocurrencies.map((crypto, index) => (
+        {currentItems.map((crypto, index) => (
           <Grid item xs={12} md={3} key={index}>
             <StyledContainer>
               <StyledCard>
