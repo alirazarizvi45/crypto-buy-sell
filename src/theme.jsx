@@ -28,6 +28,7 @@ export const createCustomTheme = (mode) => {
         primary: mode === "light" ? "#000000" : "#D9D9D9",
       },
     },
+    fontFamily: ["Kanit", "sans-serif"].join(","),
     typography: {
       h1: {
         fontFamily: ["Kanit", "sans-serif"].join(","),

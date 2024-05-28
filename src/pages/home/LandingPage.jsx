@@ -11,6 +11,7 @@ import SecureTrading from "./SecureTrading";
 import TradingKnowledge from "./TradingKnowledge";
 import CustomerSupport from "./CustomerSupport";
 import HowItWorks from "./HowItWorks";
+
 const LandingPage = ({ mode }) => {
   return (
     <>
@@ -149,6 +150,7 @@ const LandingPage = ({ mode }) => {
       <TradingKnowledge />
       <CustomerSupport />
       <HowItWorks />
+     
     </>
   );
 };

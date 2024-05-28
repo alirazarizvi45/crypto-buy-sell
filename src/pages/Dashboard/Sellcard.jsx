@@ -64,7 +64,7 @@ const cryptocurrencies = [
 
 const itemsPerPage = 4;
 
-const BuyCrypto = ({mode}) => {
+const Sellcard = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -86,7 +86,7 @@ const BuyCrypto = ({mode}) => {
     <Container
       maxWidth="lg"
       sx={{
-        paddingTop: "30px",
+        paddingTop: "50px",
       }}
     >
       <Box
@@ -97,11 +97,10 @@ const BuyCrypto = ({mode}) => {
           marginTop: "20px",
           marginBottom: "20px",
           gap: "15px",
-          bgcolor:mode? "#ffffff":"#ABE900"
         }}
       >
         <Typography variant="h2" pb={1}>
-          Buy
+          sell
         </Typography>
         <IconButton
           sx={{
@@ -351,4 +350,4 @@ const BuyCrypto = ({mode}) => {
   );
 };
 
-export default BuyCrypto;
+export default Sellcard;

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { TextField } from "@mui/material";
 
-export const CustomizeInput = styled(TextField)(({ theme }) => ({
+export const CustomizeInput = styled(TextField)(({ theme, borderRadius ,height,width }) => ({
   "& label.Mui-focused": {
     color: "white",
     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
@@ -15,6 +15,9 @@ export const CustomizeInput = styled(TextField)(({ theme }) => ({
   },
   "& .MuiOutlinedInput-root": {
     color: "white",
+    borderRadius: borderRadius,
+    height:height, 
+    width:width,
     "& fieldset": {
       // borderColor: "#ABE900",
     },

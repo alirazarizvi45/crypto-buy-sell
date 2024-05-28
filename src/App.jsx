@@ -20,7 +20,10 @@ import { createCustomTheme } from "./theme";
 import { useState } from "react";
 import EmailVerification from "./pages/EmailVerification";
 import User from "./pages/Dashboard/User";
-import Vip from "./pages/Dashboard/VIP";
+// import Vip from "./pages/Dashboard/VIP";
+import Affiliate from "./pages/Dashboard/Affiliate";
+import Vip from "./pages/Dashboard/Vip";
+import Referrals from "./pages/Dashboard/Referrals";
 
 function App() {
   const [mode, setMode] = useState(false);
@@ -125,7 +128,33 @@ function App() {
                   themeToggler={themeToggler}
                   isLoggedIn={true}
                 />
-                <Vip />
+                <Vip/>
+              </>
+            }
+          />
+            <Route
+            path="/Affiliate"
+            element={
+              <>
+                <Navbar
+                  mode={mode}
+                  themeToggler={themeToggler}
+                  isLoggedIn={true}
+                />
+             <Affiliate/>
+              </>
+            }
+          />
+           <Route
+            path="/Referrals"
+            element={
+              <>
+                <Navbar
+                  mode={mode}
+                  themeToggler={themeToggler}
+                  isLoggedIn={true}
+                />
+           <Referrals/>
               </>
             }
           />

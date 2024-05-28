@@ -93,11 +93,11 @@ export default function ProfileMenu() {
           User
         </MenuItem>
         <MenuItem onClick={handleClose}>Messages</MenuItem>
-        <MenuItem onClick={handleClose}>Referrals</MenuItem>
-        <MenuItem component={Link} to="/vip" onClick={handleClose}>
+        <MenuItem component={Link} to="/Referrals" onClick={handleClose}>Referrals</MenuItem>
+        <MenuItem  component={Link} to="/vip" onClick={handleClose}>
           VIP
         </MenuItem>
-        <MenuItem onClick={handleClose}>Affiliate</MenuItem>
+        <MenuItem  component={Link} to="/Affiliate" onClick={handleClose}>Affiliate</MenuItem>
       </Menu>
     </>
   );
