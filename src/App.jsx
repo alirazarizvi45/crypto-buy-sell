@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import CreateOffer from "./pages/CreateOffer/CreateOffer";
 import Dashboard from "./pages/Dashboard/Dashoboard";
-import Wallet from "./pages/Wallet";
 import Ranks from "./pages/Ranks";
 import { Home } from "./pages/home";
 import SellCrypto from "./pages/SellCrypto";
@@ -24,6 +23,7 @@ import User from "./pages/Dashboard/User";
 import Affiliate from "./pages/Dashboard/Affiliate";
 import Vip from "./pages/Dashboard/Vip";
 import Referrals from "./pages/Dashboard/Referrals";
+import WalletPannel from "./pages/Wallet/WalletPannel";
 
 function App() {
   const [mode, setMode] = useState(false);
@@ -128,11 +128,11 @@ function App() {
                   themeToggler={themeToggler}
                   isLoggedIn={true}
                 />
-                <Vip/>
+                <Vip />
               </>
             }
           />
-            <Route
+          <Route
             path="/Affiliate"
             element={
               <>
@@ -141,11 +141,11 @@ function App() {
                   themeToggler={themeToggler}
                   isLoggedIn={true}
                 />
-             <Affiliate/>
+                <Affiliate />
               </>
             }
           />
-           <Route
+          <Route
             path="/Referrals"
             element={
               <>
@@ -154,7 +154,7 @@ function App() {
                   themeToggler={themeToggler}
                   isLoggedIn={true}
                 />
-           <Referrals/>
+                <Referrals />
               </>
             }
           />
@@ -162,7 +162,8 @@ function App() {
             path="/Wallet"
             element={
               <>
-                <Wallet />
+                <Navbar mode={mode} themeToggler={themeToggler} />
+                <WalletPannel />
               </>
             }
           />

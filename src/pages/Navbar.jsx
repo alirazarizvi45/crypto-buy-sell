@@ -200,7 +200,6 @@ const Navbar = ({ themeToggler, mode, isLoggedIn }) => {
         {isLoggedIn ? (
           <>
             <Button
-             
               sx={{
                 color: "theme.palette.success.main",
                 backgroundColor: "#070C0E",
@@ -211,7 +210,6 @@ const Navbar = ({ themeToggler, mode, isLoggedIn }) => {
               <NotificationsActiveIcon />
             </Button>
             <Button
-            
               sx={{
                 color: "theme.palette.success.main",
                 backgroundColor: "#070C0E",
@@ -391,6 +389,27 @@ const Navbar = ({ themeToggler, mode, isLoggedIn }) => {
                     component={Link}
                   >
                     Control Panel
+                  </ListItemButton>
+                  <ListItemButton
+                    to="/Wallet"
+                    sx={{
+                      color:
+                        location.pathname === "/Wallet"
+                          ? "#ABE900"
+                          : mode
+                          ? "#000"
+                          : "#fff",
+                      fontFamily: ["Open Sans Variable", "sans-serif"].join(
+                        ","
+                      ),
+                      fontSize: "13px",
+                      "&:hover": {
+                        color: "#ABE900",
+                      },
+                    }}
+                    component={Link}
+                  >
+                    Wallet
                   </ListItemButton>
                   <ListItemButton
                     to="/Dashboard"
