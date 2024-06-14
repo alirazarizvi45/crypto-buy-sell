@@ -249,7 +249,7 @@ const Navbar = ({ themeToggler, mode, isLoggedIn }) => {
         }}
       >
         <Toolbar sx={{ justifyContent: "space-around" }}>
-          <Container maxWidth="xl">
+          <Container maxWidth="xxl">
             <Hidden lgDown>
               <Box
                 display="flex"
