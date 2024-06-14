@@ -2,7 +2,7 @@ import { LoadingButton } from "@mui/lab";
 import React from "react";
 
 const CommonButton = (props) => {
-  const { children, loading, backgroundColor, color, LeftIcon, RightIcon } =
+  const { children, loading, backgroundColor, color, LeftIcon, RightIcon,  } =
     props;
   return (
     <>
