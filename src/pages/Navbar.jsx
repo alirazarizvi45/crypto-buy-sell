@@ -155,6 +155,20 @@ const Navbar = ({ themeToggler, mode, isLoggedIn }) => {
           CreateOffer
         </ListItemButton>
         <ListItemButton
+          to="/Wallet"
+          sx={{
+            color: location.pathname === "/Wallet" ? "#ABE900" : "#fff",
+            fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+            fontSize: "13px",
+            "&:hover": {
+              color: "#ABE900",
+            },
+          }}
+          component={Link}
+        >
+          Wallet
+        </ListItemButton>
+        <ListItemButton
           to="/Dashboard"
           sx={{
             color: location.pathname === "/Dashboard" ? "#ABE900" : "#fff",
@@ -168,20 +182,7 @@ const Navbar = ({ themeToggler, mode, isLoggedIn }) => {
         >
           Dashboard
         </ListItemButton>
-        {/* <ListItemButton
-          to="/Wallet"
-          sx={{
-            color: location.pathname === "/Wallet" ? "#ABE900" : "#fff",
-            fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
-            fontSize: "13px",
-            "&:hover": {
-              color: "#ABE900",
-            },
-          }}
-          component={Link}
-        >
-          Wallet
-        </ListItemButton> */}
+
         {/* <ListItemButton
           to="/Ranks"
           sx={{
