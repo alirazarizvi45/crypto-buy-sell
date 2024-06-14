@@ -21,25 +21,25 @@ const Footer = () => {
   return (
     <>
       <Box
-        sx={{
-          // backgroundColor: "#070C0E",
-        }}
+        sx={
+          {
+            // backgroundColor: "#070C0E",
+          }
+        }
       >
         <Container maxWidth="lg">
           <Grid container spacing={4} pt={4} pb={2}>
             <Grid item md={2.4} xs={6}>
               <Box>
                 <Typography variant="h3">Logo</Typography>
-                <Typography variant="subtitle1"  pb={2}>
+                <Typography variant="subtitle1" pb={2}>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry.
                 </Typography>
               </Box>
 
               <Box>
-                <Typography variant="h4" >
-                  Follow Us
-                </Typography>
+                <Typography variant="h4">Follow Us</Typography>
                 <Divider
                   sx={{
                     width: "38%",
@@ -89,9 +89,7 @@ const Footer = () => {
                   paddingBottom: "10px",
                 }}
               >
-                <Typography variant="h4" >
-                  Our Community
-                </Typography>
+                <Typography variant="h4">Our Community</Typography>
                 <Divider
                   sx={{
                     width: "70%",
@@ -108,26 +106,26 @@ const Footer = () => {
                 }}
               >
                 <NavLink
-                  className="textdecoration"
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   Academy
                 </NavLink>
 
                 <NavLink
-                  className="textdecoration"
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   Wallets
@@ -137,9 +135,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   Ranks
@@ -149,9 +148,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   Calculator
@@ -161,9 +161,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   Our Blog
@@ -173,9 +174,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   Referral program
@@ -185,9 +187,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   Release update
@@ -200,9 +203,7 @@ const Footer = () => {
                   paddingBottom: "10px",
                 }}
               >
-                <Typography variant="h4" >
-                  P2P Trading Guides
-                </Typography>
+                <Typography variant="h4">P2P Trading Guides</Typography>
                 <Divider
                   sx={{
                     width: "85%",
@@ -223,9 +224,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   P2P trading guides
@@ -236,9 +238,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   Introduction to P2P trading
@@ -248,9 +251,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   How to create a trade offer
@@ -260,9 +264,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   Payment methods
@@ -272,9 +277,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   P2P escrow explained
@@ -287,9 +293,7 @@ const Footer = () => {
                   paddingBottom: "10px",
                 }}
               >
-                <Typography variant="h4" >
-                  Support
-                </Typography>
+                <Typography variant="h4">Support</Typography>
                 <Divider
                   sx={{
                     width: "35%",
@@ -310,9 +314,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   Exchange API
@@ -323,9 +328,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   Fees
@@ -335,9 +341,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   FAQ’s
@@ -347,9 +354,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   Support portal
@@ -359,9 +367,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   List your token
@@ -374,9 +383,7 @@ const Footer = () => {
                   paddingBottom: "10px",
                 }}
               >
-                <Typography variant="h4" >
-                  Legal
-                </Typography>
+                <Typography variant="h4">Legal</Typography>
                 <Divider
                   sx={{
                     width: "25%",
@@ -397,9 +404,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   Privacy policy
@@ -410,9 +418,10 @@ const Footer = () => {
                   to="/"
                   style={{
                     textDecoration: "none",
-                    
+
                     borderBottom: "none",
                     fontFamily: ["Open Sans Variable", "sans-serif"].join(","),
+                    color: "#D9D9D9",
                   }}
                 >
                   Terms of service & use
@@ -423,12 +432,11 @@ const Footer = () => {
         </Container>
         <Box
           sx={{
-          
             padding: "20px",
             mt: "50px",
           }}
         >
-          <Typography variant="subtitle1"  textAlign="center">
+          <Typography variant="subtitle1" textAlign="center">
             Copyright © 2024 All rights reserved
           </Typography>
         </Box>
